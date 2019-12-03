@@ -1,0 +1,4106 @@
+"Main interface for firehose service type defs"
+from __future__ import annotations
+
+from datetime import datetime
+from typing import Dict, List
+from mypy_boto3.type_defs import Literal, TypedDict
+
+
+__all__ = (
+    "ClientCreateDeliveryStreamDeliveryStreamEncryptionConfigurationInputTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationBufferingHintsTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationRetryOptionsTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationBufferingHintsTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationTypeDef",
+    "ClientCreateDeliveryStreamElasticsearchDestinationConfigurationTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationBufferingHintsTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationSchemaConfigurationTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationTypeDef",
+    "ClientCreateDeliveryStreamExtendedS3DestinationConfigurationTypeDef",
+    "ClientCreateDeliveryStreamKinesisStreamSourceConfigurationTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationCopyCommandTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationRetryOptionsTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationBufferingHintsTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationTypeDef",
+    "ClientCreateDeliveryStreamRedshiftDestinationConfigurationTypeDef",
+    "ClientCreateDeliveryStreamResponseTypeDef",
+    "ClientCreateDeliveryStreamS3DestinationConfigurationBufferingHintsTypeDef",
+    "ClientCreateDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationTypeDef",
+    "ClientCreateDeliveryStreamS3DestinationConfigurationTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationRetryOptionsTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationBufferingHintsTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationTypeDef",
+    "ClientCreateDeliveryStreamSplunkDestinationConfigurationTypeDef",
+    "ClientCreateDeliveryStreamTagsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationFailureDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionBufferingHintsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionRetryOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionBufferingHintsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationSchemaConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCopyCommandTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionRetryOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionBufferingHintsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionRetryOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionFailureDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceKinesisStreamSourceDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceTypeDef",
+    "ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionTypeDef",
+    "ClientDescribeDeliveryStreamResponseTypeDef",
+    "ClientListDeliveryStreamsResponseTypeDef",
+    "ClientListTagsForDeliveryStreamResponseTagsTypeDef",
+    "ClientListTagsForDeliveryStreamResponseTypeDef",
+    "ClientPutRecordBatchRecordsTypeDef",
+    "ClientPutRecordBatchResponseRequestResponsesTypeDef",
+    "ClientPutRecordBatchResponseTypeDef",
+    "ClientPutRecordRecordTypeDef",
+    "ClientPutRecordResponseTypeDef",
+    "ClientStartDeliveryStreamEncryptionDeliveryStreamEncryptionConfigurationInputTypeDef",
+    "ClientTagDeliveryStreamTagsTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateBufferingHintsTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateRetryOptionsTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateBufferingHintsTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateTypeDef",
+    "ClientUpdateDestinationElasticsearchDestinationUpdateTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateBufferingHintsTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationSchemaConfigurationTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateBufferingHintsTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateTypeDef",
+    "ClientUpdateDestinationExtendedS3DestinationUpdateTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateCopyCommandTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateRetryOptionsTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateBufferingHintsTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateBufferingHintsTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateTypeDef",
+    "ClientUpdateDestinationRedshiftDestinationUpdateTypeDef",
+    "ClientUpdateDestinationS3DestinationUpdateBufferingHintsTypeDef",
+    "ClientUpdateDestinationS3DestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationTypeDef",
+    "ClientUpdateDestinationS3DestinationUpdateTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateRetryOptionsTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateS3UpdateBufferingHintsTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateS3UpdateTypeDef",
+    "ClientUpdateDestinationSplunkDestinationUpdateTypeDef",
+)
+
+
+_ClientCreateDeliveryStreamDeliveryStreamEncryptionConfigurationInputTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamDeliveryStreamEncryptionConfigurationInputTypeDef",
+    {"KeyARN": str, "KeyType": Literal["AWS_OWNED_CMK", "CUSTOMER_MANAGED_CMK"]},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamDeliveryStreamEncryptionConfigurationInputTypeDef(
+    _ClientCreateDeliveryStreamDeliveryStreamEncryptionConfigurationInputTypeDef
+):
+    """
+    Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side
+    Encryption (SSE).
+    - **KeyARN** *(string) --*
+
+      If you set ``KeyType`` to ``CUSTOMER_MANAGED_CMK`` , you must specify the Amazon Resource Name
+      (ARN) of the CMK. If you set ``KeyType`` to ``AWS_OWNED_CMK`` , Kinesis Data Firehose uses a
+      service-account CMK.
+    """
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationBufferingHintsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationBufferingHintsTypeDef",
+    {"IntervalInSeconds": int, "SizeInMBs": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationBufferingHintsTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationRetryOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationRetryOptionsTypeDef",
+    {"DurationInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationRetryOptionsTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationRetryOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationBufferingHintsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationBufferingHintsTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationTypeDef(
+    _ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationTypeDef
+):
+    pass
+
+
+_RequiredClientCreateDeliveryStreamElasticsearchDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredClientCreateDeliveryStreamElasticsearchDestinationConfigurationTypeDef",
+    {"RoleARN": str},
+)
+_OptionalClientCreateDeliveryStreamElasticsearchDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalClientCreateDeliveryStreamElasticsearchDestinationConfigurationTypeDef",
+    {
+        "DomainARN": str,
+        "ClusterEndpoint": str,
+        "IndexName": str,
+        "TypeName": str,
+        "IndexRotationPeriod": Literal["NoRotation", "OneHour", "OneDay", "OneWeek", "OneMonth"],
+        "BufferingHints": ClientCreateDeliveryStreamElasticsearchDestinationConfigurationBufferingHintsTypeDef,
+        "RetryOptions": ClientCreateDeliveryStreamElasticsearchDestinationConfigurationRetryOptionsTypeDef,
+        "S3BackupMode": Literal["FailedDocumentsOnly", "AllDocuments"],
+        "S3Configuration": ClientCreateDeliveryStreamElasticsearchDestinationConfigurationS3ConfigurationTypeDef,
+        "ProcessingConfiguration": ClientCreateDeliveryStreamElasticsearchDestinationConfigurationProcessingConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamElasticsearchDestinationConfigurationCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamElasticsearchDestinationConfigurationTypeDef(
+    _RequiredClientCreateDeliveryStreamElasticsearchDestinationConfigurationTypeDef,
+    _OptionalClientCreateDeliveryStreamElasticsearchDestinationConfigurationTypeDef,
+):
+    """
+    The destination in Amazon ES. You can specify only one destination.
+    - **RoleARN** *(string) --***[REQUIRED]**
+
+      The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for
+      calling the Amazon ES Configuration API and for indexing documents. For more information, see
+      `Grant Kinesis Data Firehose Access to an Amazon S3 Destination
+      <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3>`__ and
+      `Amazon Resource Names (ARNs) and AWS Service Namespaces
+      <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+    """
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationBufferingHintsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationBufferingHintsTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef",
+    {"TimestampFormats": List[str]},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef",
+    {
+        "ConvertDotsInJsonKeysToUnderscores": bool,
+        "CaseInsensitive": bool,
+        "ColumnToJsonKeyMappings": Dict[str, str],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef",
+    {
+        "OpenXJsonSerDe": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef,
+        "HiveJsonSerDe": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationTypeDef",
+    {
+        "Deserializer": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef",
+    {
+        "StripeSizeBytes": int,
+        "BlockSizeBytes": int,
+        "RowIndexStride": int,
+        "EnablePadding": bool,
+        "PaddingTolerance": float,
+        "Compression": Literal["NONE", "ZLIB", "SNAPPY"],
+        "BloomFilterColumns": List[str],
+        "BloomFilterFalsePositiveProbability": float,
+        "DictionaryKeyThreshold": float,
+        "FormatVersion": Literal["V0_11", "V0_12"],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef",
+    {
+        "BlockSizeBytes": int,
+        "PageSizeBytes": int,
+        "Compression": Literal["UNCOMPRESSED", "GZIP", "SNAPPY"],
+        "EnableDictionaryCompression": bool,
+        "MaxPaddingBytes": int,
+        "WriterVersion": Literal["V1", "V2"],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef",
+    {
+        "ParquetSerDe": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef,
+        "OrcSerDe": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationTypeDef",
+    {
+        "Serializer": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationSchemaConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationSchemaConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Region": str,
+        "VersionId": str,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationSchemaConfigurationTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationSchemaConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationTypeDef",
+    {
+        "SchemaConfiguration": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationSchemaConfigurationTypeDef,
+        "InputFormatConfiguration": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationInputFormatConfigurationTypeDef,
+        "OutputFormatConfiguration": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationOutputFormatConfigurationTypeDef,
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationTypeDef(
+    _ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationTypeDef
+):
+    pass
+
+
+_RequiredClientCreateDeliveryStreamExtendedS3DestinationConfigurationTypeDef = TypedDict(
+    "_RequiredClientCreateDeliveryStreamExtendedS3DestinationConfigurationTypeDef", {"RoleARN": str}
+)
+_OptionalClientCreateDeliveryStreamExtendedS3DestinationConfigurationTypeDef = TypedDict(
+    "_OptionalClientCreateDeliveryStreamExtendedS3DestinationConfigurationTypeDef",
+    {
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef,
+        "ProcessingConfiguration": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationProcessingConfigurationTypeDef,
+        "S3BackupMode": Literal["Disabled", "Enabled"],
+        "S3BackupConfiguration": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationS3BackupConfigurationTypeDef,
+        "DataFormatConversionConfiguration": ClientCreateDeliveryStreamExtendedS3DestinationConfigurationDataFormatConversionConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamExtendedS3DestinationConfigurationTypeDef(
+    _RequiredClientCreateDeliveryStreamExtendedS3DestinationConfigurationTypeDef,
+    _OptionalClientCreateDeliveryStreamExtendedS3DestinationConfigurationTypeDef,
+):
+    """
+    The destination in Amazon S3. You can specify only one destination.
+    - **RoleARN** *(string) --***[REQUIRED]**
+
+      The Amazon Resource Name (ARN) of the AWS credentials. For more information, see `Amazon
+      Resource Names (ARNs) and AWS Service Namespaces
+      <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+    """
+
+
+_RequiredClientCreateDeliveryStreamKinesisStreamSourceConfigurationTypeDef = TypedDict(
+    "_RequiredClientCreateDeliveryStreamKinesisStreamSourceConfigurationTypeDef",
+    {"KinesisStreamARN": str},
+)
+_OptionalClientCreateDeliveryStreamKinesisStreamSourceConfigurationTypeDef = TypedDict(
+    "_OptionalClientCreateDeliveryStreamKinesisStreamSourceConfigurationTypeDef",
+    {"RoleARN": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamKinesisStreamSourceConfigurationTypeDef(
+    _RequiredClientCreateDeliveryStreamKinesisStreamSourceConfigurationTypeDef,
+    _OptionalClientCreateDeliveryStreamKinesisStreamSourceConfigurationTypeDef,
+):
+    """
+    When a Kinesis data stream is used as the source for the delivery stream, a
+    KinesisStreamSourceConfiguration containing the Kinesis data stream Amazon Resource Name (ARN)
+    and the role ARN for the source stream.
+    - **KinesisStreamARN** *(string) --***[REQUIRED]**
+
+      The ARN of the source Kinesis data stream. For more information, see `Amazon Kinesis Data
+      Streams ARN Format
+      <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kinesis-streams>`__
+      .
+    """
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationCopyCommandTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationCopyCommandTypeDef",
+    {"DataTableName": str, "DataTableColumns": str, "CopyOptions": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationCopyCommandTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationCopyCommandTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationRetryOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationRetryOptionsTypeDef",
+    {"DurationInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationRetryOptionsTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationRetryOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationBufferingHintsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationBufferingHintsTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationTypeDef(
+    _ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationTypeDef
+):
+    pass
+
+
+_RequiredClientCreateDeliveryStreamRedshiftDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredClientCreateDeliveryStreamRedshiftDestinationConfigurationTypeDef", {"RoleARN": str}
+)
+_OptionalClientCreateDeliveryStreamRedshiftDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalClientCreateDeliveryStreamRedshiftDestinationConfigurationTypeDef",
+    {
+        "ClusterJDBCURL": str,
+        "CopyCommand": ClientCreateDeliveryStreamRedshiftDestinationConfigurationCopyCommandTypeDef,
+        "Username": str,
+        "Password": str,
+        "RetryOptions": ClientCreateDeliveryStreamRedshiftDestinationConfigurationRetryOptionsTypeDef,
+        "S3Configuration": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3ConfigurationTypeDef,
+        "ProcessingConfiguration": ClientCreateDeliveryStreamRedshiftDestinationConfigurationProcessingConfigurationTypeDef,
+        "S3BackupMode": Literal["Disabled", "Enabled"],
+        "S3BackupConfiguration": ClientCreateDeliveryStreamRedshiftDestinationConfigurationS3BackupConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamRedshiftDestinationConfigurationCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamRedshiftDestinationConfigurationTypeDef(
+    _RequiredClientCreateDeliveryStreamRedshiftDestinationConfigurationTypeDef,
+    _OptionalClientCreateDeliveryStreamRedshiftDestinationConfigurationTypeDef,
+):
+    """
+    The destination in Amazon Redshift. You can specify only one destination.
+    - **RoleARN** *(string) --***[REQUIRED]**
+
+      The Amazon Resource Name (ARN) of the AWS credentials. For more information, see `Amazon
+      Resource Names (ARNs) and AWS Service Namespaces
+      <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+    """
+
+
+_ClientCreateDeliveryStreamResponseTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamResponseTypeDef", {"DeliveryStreamARN": str}, total=False
+)
+
+
+class ClientCreateDeliveryStreamResponseTypeDef(_ClientCreateDeliveryStreamResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **DeliveryStreamARN** *(string) --*
+
+        The ARN of the delivery stream.
+    """
+
+
+_ClientCreateDeliveryStreamS3DestinationConfigurationBufferingHintsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamS3DestinationConfigurationBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamS3DestinationConfigurationBufferingHintsTypeDef(
+    _ClientCreateDeliveryStreamS3DestinationConfigurationBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationTypeDef(
+    _ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_RequiredClientCreateDeliveryStreamS3DestinationConfigurationTypeDef = TypedDict(
+    "_RequiredClientCreateDeliveryStreamS3DestinationConfigurationTypeDef", {"RoleARN": str}
+)
+_OptionalClientCreateDeliveryStreamS3DestinationConfigurationTypeDef = TypedDict(
+    "_OptionalClientCreateDeliveryStreamS3DestinationConfigurationTypeDef",
+    {
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientCreateDeliveryStreamS3DestinationConfigurationBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientCreateDeliveryStreamS3DestinationConfigurationEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamS3DestinationConfigurationCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamS3DestinationConfigurationTypeDef(
+    _RequiredClientCreateDeliveryStreamS3DestinationConfigurationTypeDef,
+    _OptionalClientCreateDeliveryStreamS3DestinationConfigurationTypeDef,
+):
+    """
+    [Deprecated] The destination in Amazon S3. You can specify only one destination.
+    - **RoleARN** *(string) --***[REQUIRED]**
+
+      The Amazon Resource Name (ARN) of the AWS credentials. For more information, see `Amazon
+      Resource Names (ARNs) and AWS Service Namespaces
+      <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+    """
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationRetryOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationRetryOptionsTypeDef",
+    {"DurationInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationRetryOptionsTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationRetryOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationBufferingHintsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationBufferingHintsTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationTypeDef = TypedDict(
+    "_ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationTypeDef(
+    _ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationTypeDef
+):
+    pass
+
+
+_RequiredClientCreateDeliveryStreamSplunkDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredClientCreateDeliveryStreamSplunkDestinationConfigurationTypeDef", {"HECEndpoint": str}
+)
+_OptionalClientCreateDeliveryStreamSplunkDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalClientCreateDeliveryStreamSplunkDestinationConfigurationTypeDef",
+    {
+        "HECEndpointType": Literal["Raw", "Event"],
+        "HECToken": str,
+        "HECAcknowledgmentTimeoutInSeconds": int,
+        "RetryOptions": ClientCreateDeliveryStreamSplunkDestinationConfigurationRetryOptionsTypeDef,
+        "S3BackupMode": Literal["FailedEventsOnly", "AllEvents"],
+        "S3Configuration": ClientCreateDeliveryStreamSplunkDestinationConfigurationS3ConfigurationTypeDef,
+        "ProcessingConfiguration": ClientCreateDeliveryStreamSplunkDestinationConfigurationProcessingConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientCreateDeliveryStreamSplunkDestinationConfigurationCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateDeliveryStreamSplunkDestinationConfigurationTypeDef(
+    _RequiredClientCreateDeliveryStreamSplunkDestinationConfigurationTypeDef,
+    _OptionalClientCreateDeliveryStreamSplunkDestinationConfigurationTypeDef,
+):
+    """
+    The destination in Splunk. You can specify only one destination.
+    - **HECEndpoint** *(string) --***[REQUIRED]**
+
+      The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
+    """
+
+
+_RequiredClientCreateDeliveryStreamTagsTypeDef = TypedDict(
+    "_RequiredClientCreateDeliveryStreamTagsTypeDef", {"Key": str}
+)
+_OptionalClientCreateDeliveryStreamTagsTypeDef = TypedDict(
+    "_OptionalClientCreateDeliveryStreamTagsTypeDef", {"Value": str}, total=False
+)
+
+
+class ClientCreateDeliveryStreamTagsTypeDef(
+    _RequiredClientCreateDeliveryStreamTagsTypeDef, _OptionalClientCreateDeliveryStreamTagsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+      - **Key** *(string) --***[REQUIRED]**
+
+        A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode
+        letters, digits, white space, _ . / = + - % @
+    """
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationFailureDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationFailureDescriptionTypeDef",
+    {
+        "Type": Literal[
+            "RETIRE_KMS_GRANT_FAILED",
+            "CREATE_KMS_GRANT_FAILED",
+            "KMS_ACCESS_DENIED",
+            "DISABLED_KMS_KEY",
+            "INVALID_KMS_KEY",
+            "KMS_KEY_NOT_FOUND",
+            "KMS_OPT_IN_REQUIRED",
+            "UNKNOWN_ERROR",
+        ],
+        "Details": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationFailureDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationFailureDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationTypeDef",
+    {
+        "KeyARN": str,
+        "KeyType": Literal["AWS_OWNED_CMK", "CUSTOMER_MANAGED_CMK"],
+        "Status": Literal[
+            "ENABLED", "ENABLING", "ENABLING_FAILED", "DISABLED", "DISABLING", "DISABLING_FAILED"
+        ],
+        "FailureDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationFailureDescriptionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionBufferingHintsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionBufferingHintsTypeDef",
+    {"IntervalInSeconds": int, "SizeInMBs": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionBufferingHintsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionRetryOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionRetryOptionsTypeDef",
+    {"DurationInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionRetryOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionRetryOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "DomainARN": str,
+        "ClusterEndpoint": str,
+        "IndexName": str,
+        "TypeName": str,
+        "IndexRotationPeriod": Literal["NoRotation", "OneHour", "OneDay", "OneWeek", "OneMonth"],
+        "BufferingHints": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionBufferingHintsTypeDef,
+        "RetryOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionRetryOptionsTypeDef,
+        "S3BackupMode": Literal["FailedDocumentsOnly", "AllDocuments"],
+        "S3DestinationDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionS3DestinationDescriptionTypeDef,
+        "ProcessingConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionProcessingConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionBufferingHintsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionBufferingHintsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef",
+    {"TimestampFormats": List[str]},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef",
+    {
+        "ConvertDotsInJsonKeysToUnderscores": bool,
+        "CaseInsensitive": bool,
+        "ColumnToJsonKeyMappings": Dict[str, str],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef",
+    {
+        "OpenXJsonSerDe": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef,
+        "HiveJsonSerDe": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationTypeDef",
+    {
+        "Deserializer": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef",
+    {
+        "StripeSizeBytes": int,
+        "BlockSizeBytes": int,
+        "RowIndexStride": int,
+        "EnablePadding": bool,
+        "PaddingTolerance": float,
+        "Compression": Literal["NONE", "ZLIB", "SNAPPY"],
+        "BloomFilterColumns": List[str],
+        "BloomFilterFalsePositiveProbability": float,
+        "DictionaryKeyThreshold": float,
+        "FormatVersion": Literal["V0_11", "V0_12"],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef",
+    {
+        "BlockSizeBytes": int,
+        "PageSizeBytes": int,
+        "Compression": Literal["UNCOMPRESSED", "GZIP", "SNAPPY"],
+        "EnableDictionaryCompression": bool,
+        "MaxPaddingBytes": int,
+        "WriterVersion": Literal["V1", "V2"],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef",
+    {
+        "ParquetSerDe": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef,
+        "OrcSerDe": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationTypeDef",
+    {
+        "Serializer": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationSchemaConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationSchemaConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Region": str,
+        "VersionId": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationSchemaConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationSchemaConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationTypeDef",
+    {
+        "SchemaConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationSchemaConfigurationTypeDef,
+        "InputFormatConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationInputFormatConfigurationTypeDef,
+        "OutputFormatConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationOutputFormatConfigurationTypeDef,
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef,
+        "ProcessingConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionProcessingConfigurationTypeDef,
+        "S3BackupMode": Literal["Disabled", "Enabled"],
+        "S3BackupDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionS3BackupDescriptionTypeDef,
+        "DataFormatConversionConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionDataFormatConversionConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCopyCommandTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCopyCommandTypeDef",
+    {"DataTableName": str, "DataTableColumns": str, "CopyOptions": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCopyCommandTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCopyCommandTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionRetryOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionRetryOptionsTypeDef",
+    {"DurationInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionRetryOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionRetryOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "ClusterJDBCURL": str,
+        "CopyCommand": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCopyCommandTypeDef,
+        "Username": str,
+        "RetryOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionRetryOptionsTypeDef,
+        "S3DestinationDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3DestinationDescriptionTypeDef,
+        "ProcessingConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionProcessingConfigurationTypeDef,
+        "S3BackupMode": Literal["Disabled", "Enabled"],
+        "S3BackupDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionS3BackupDescriptionTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionBufferingHintsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionBufferingHintsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionRetryOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionRetryOptionsTypeDef",
+    {"DurationInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionRetryOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionRetryOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionTypeDef",
+    {
+        "HECEndpoint": str,
+        "HECEndpointType": Literal["Raw", "Event"],
+        "HECToken": str,
+        "HECAcknowledgmentTimeoutInSeconds": int,
+        "RetryOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionRetryOptionsTypeDef,
+        "S3BackupMode": Literal["FailedEventsOnly", "AllEvents"],
+        "S3DestinationDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionS3DestinationDescriptionTypeDef,
+        "ProcessingConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionProcessingConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsTypeDef",
+    {
+        "DestinationId": str,
+        "S3DestinationDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsS3DestinationDescriptionTypeDef,
+        "ExtendedS3DestinationDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsExtendedS3DestinationDescriptionTypeDef,
+        "RedshiftDestinationDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsRedshiftDestinationDescriptionTypeDef,
+        "ElasticsearchDestinationDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsElasticsearchDestinationDescriptionTypeDef,
+        "SplunkDestinationDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsSplunkDestinationDescriptionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionFailureDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionFailureDescriptionTypeDef",
+    {
+        "Type": Literal[
+            "RETIRE_KMS_GRANT_FAILED",
+            "CREATE_KMS_GRANT_FAILED",
+            "KMS_ACCESS_DENIED",
+            "DISABLED_KMS_KEY",
+            "INVALID_KMS_KEY",
+            "KMS_KEY_NOT_FOUND",
+            "KMS_OPT_IN_REQUIRED",
+            "UNKNOWN_ERROR",
+        ],
+        "Details": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionFailureDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionFailureDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceKinesisStreamSourceDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceKinesisStreamSourceDescriptionTypeDef",
+    {"KinesisStreamARN": str, "RoleARN": str, "DeliveryStartTimestamp": datetime},
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceKinesisStreamSourceDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceKinesisStreamSourceDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceTypeDef",
+    {
+        "KinesisStreamSourceDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceKinesisStreamSourceDescriptionTypeDef
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceTypeDef
+):
+    pass
+
+
+_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionTypeDef",
+    {
+        "DeliveryStreamName": str,
+        "DeliveryStreamARN": str,
+        "DeliveryStreamStatus": Literal[
+            "CREATING", "CREATING_FAILED", "DELETING", "DELETING_FAILED", "ACTIVE"
+        ],
+        "FailureDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionFailureDescriptionTypeDef,
+        "DeliveryStreamEncryptionConfiguration": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDeliveryStreamEncryptionConfigurationTypeDef,
+        "DeliveryStreamType": Literal["DirectPut", "KinesisStreamAsSource"],
+        "VersionId": str,
+        "CreateTimestamp": datetime,
+        "LastUpdateTimestamp": datetime,
+        "Source": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionSourceTypeDef,
+        "Destinations": List[
+            ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionDestinationsTypeDef
+        ],
+        "HasMoreDestinations": bool,
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionTypeDef(
+    _ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionTypeDef
+):
+    """
+    - **DeliveryStreamDescription** *(dict) --*
+
+      Information about the delivery stream.
+      - **DeliveryStreamName** *(string) --*
+
+        The name of the delivery stream.
+    """
+
+
+_ClientDescribeDeliveryStreamResponseTypeDef = TypedDict(
+    "_ClientDescribeDeliveryStreamResponseTypeDef",
+    {
+        "DeliveryStreamDescription": ClientDescribeDeliveryStreamResponseDeliveryStreamDescriptionTypeDef
+    },
+    total=False,
+)
+
+
+class ClientDescribeDeliveryStreamResponseTypeDef(_ClientDescribeDeliveryStreamResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **DeliveryStreamDescription** *(dict) --*
+
+        Information about the delivery stream.
+        - **DeliveryStreamName** *(string) --*
+
+          The name of the delivery stream.
+    """
+
+
+_ClientListDeliveryStreamsResponseTypeDef = TypedDict(
+    "_ClientListDeliveryStreamsResponseTypeDef",
+    {"DeliveryStreamNames": List[str], "HasMoreDeliveryStreams": bool},
+    total=False,
+)
+
+
+class ClientListDeliveryStreamsResponseTypeDef(_ClientListDeliveryStreamsResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **DeliveryStreamNames** *(list) --*
+
+        The names of the delivery streams.
+        - *(string) --*
+    """
+
+
+_ClientListTagsForDeliveryStreamResponseTagsTypeDef = TypedDict(
+    "_ClientListTagsForDeliveryStreamResponseTagsTypeDef", {"Key": str, "Value": str}, total=False
+)
+
+
+class ClientListTagsForDeliveryStreamResponseTagsTypeDef(
+    _ClientListTagsForDeliveryStreamResponseTagsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+      - **Key** *(string) --*
+
+        A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode
+        letters, digits, white space, _ . / = + - % @
+    """
+
+
+_ClientListTagsForDeliveryStreamResponseTypeDef = TypedDict(
+    "_ClientListTagsForDeliveryStreamResponseTypeDef",
+    {"Tags": List[ClientListTagsForDeliveryStreamResponseTagsTypeDef], "HasMoreTags": bool},
+    total=False,
+)
+
+
+class ClientListTagsForDeliveryStreamResponseTypeDef(
+    _ClientListTagsForDeliveryStreamResponseTypeDef
+):
+    """
+    - *(dict) --*
+
+      - **Tags** *(list) --*
+
+        A list of tags associated with ``DeliveryStreamName`` , starting with the first tag after
+        ``ExclusiveStartTagKey`` and up to the specified ``Limit`` .
+        - *(dict) --*
+
+          Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+          - **Key** *(string) --*
+
+            A unique identifier for the tag. Maximum length: 128 characters. Valid characters:
+            Unicode letters, digits, white space, _ . / = + - % @
+    """
+
+
+_ClientPutRecordBatchRecordsTypeDef = TypedDict(
+    "_ClientPutRecordBatchRecordsTypeDef", {"Data": bytes}
+)
+
+
+class ClientPutRecordBatchRecordsTypeDef(_ClientPutRecordBatchRecordsTypeDef):
+    """
+    - *(dict) --*
+
+      The unit of data in a delivery stream.
+      - **Data** *(bytes) --***[REQUIRED]**
+
+        The data blob, which is base64-encoded when the blob is serialized. The maximum size of the
+        data blob, before base64-encoding, is 1,000 KiB.
+    """
+
+
+_ClientPutRecordBatchResponseRequestResponsesTypeDef = TypedDict(
+    "_ClientPutRecordBatchResponseRequestResponsesTypeDef",
+    {"RecordId": str, "ErrorCode": str, "ErrorMessage": str},
+    total=False,
+)
+
+
+class ClientPutRecordBatchResponseRequestResponsesTypeDef(
+    _ClientPutRecordBatchResponseRequestResponsesTypeDef
+):
+    pass
+
+
+_ClientPutRecordBatchResponseTypeDef = TypedDict(
+    "_ClientPutRecordBatchResponseTypeDef",
+    {
+        "FailedPutCount": int,
+        "Encrypted": bool,
+        "RequestResponses": List[ClientPutRecordBatchResponseRequestResponsesTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientPutRecordBatchResponseTypeDef(_ClientPutRecordBatchResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **FailedPutCount** *(integer) --*
+
+        The number of records that might have failed processing. This number might be greater than 0
+        even if the  PutRecordBatch call succeeds. Check ``FailedPutCount`` to determine whether
+        there are records that you need to resend.
+    """
+
+
+_ClientPutRecordRecordTypeDef = TypedDict("_ClientPutRecordRecordTypeDef", {"Data": bytes})
+
+
+class ClientPutRecordRecordTypeDef(_ClientPutRecordRecordTypeDef):
+    """
+    The record.
+    - **Data** *(bytes) --***[REQUIRED]**
+
+      The data blob, which is base64-encoded when the blob is serialized. The maximum size of the
+      data blob, before base64-encoding, is 1,000 KiB.
+    """
+
+
+_ClientPutRecordResponseTypeDef = TypedDict(
+    "_ClientPutRecordResponseTypeDef", {"RecordId": str, "Encrypted": bool}, total=False
+)
+
+
+class ClientPutRecordResponseTypeDef(_ClientPutRecordResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **RecordId** *(string) --*
+
+        The ID of the record.
+    """
+
+
+_ClientStartDeliveryStreamEncryptionDeliveryStreamEncryptionConfigurationInputTypeDef = TypedDict(
+    "_ClientStartDeliveryStreamEncryptionDeliveryStreamEncryptionConfigurationInputTypeDef",
+    {"KeyARN": str, "KeyType": Literal["AWS_OWNED_CMK", "CUSTOMER_MANAGED_CMK"]},
+    total=False,
+)
+
+
+class ClientStartDeliveryStreamEncryptionDeliveryStreamEncryptionConfigurationInputTypeDef(
+    _ClientStartDeliveryStreamEncryptionDeliveryStreamEncryptionConfigurationInputTypeDef
+):
+    """
+    Used to specify the type and Amazon Resource Name (ARN) of the KMS key needed for Server-Side
+    Encryption (SSE).
+    - **KeyARN** *(string) --*
+
+      If you set ``KeyType`` to ``CUSTOMER_MANAGED_CMK`` , you must specify the Amazon Resource Name
+      (ARN) of the CMK. If you set ``KeyType`` to ``AWS_OWNED_CMK`` , Kinesis Data Firehose uses a
+      service-account CMK.
+    """
+
+
+_RequiredClientTagDeliveryStreamTagsTypeDef = TypedDict(
+    "_RequiredClientTagDeliveryStreamTagsTypeDef", {"Key": str}
+)
+_OptionalClientTagDeliveryStreamTagsTypeDef = TypedDict(
+    "_OptionalClientTagDeliveryStreamTagsTypeDef", {"Value": str}, total=False
+)
+
+
+class ClientTagDeliveryStreamTagsTypeDef(
+    _RequiredClientTagDeliveryStreamTagsTypeDef, _OptionalClientTagDeliveryStreamTagsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Metadata that you can assign to a delivery stream, consisting of a key-value pair.
+      - **Key** *(string) --***[REQUIRED]**
+
+        A unique identifier for the tag. Maximum length: 128 characters. Valid characters: Unicode
+        letters, digits, white space, _ . / = + - % @
+    """
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateBufferingHintsTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateBufferingHintsTypeDef",
+    {"IntervalInSeconds": int, "SizeInMBs": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateBufferingHintsTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateRetryOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateRetryOptionsTypeDef",
+    {"DurationInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateRetryOptionsTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateRetryOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateBufferingHintsTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateBufferingHintsTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationElasticsearchDestinationUpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationElasticsearchDestinationUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "DomainARN": str,
+        "ClusterEndpoint": str,
+        "IndexName": str,
+        "TypeName": str,
+        "IndexRotationPeriod": Literal["NoRotation", "OneHour", "OneDay", "OneWeek", "OneMonth"],
+        "BufferingHints": ClientUpdateDestinationElasticsearchDestinationUpdateBufferingHintsTypeDef,
+        "RetryOptions": ClientUpdateDestinationElasticsearchDestinationUpdateRetryOptionsTypeDef,
+        "S3Update": ClientUpdateDestinationElasticsearchDestinationUpdateS3UpdateTypeDef,
+        "ProcessingConfiguration": ClientUpdateDestinationElasticsearchDestinationUpdateProcessingConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationElasticsearchDestinationUpdateCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationElasticsearchDestinationUpdateTypeDef(
+    _ClientUpdateDestinationElasticsearchDestinationUpdateTypeDef
+):
+    """
+    Describes an update for a destination in Amazon ES.
+    - **RoleARN** *(string) --*
+
+      The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for
+      calling the Amazon ES Configuration API and for indexing documents. For more information, see
+      `Grant Kinesis Data Firehose Access to an Amazon S3 Destination
+      <https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3>`__ and
+      `Amazon Resource Names (ARNs) and AWS Service Namespaces
+      <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+    """
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateBufferingHintsTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateBufferingHintsTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef",
+    {"TimestampFormats": List[str]},
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef",
+    {
+        "ConvertDotsInJsonKeysToUnderscores": bool,
+        "CaseInsensitive": bool,
+        "ColumnToJsonKeyMappings": Dict[str, str],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef",
+    {
+        "OpenXJsonSerDe": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerOpenXJsonSerDeTypeDef,
+        "HiveJsonSerDe": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerHiveJsonSerDeTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationTypeDef",
+    {
+        "Deserializer": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationDeserializerTypeDef
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef",
+    {
+        "StripeSizeBytes": int,
+        "BlockSizeBytes": int,
+        "RowIndexStride": int,
+        "EnablePadding": bool,
+        "PaddingTolerance": float,
+        "Compression": Literal["NONE", "ZLIB", "SNAPPY"],
+        "BloomFilterColumns": List[str],
+        "BloomFilterFalsePositiveProbability": float,
+        "DictionaryKeyThreshold": float,
+        "FormatVersion": Literal["V0_11", "V0_12"],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef",
+    {
+        "BlockSizeBytes": int,
+        "PageSizeBytes": int,
+        "Compression": Literal["UNCOMPRESSED", "GZIP", "SNAPPY"],
+        "EnableDictionaryCompression": bool,
+        "MaxPaddingBytes": int,
+        "WriterVersion": Literal["V1", "V2"],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef",
+    {
+        "ParquetSerDe": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeTypeDef,
+        "OrcSerDe": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationTypeDef",
+    {
+        "Serializer": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationSerializerTypeDef
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationSchemaConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationSchemaConfigurationTypeDef",
+    {
+        "RoleARN": str,
+        "CatalogId": str,
+        "DatabaseName": str,
+        "TableName": str,
+        "Region": str,
+        "VersionId": str,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationSchemaConfigurationTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationSchemaConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationTypeDef",
+    {
+        "SchemaConfiguration": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationSchemaConfigurationTypeDef,
+        "InputFormatConfiguration": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationInputFormatConfigurationTypeDef,
+        "OutputFormatConfiguration": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationOutputFormatConfigurationTypeDef,
+        "Enabled": bool,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateBufferingHintsTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateBufferingHintsTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationExtendedS3DestinationUpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationExtendedS3DestinationUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientUpdateDestinationExtendedS3DestinationUpdateBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientUpdateDestinationExtendedS3DestinationUpdateEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationExtendedS3DestinationUpdateCloudWatchLoggingOptionsTypeDef,
+        "ProcessingConfiguration": ClientUpdateDestinationExtendedS3DestinationUpdateProcessingConfigurationTypeDef,
+        "S3BackupMode": Literal["Disabled", "Enabled"],
+        "S3BackupUpdate": ClientUpdateDestinationExtendedS3DestinationUpdateS3BackupUpdateTypeDef,
+        "DataFormatConversionConfiguration": ClientUpdateDestinationExtendedS3DestinationUpdateDataFormatConversionConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationExtendedS3DestinationUpdateTypeDef(
+    _ClientUpdateDestinationExtendedS3DestinationUpdateTypeDef
+):
+    """
+    Describes an update for a destination in Amazon S3.
+    - **RoleARN** *(string) --*
+
+      The Amazon Resource Name (ARN) of the AWS credentials. For more information, see `Amazon
+      Resource Names (ARNs) and AWS Service Namespaces
+      <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+    """
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateCopyCommandTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateCopyCommandTypeDef",
+    {"DataTableName": str, "DataTableColumns": str, "CopyOptions": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateCopyCommandTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateCopyCommandTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateRetryOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateRetryOptionsTypeDef",
+    {"DurationInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateRetryOptionsTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateRetryOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateBufferingHintsTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateBufferingHintsTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateBufferingHintsTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateBufferingHintsTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationRedshiftDestinationUpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationRedshiftDestinationUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "ClusterJDBCURL": str,
+        "CopyCommand": ClientUpdateDestinationRedshiftDestinationUpdateCopyCommandTypeDef,
+        "Username": str,
+        "Password": str,
+        "RetryOptions": ClientUpdateDestinationRedshiftDestinationUpdateRetryOptionsTypeDef,
+        "S3Update": ClientUpdateDestinationRedshiftDestinationUpdateS3UpdateTypeDef,
+        "ProcessingConfiguration": ClientUpdateDestinationRedshiftDestinationUpdateProcessingConfigurationTypeDef,
+        "S3BackupMode": Literal["Disabled", "Enabled"],
+        "S3BackupUpdate": ClientUpdateDestinationRedshiftDestinationUpdateS3BackupUpdateTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationRedshiftDestinationUpdateCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationRedshiftDestinationUpdateTypeDef(
+    _ClientUpdateDestinationRedshiftDestinationUpdateTypeDef
+):
+    """
+    Describes an update for a destination in Amazon Redshift.
+    - **RoleARN** *(string) --*
+
+      The Amazon Resource Name (ARN) of the AWS credentials. For more information, see `Amazon
+      Resource Names (ARNs) and AWS Service Namespaces
+      <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+    """
+
+
+_ClientUpdateDestinationS3DestinationUpdateBufferingHintsTypeDef = TypedDict(
+    "_ClientUpdateDestinationS3DestinationUpdateBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationS3DestinationUpdateBufferingHintsTypeDef(
+    _ClientUpdateDestinationS3DestinationUpdateBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationS3DestinationUpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationS3DestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationS3DestinationUpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationS3DestinationUpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationTypeDef(
+    _ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationS3DestinationUpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationS3DestinationUpdateTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientUpdateDestinationS3DestinationUpdateBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientUpdateDestinationS3DestinationUpdateEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationS3DestinationUpdateCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationS3DestinationUpdateTypeDef(
+    _ClientUpdateDestinationS3DestinationUpdateTypeDef
+):
+    """
+    [Deprecated] Describes an update for a destination in Amazon S3.
+    - **RoleARN** *(string) --*
+
+      The Amazon Resource Name (ARN) of the AWS credentials. For more information, see `Amazon
+      Resource Names (ARNs) and AWS Service Namespaces
+      <https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html>`__ .
+    """
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef",
+    {
+        "ParameterName": Literal[
+            "LambdaArn", "NumberOfRetries", "RoleArn", "BufferSizeInMBs", "BufferIntervalInSeconds"
+        ],
+        "ParameterValue": str,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsTypeDef",
+    {
+        "Type": str,
+        "Parameters": List[
+            ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsParametersTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationTypeDef",
+    {
+        "Enabled": bool,
+        "Processors": List[
+            ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationProcessorsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateRetryOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateRetryOptionsTypeDef",
+    {"DurationInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateRetryOptionsTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateRetryOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateBufferingHintsTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateBufferingHintsTypeDef",
+    {"SizeInMBs": int, "IntervalInSeconds": int},
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateS3UpdateBufferingHintsTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateS3UpdateBufferingHintsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef",
+    {"Enabled": bool, "LogGroupName": str, "LogStreamName": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef",
+    {"AWSKMSKeyARN": str},
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationTypeDef",
+    {
+        "NoEncryptionConfig": str,
+        "KMSEncryptionConfig": ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationKMSEncryptionConfigTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateS3UpdateTypeDef",
+    {
+        "RoleARN": str,
+        "BucketARN": str,
+        "Prefix": str,
+        "ErrorOutputPrefix": str,
+        "BufferingHints": ClientUpdateDestinationSplunkDestinationUpdateS3UpdateBufferingHintsTypeDef,
+        "CompressionFormat": Literal["UNCOMPRESSED", "GZIP", "ZIP", "Snappy"],
+        "EncryptionConfiguration": ClientUpdateDestinationSplunkDestinationUpdateS3UpdateEncryptionConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationSplunkDestinationUpdateS3UpdateCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateS3UpdateTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateS3UpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateDestinationSplunkDestinationUpdateTypeDef = TypedDict(
+    "_ClientUpdateDestinationSplunkDestinationUpdateTypeDef",
+    {
+        "HECEndpoint": str,
+        "HECEndpointType": Literal["Raw", "Event"],
+        "HECToken": str,
+        "HECAcknowledgmentTimeoutInSeconds": int,
+        "RetryOptions": ClientUpdateDestinationSplunkDestinationUpdateRetryOptionsTypeDef,
+        "S3BackupMode": Literal["FailedEventsOnly", "AllEvents"],
+        "S3Update": ClientUpdateDestinationSplunkDestinationUpdateS3UpdateTypeDef,
+        "ProcessingConfiguration": ClientUpdateDestinationSplunkDestinationUpdateProcessingConfigurationTypeDef,
+        "CloudWatchLoggingOptions": ClientUpdateDestinationSplunkDestinationUpdateCloudWatchLoggingOptionsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateDestinationSplunkDestinationUpdateTypeDef(
+    _ClientUpdateDestinationSplunkDestinationUpdateTypeDef
+):
+    """
+    Describes an update for a destination in Splunk.
+    - **HECEndpoint** *(string) --*
+
+      The HTTP Event Collector (HEC) endpoint to which Kinesis Data Firehose sends your data.
+    """
