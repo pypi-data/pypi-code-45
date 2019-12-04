@@ -1,0 +1,14284 @@
+"Main interface for dynamodb service type defs"
+from __future__ import annotations
+
+from datetime import datetime
+from typing import Any, Dict, List
+from mypy_boto3.type_defs import Literal, TypedDict
+
+
+__all__ = (
+    "ClientBatchGetItemRequestItemsKeysTypeDef",
+    "ClientBatchGetItemRequestItemsTypeDef",
+    "ClientBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientBatchGetItemResponseConsumedCapacityTableTypeDef",
+    "ClientBatchGetItemResponseConsumedCapacityTypeDef",
+    "ClientBatchGetItemResponseResponsesTypeDef",
+    "ClientBatchGetItemResponseUnprocessedKeysKeysTypeDef",
+    "ClientBatchGetItemResponseUnprocessedKeysTypeDef",
+    "ClientBatchGetItemResponseTypeDef",
+    "ClientBatchWriteItemRequestItemsDeleteRequestKeyTypeDef",
+    "ClientBatchWriteItemRequestItemsDeleteRequestTypeDef",
+    "ClientBatchWriteItemRequestItemsPutRequestItemTypeDef",
+    "ClientBatchWriteItemRequestItemsPutRequestTypeDef",
+    "ClientBatchWriteItemRequestItemsTypeDef",
+    "ClientBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientBatchWriteItemResponseConsumedCapacityTableTypeDef",
+    "ClientBatchWriteItemResponseConsumedCapacityTypeDef",
+    "ClientBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    "ClientBatchWriteItemResponseItemCollectionMetricsTypeDef",
+    "ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef",
+    "ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef",
+    "ClientBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef",
+    "ClientBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef",
+    "ClientBatchWriteItemResponseUnprocessedItemsTypeDef",
+    "ClientBatchWriteItemResponseTypeDef",
+    "ClientCreateBackupResponseBackupDetailsTypeDef",
+    "ClientCreateBackupResponseTypeDef",
+    "ClientCreateGlobalTableReplicationGroupTypeDef",
+    "ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef",
+    "ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef",
+    "ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef",
+    "ClientCreateGlobalTableResponseGlobalTableDescriptionTypeDef",
+    "ClientCreateGlobalTableResponseTypeDef",
+    "ClientCreateTableAttributeDefinitionsTypeDef",
+    "ClientCreateTableGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ClientCreateTableGlobalSecondaryIndexesProjectionTypeDef",
+    "ClientCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ClientCreateTableGlobalSecondaryIndexesTypeDef",
+    "ClientCreateTableKeySchemaTypeDef",
+    "ClientCreateTableLocalSecondaryIndexesKeySchemaTypeDef",
+    "ClientCreateTableLocalSecondaryIndexesProjectionTypeDef",
+    "ClientCreateTableLocalSecondaryIndexesTypeDef",
+    "ClientCreateTableProvisionedThroughputTypeDef",
+    "ClientCreateTableResponseTableDescriptionArchivalSummaryTypeDef",
+    "ClientCreateTableResponseTableDescriptionAttributeDefinitionsTypeDef",
+    "ClientCreateTableResponseTableDescriptionBillingModeSummaryTypeDef",
+    "ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    "ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    "ClientCreateTableResponseTableDescriptionKeySchemaTypeDef",
+    "ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    "ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    "ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    "ClientCreateTableResponseTableDescriptionProvisionedThroughputTypeDef",
+    "ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    "ClientCreateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    "ClientCreateTableResponseTableDescriptionReplicasTypeDef",
+    "ClientCreateTableResponseTableDescriptionRestoreSummaryTypeDef",
+    "ClientCreateTableResponseTableDescriptionSSEDescriptionTypeDef",
+    "ClientCreateTableResponseTableDescriptionStreamSpecificationTypeDef",
+    "ClientCreateTableResponseTableDescriptionTypeDef",
+    "ClientCreateTableResponseTypeDef",
+    "ClientCreateTableSSESpecificationTypeDef",
+    "ClientCreateTableStreamSpecificationTypeDef",
+    "ClientCreateTableTagsTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionBackupDetailsTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef",
+    "ClientDeleteBackupResponseBackupDescriptionTypeDef",
+    "ClientDeleteBackupResponseTypeDef",
+    "ClientDeleteItemExpectedAttributeValueListTypeDef",
+    "ClientDeleteItemExpectedValueTypeDef",
+    "ClientDeleteItemExpectedTypeDef",
+    "ClientDeleteItemExpressionAttributeValuesTypeDef",
+    "ClientDeleteItemKeyTypeDef",
+    "ClientDeleteItemResponseAttributesTypeDef",
+    "ClientDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientDeleteItemResponseConsumedCapacityTableTypeDef",
+    "ClientDeleteItemResponseConsumedCapacityTypeDef",
+    "ClientDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    "ClientDeleteItemResponseItemCollectionMetricsTypeDef",
+    "ClientDeleteItemResponseTypeDef",
+    "ClientDeleteTableResponseTableDescriptionArchivalSummaryTypeDef",
+    "ClientDeleteTableResponseTableDescriptionAttributeDefinitionsTypeDef",
+    "ClientDeleteTableResponseTableDescriptionBillingModeSummaryTypeDef",
+    "ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    "ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    "ClientDeleteTableResponseTableDescriptionKeySchemaTypeDef",
+    "ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    "ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    "ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    "ClientDeleteTableResponseTableDescriptionProvisionedThroughputTypeDef",
+    "ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    "ClientDeleteTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    "ClientDeleteTableResponseTableDescriptionReplicasTypeDef",
+    "ClientDeleteTableResponseTableDescriptionRestoreSummaryTypeDef",
+    "ClientDeleteTableResponseTableDescriptionSSEDescriptionTypeDef",
+    "ClientDeleteTableResponseTableDescriptionStreamSpecificationTypeDef",
+    "ClientDeleteTableResponseTableDescriptionTypeDef",
+    "ClientDeleteTableResponseTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionBackupDetailsTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef",
+    "ClientDescribeBackupResponseBackupDescriptionTypeDef",
+    "ClientDescribeBackupResponseTypeDef",
+    "ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef",
+    "ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionTypeDef",
+    "ClientDescribeContinuousBackupsResponseTypeDef",
+    "ClientDescribeContributorInsightsResponseFailureExceptionTypeDef",
+    "ClientDescribeContributorInsightsResponseTypeDef",
+    "ClientDescribeEndpointsResponseEndpointsTypeDef",
+    "ClientDescribeEndpointsResponseTypeDef",
+    "ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef",
+    "ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef",
+    "ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef",
+    "ClientDescribeGlobalTableResponseGlobalTableDescriptionTypeDef",
+    "ClientDescribeGlobalTableResponseTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseReplicaSettingsTypeDef",
+    "ClientDescribeGlobalTableSettingsResponseTypeDef",
+    "ClientDescribeLimitsResponseTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef",
+    "ClientDescribeTableReplicaAutoScalingResponseTypeDef",
+    "ClientDescribeTableResponseTableArchivalSummaryTypeDef",
+    "ClientDescribeTableResponseTableAttributeDefinitionsTypeDef",
+    "ClientDescribeTableResponseTableBillingModeSummaryTypeDef",
+    "ClientDescribeTableResponseTableGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ClientDescribeTableResponseTableGlobalSecondaryIndexesProjectionTypeDef",
+    "ClientDescribeTableResponseTableGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ClientDescribeTableResponseTableGlobalSecondaryIndexesTypeDef",
+    "ClientDescribeTableResponseTableKeySchemaTypeDef",
+    "ClientDescribeTableResponseTableLocalSecondaryIndexesKeySchemaTypeDef",
+    "ClientDescribeTableResponseTableLocalSecondaryIndexesProjectionTypeDef",
+    "ClientDescribeTableResponseTableLocalSecondaryIndexesTypeDef",
+    "ClientDescribeTableResponseTableProvisionedThroughputTypeDef",
+    "ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesTypeDef",
+    "ClientDescribeTableResponseTableReplicasProvisionedThroughputOverrideTypeDef",
+    "ClientDescribeTableResponseTableReplicasTypeDef",
+    "ClientDescribeTableResponseTableRestoreSummaryTypeDef",
+    "ClientDescribeTableResponseTableSSEDescriptionTypeDef",
+    "ClientDescribeTableResponseTableStreamSpecificationTypeDef",
+    "ClientDescribeTableResponseTableTypeDef",
+    "ClientDescribeTableResponseTypeDef",
+    "ClientDescribeTimeToLiveResponseTimeToLiveDescriptionTypeDef",
+    "ClientDescribeTimeToLiveResponseTypeDef",
+    "ClientGetItemKeyTypeDef",
+    "ClientGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientGetItemResponseConsumedCapacityTableTypeDef",
+    "ClientGetItemResponseConsumedCapacityTypeDef",
+    "ClientGetItemResponseItemTypeDef",
+    "ClientGetItemResponseTypeDef",
+    "ClientListBackupsResponseBackupSummariesTypeDef",
+    "ClientListBackupsResponseTypeDef",
+    "ClientListContributorInsightsResponseContributorInsightsSummariesTypeDef",
+    "ClientListContributorInsightsResponseTypeDef",
+    "ClientListGlobalTablesResponseGlobalTablesReplicationGroupTypeDef",
+    "ClientListGlobalTablesResponseGlobalTablesTypeDef",
+    "ClientListGlobalTablesResponseTypeDef",
+    "ClientListTablesResponseTypeDef",
+    "ClientListTagsOfResourceResponseTagsTypeDef",
+    "ClientListTagsOfResourceResponseTypeDef",
+    "ClientPutItemExpectedAttributeValueListTypeDef",
+    "ClientPutItemExpectedValueTypeDef",
+    "ClientPutItemExpectedTypeDef",
+    "ClientPutItemExpressionAttributeValuesTypeDef",
+    "ClientPutItemItemTypeDef",
+    "ClientPutItemResponseAttributesTypeDef",
+    "ClientPutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientPutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientPutItemResponseConsumedCapacityTableTypeDef",
+    "ClientPutItemResponseConsumedCapacityTypeDef",
+    "ClientPutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    "ClientPutItemResponseItemCollectionMetricsTypeDef",
+    "ClientPutItemResponseTypeDef",
+    "ClientQueryExclusiveStartKeyTypeDef",
+    "ClientQueryExpressionAttributeValuesTypeDef",
+    "ClientQueryKeyConditionsAttributeValueListTypeDef",
+    "ClientQueryKeyConditionsTypeDef",
+    "ClientQueryQueryFilterAttributeValueListTypeDef",
+    "ClientQueryQueryFilterTypeDef",
+    "ClientQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientQueryResponseConsumedCapacityTableTypeDef",
+    "ClientQueryResponseConsumedCapacityTypeDef",
+    "ClientQueryResponseItemsTypeDef",
+    "ClientQueryResponseLastEvaluatedKeyTypeDef",
+    "ClientQueryResponseTypeDef",
+    "ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideKeySchemaTypeDef",
+    "ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProjectionTypeDef",
+    "ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef",
+    "ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideTypeDef",
+    "ClientRestoreTableFromBackupLocalSecondaryIndexOverrideKeySchemaTypeDef",
+    "ClientRestoreTableFromBackupLocalSecondaryIndexOverrideProjectionTypeDef",
+    "ClientRestoreTableFromBackupLocalSecondaryIndexOverrideTypeDef",
+    "ClientRestoreTableFromBackupProvisionedThroughputOverrideTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionArchivalSummaryTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionAttributeDefinitionsTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionBillingModeSummaryTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionKeySchemaTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionProvisionedThroughputTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionReplicasTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionRestoreSummaryTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionSSEDescriptionTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionStreamSpecificationTypeDef",
+    "ClientRestoreTableFromBackupResponseTableDescriptionTypeDef",
+    "ClientRestoreTableFromBackupResponseTypeDef",
+    "ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideKeySchemaTypeDef",
+    "ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProjectionTypeDef",
+    "ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef",
+    "ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideTypeDef",
+    "ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideKeySchemaTypeDef",
+    "ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideProjectionTypeDef",
+    "ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideTypeDef",
+    "ClientRestoreTableToPointInTimeProvisionedThroughputOverrideTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionArchivalSummaryTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionAttributeDefinitionsTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionBillingModeSummaryTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionKeySchemaTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionProvisionedThroughputTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionRestoreSummaryTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionSSEDescriptionTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionStreamSpecificationTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTableDescriptionTypeDef",
+    "ClientRestoreTableToPointInTimeResponseTypeDef",
+    "ClientScanExclusiveStartKeyTypeDef",
+    "ClientScanExpressionAttributeValuesTypeDef",
+    "ClientScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientScanResponseConsumedCapacityTableTypeDef",
+    "ClientScanResponseConsumedCapacityTypeDef",
+    "ClientScanResponseItemsTypeDef",
+    "ClientScanResponseLastEvaluatedKeyTypeDef",
+    "ClientScanResponseTypeDef",
+    "ClientScanScanFilterAttributeValueListTypeDef",
+    "ClientScanScanFilterTypeDef",
+    "ClientTagResourceTagsTypeDef",
+    "ClientTransactGetItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientTransactGetItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientTransactGetItemsResponseConsumedCapacityTableTypeDef",
+    "ClientTransactGetItemsResponseConsumedCapacityTypeDef",
+    "ClientTransactGetItemsResponseResponsesItemTypeDef",
+    "ClientTransactGetItemsResponseResponsesTypeDef",
+    "ClientTransactGetItemsResponseTypeDef",
+    "ClientTransactGetItemsTransactItemsGetKeyTypeDef",
+    "ClientTransactGetItemsTransactItemsGetTypeDef",
+    "ClientTransactGetItemsTransactItemsTypeDef",
+    "ClientTransactWriteItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientTransactWriteItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientTransactWriteItemsResponseConsumedCapacityTableTypeDef",
+    "ClientTransactWriteItemsResponseConsumedCapacityTypeDef",
+    "ClientTransactWriteItemsResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    "ClientTransactWriteItemsResponseItemCollectionMetricsTypeDef",
+    "ClientTransactWriteItemsResponseTypeDef",
+    "ClientTransactWriteItemsTransactItemsConditionCheckExpressionAttributeValuesTypeDef",
+    "ClientTransactWriteItemsTransactItemsConditionCheckKeyTypeDef",
+    "ClientTransactWriteItemsTransactItemsConditionCheckTypeDef",
+    "ClientTransactWriteItemsTransactItemsDeleteExpressionAttributeValuesTypeDef",
+    "ClientTransactWriteItemsTransactItemsDeleteKeyTypeDef",
+    "ClientTransactWriteItemsTransactItemsDeleteTypeDef",
+    "ClientTransactWriteItemsTransactItemsPutExpressionAttributeValuesTypeDef",
+    "ClientTransactWriteItemsTransactItemsPutItemTypeDef",
+    "ClientTransactWriteItemsTransactItemsPutTypeDef",
+    "ClientTransactWriteItemsTransactItemsUpdateExpressionAttributeValuesTypeDef",
+    "ClientTransactWriteItemsTransactItemsUpdateKeyTypeDef",
+    "ClientTransactWriteItemsTransactItemsUpdateTypeDef",
+    "ClientTransactWriteItemsTransactItemsTypeDef",
+    "ClientUpdateContinuousBackupsPointInTimeRecoverySpecificationTypeDef",
+    "ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef",
+    "ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionTypeDef",
+    "ClientUpdateContinuousBackupsResponseTypeDef",
+    "ClientUpdateContributorInsightsResponseTypeDef",
+    "ClientUpdateGlobalTableReplicaUpdatesCreateTypeDef",
+    "ClientUpdateGlobalTableReplicaUpdatesDeleteTypeDef",
+    "ClientUpdateGlobalTableReplicaUpdatesTypeDef",
+    "ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef",
+    "ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef",
+    "ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef",
+    "ClientUpdateGlobalTableResponseGlobalTableDescriptionTypeDef",
+    "ClientUpdateGlobalTableResponseTypeDef",
+    "ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsReplicaSettingsUpdateTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseReplicaSettingsTypeDef",
+    "ClientUpdateGlobalTableSettingsResponseTypeDef",
+    "ClientUpdateItemAttributeUpdatesValueTypeDef",
+    "ClientUpdateItemAttributeUpdatesTypeDef",
+    "ClientUpdateItemExpectedAttributeValueListTypeDef",
+    "ClientUpdateItemExpectedValueTypeDef",
+    "ClientUpdateItemExpectedTypeDef",
+    "ClientUpdateItemExpressionAttributeValuesTypeDef",
+    "ClientUpdateItemKeyTypeDef",
+    "ClientUpdateItemResponseAttributesTypeDef",
+    "ClientUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ClientUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ClientUpdateItemResponseConsumedCapacityTableTypeDef",
+    "ClientUpdateItemResponseConsumedCapacityTypeDef",
+    "ClientUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    "ClientUpdateItemResponseItemCollectionMetricsTypeDef",
+    "ClientUpdateItemResponseTypeDef",
+    "ClientUpdateTableAttributeDefinitionsTypeDef",
+    "ClientUpdateTableGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef",
+    "ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProjectionTypeDef",
+    "ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef",
+    "ClientUpdateTableGlobalSecondaryIndexUpdatesCreateTypeDef",
+    "ClientUpdateTableGlobalSecondaryIndexUpdatesDeleteTypeDef",
+    "ClientUpdateTableGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef",
+    "ClientUpdateTableGlobalSecondaryIndexUpdatesUpdateTypeDef",
+    "ClientUpdateTableGlobalSecondaryIndexUpdatesTypeDef",
+    "ClientUpdateTableProvisionedThroughputTypeDef",
+    "ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef",
+    "ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateTypeDef",
+    "ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesTypeDef",
+    "ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef",
+    "ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateTypeDef",
+    "ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef",
+    "ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateTypeDef",
+    "ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesTypeDef",
+    "ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef",
+    "ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateTypeDef",
+    "ClientUpdateTableReplicaAutoScalingReplicaUpdatesTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef",
+    "ClientUpdateTableReplicaAutoScalingResponseTypeDef",
+    "ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef",
+    "ClientUpdateTableReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef",
+    "ClientUpdateTableReplicaUpdatesCreateTypeDef",
+    "ClientUpdateTableReplicaUpdatesDeleteTypeDef",
+    "ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef",
+    "ClientUpdateTableReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef",
+    "ClientUpdateTableReplicaUpdatesUpdateTypeDef",
+    "ClientUpdateTableReplicaUpdatesTypeDef",
+    "ClientUpdateTableResponseTableDescriptionArchivalSummaryTypeDef",
+    "ClientUpdateTableResponseTableDescriptionAttributeDefinitionsTypeDef",
+    "ClientUpdateTableResponseTableDescriptionBillingModeSummaryTypeDef",
+    "ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    "ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    "ClientUpdateTableResponseTableDescriptionKeySchemaTypeDef",
+    "ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    "ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    "ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    "ClientUpdateTableResponseTableDescriptionProvisionedThroughputTypeDef",
+    "ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    "ClientUpdateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    "ClientUpdateTableResponseTableDescriptionReplicasTypeDef",
+    "ClientUpdateTableResponseTableDescriptionRestoreSummaryTypeDef",
+    "ClientUpdateTableResponseTableDescriptionSSEDescriptionTypeDef",
+    "ClientUpdateTableResponseTableDescriptionStreamSpecificationTypeDef",
+    "ClientUpdateTableResponseTableDescriptionTypeDef",
+    "ClientUpdateTableResponseTypeDef",
+    "ClientUpdateTableSSESpecificationTypeDef",
+    "ClientUpdateTableStreamSpecificationTypeDef",
+    "ClientUpdateTimeToLiveResponseTimeToLiveSpecificationTypeDef",
+    "ClientUpdateTimeToLiveResponseTypeDef",
+    "ClientUpdateTimeToLiveTimeToLiveSpecificationTypeDef",
+    "ListBackupsPaginatePaginationConfigTypeDef",
+    "ListBackupsPaginateResponseBackupSummariesTypeDef",
+    "ListBackupsPaginateResponseTypeDef",
+    "ListTablesPaginatePaginationConfigTypeDef",
+    "ListTablesPaginateResponseTypeDef",
+    "ListTagsOfResourcePaginatePaginationConfigTypeDef",
+    "ListTagsOfResourcePaginateResponseTagsTypeDef",
+    "ListTagsOfResourcePaginateResponseTypeDef",
+    "QueryPaginateExpressionAttributeValuesTypeDef",
+    "QueryPaginateKeyConditionsAttributeValueListTypeDef",
+    "QueryPaginateKeyConditionsTypeDef",
+    "QueryPaginatePaginationConfigTypeDef",
+    "QueryPaginateQueryFilterAttributeValueListTypeDef",
+    "QueryPaginateQueryFilterTypeDef",
+    "QueryPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "QueryPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "QueryPaginateResponseConsumedCapacityTableTypeDef",
+    "QueryPaginateResponseConsumedCapacityTypeDef",
+    "QueryPaginateResponseItemsTypeDef",
+    "QueryPaginateResponseTypeDef",
+    "ScanPaginateExpressionAttributeValuesTypeDef",
+    "ScanPaginatePaginationConfigTypeDef",
+    "ScanPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ScanPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ScanPaginateResponseConsumedCapacityTableTypeDef",
+    "ScanPaginateResponseConsumedCapacityTypeDef",
+    "ScanPaginateResponseItemsTypeDef",
+    "ScanPaginateResponseTypeDef",
+    "ScanPaginateScanFilterAttributeValueListTypeDef",
+    "ScanPaginateScanFilterTypeDef",
+    "ServiceResourceBatchGetItemRequestItemsKeysTypeDef",
+    "ServiceResourceBatchGetItemRequestItemsTypeDef",
+    "ServiceResourceBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ServiceResourceBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ServiceResourceBatchGetItemResponseConsumedCapacityTableTypeDef",
+    "ServiceResourceBatchGetItemResponseConsumedCapacityTypeDef",
+    "ServiceResourceBatchGetItemResponseResponsesTypeDef",
+    "ServiceResourceBatchGetItemResponseUnprocessedKeysKeysTypeDef",
+    "ServiceResourceBatchGetItemResponseUnprocessedKeysTypeDef",
+    "ServiceResourceBatchGetItemResponseTypeDef",
+    "ServiceResourceBatchWriteItemRequestItemsDeleteRequestKeyTypeDef",
+    "ServiceResourceBatchWriteItemRequestItemsDeleteRequestTypeDef",
+    "ServiceResourceBatchWriteItemRequestItemsPutRequestItemTypeDef",
+    "ServiceResourceBatchWriteItemRequestItemsPutRequestTypeDef",
+    "ServiceResourceBatchWriteItemRequestItemsTypeDef",
+    "ServiceResourceBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "ServiceResourceBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "ServiceResourceBatchWriteItemResponseConsumedCapacityTableTypeDef",
+    "ServiceResourceBatchWriteItemResponseConsumedCapacityTypeDef",
+    "ServiceResourceBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    "ServiceResourceBatchWriteItemResponseItemCollectionMetricsTypeDef",
+    "ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef",
+    "ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef",
+    "ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef",
+    "ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef",
+    "ServiceResourceBatchWriteItemResponseUnprocessedItemsTypeDef",
+    "ServiceResourceBatchWriteItemResponseTypeDef",
+    "ServiceResourceCreateTableAttributeDefinitionsTypeDef",
+    "ServiceResourceCreateTableGlobalSecondaryIndexesKeySchemaTypeDef",
+    "ServiceResourceCreateTableGlobalSecondaryIndexesProjectionTypeDef",
+    "ServiceResourceCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "ServiceResourceCreateTableGlobalSecondaryIndexesTypeDef",
+    "ServiceResourceCreateTableKeySchemaTypeDef",
+    "ServiceResourceCreateTableLocalSecondaryIndexesKeySchemaTypeDef",
+    "ServiceResourceCreateTableLocalSecondaryIndexesProjectionTypeDef",
+    "ServiceResourceCreateTableLocalSecondaryIndexesTypeDef",
+    "ServiceResourceCreateTableProvisionedThroughputTypeDef",
+    "ServiceResourceCreateTableSSESpecificationTypeDef",
+    "ServiceResourceCreateTableStreamSpecificationTypeDef",
+    "ServiceResourceCreateTableTagsTypeDef",
+    "TableDeleteItemExpectedAttributeValueListTypeDef",
+    "TableDeleteItemExpectedValueTypeDef",
+    "TableDeleteItemExpectedTypeDef",
+    "TableDeleteItemExpressionAttributeValuesTypeDef",
+    "TableDeleteItemKeyTypeDef",
+    "TableDeleteItemResponseAttributesTypeDef",
+    "TableDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "TableDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "TableDeleteItemResponseConsumedCapacityTableTypeDef",
+    "TableDeleteItemResponseConsumedCapacityTypeDef",
+    "TableDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    "TableDeleteItemResponseItemCollectionMetricsTypeDef",
+    "TableDeleteItemResponseTypeDef",
+    "TableDeleteResponseTableDescriptionArchivalSummaryTypeDef",
+    "TableDeleteResponseTableDescriptionAttributeDefinitionsTypeDef",
+    "TableDeleteResponseTableDescriptionBillingModeSummaryTypeDef",
+    "TableDeleteResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    "TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    "TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    "TableDeleteResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    "TableDeleteResponseTableDescriptionKeySchemaTypeDef",
+    "TableDeleteResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    "TableDeleteResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    "TableDeleteResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    "TableDeleteResponseTableDescriptionProvisionedThroughputTypeDef",
+    "TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    "TableDeleteResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    "TableDeleteResponseTableDescriptionReplicasTypeDef",
+    "TableDeleteResponseTableDescriptionRestoreSummaryTypeDef",
+    "TableDeleteResponseTableDescriptionSSEDescriptionTypeDef",
+    "TableDeleteResponseTableDescriptionStreamSpecificationTypeDef",
+    "TableDeleteResponseTableDescriptionTypeDef",
+    "TableDeleteResponseTypeDef",
+    "TableExistsWaitWaiterConfigTypeDef",
+    "TableGetItemKeyTypeDef",
+    "TableGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "TableGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "TableGetItemResponseConsumedCapacityTableTypeDef",
+    "TableGetItemResponseConsumedCapacityTypeDef",
+    "TableGetItemResponseItemTypeDef",
+    "TableGetItemResponseTypeDef",
+    "TableNotExistsWaitWaiterConfigTypeDef",
+    "TablePutItemExpectedAttributeValueListTypeDef",
+    "TablePutItemExpectedValueTypeDef",
+    "TablePutItemExpectedTypeDef",
+    "TablePutItemExpressionAttributeValuesTypeDef",
+    "TablePutItemItemTypeDef",
+    "TablePutItemResponseAttributesTypeDef",
+    "TablePutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "TablePutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "TablePutItemResponseConsumedCapacityTableTypeDef",
+    "TablePutItemResponseConsumedCapacityTypeDef",
+    "TablePutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    "TablePutItemResponseItemCollectionMetricsTypeDef",
+    "TablePutItemResponseTypeDef",
+    "TableQueryExclusiveStartKeyTypeDef",
+    "TableQueryExpressionAttributeValuesTypeDef",
+    "TableQueryKeyConditionsAttributeValueListTypeDef",
+    "TableQueryKeyConditionsTypeDef",
+    "TableQueryQueryFilterAttributeValueListTypeDef",
+    "TableQueryQueryFilterTypeDef",
+    "TableQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "TableQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "TableQueryResponseConsumedCapacityTableTypeDef",
+    "TableQueryResponseConsumedCapacityTypeDef",
+    "TableQueryResponseItemsTypeDef",
+    "TableQueryResponseLastEvaluatedKeyTypeDef",
+    "TableQueryResponseTypeDef",
+    "TableScanExclusiveStartKeyTypeDef",
+    "TableScanExpressionAttributeValuesTypeDef",
+    "TableScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "TableScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "TableScanResponseConsumedCapacityTableTypeDef",
+    "TableScanResponseConsumedCapacityTypeDef",
+    "TableScanResponseItemsTypeDef",
+    "TableScanResponseLastEvaluatedKeyTypeDef",
+    "TableScanResponseTypeDef",
+    "TableScanScanFilterAttributeValueListTypeDef",
+    "TableScanScanFilterTypeDef",
+    "TableUpdateAttributeDefinitionsTypeDef",
+    "TableUpdateGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef",
+    "TableUpdateGlobalSecondaryIndexUpdatesCreateProjectionTypeDef",
+    "TableUpdateGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef",
+    "TableUpdateGlobalSecondaryIndexUpdatesCreateTypeDef",
+    "TableUpdateGlobalSecondaryIndexUpdatesDeleteTypeDef",
+    "TableUpdateGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef",
+    "TableUpdateGlobalSecondaryIndexUpdatesUpdateTypeDef",
+    "TableUpdateGlobalSecondaryIndexUpdatesTypeDef",
+    "TableUpdateItemAttributeUpdatesValueTypeDef",
+    "TableUpdateItemAttributeUpdatesTypeDef",
+    "TableUpdateItemExpectedAttributeValueListTypeDef",
+    "TableUpdateItemExpectedValueTypeDef",
+    "TableUpdateItemExpectedTypeDef",
+    "TableUpdateItemExpressionAttributeValuesTypeDef",
+    "TableUpdateItemKeyTypeDef",
+    "TableUpdateItemResponseAttributesTypeDef",
+    "TableUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    "TableUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    "TableUpdateItemResponseConsumedCapacityTableTypeDef",
+    "TableUpdateItemResponseConsumedCapacityTypeDef",
+    "TableUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    "TableUpdateItemResponseItemCollectionMetricsTypeDef",
+    "TableUpdateItemResponseTypeDef",
+    "TableUpdateProvisionedThroughputTypeDef",
+    "TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef",
+    "TableUpdateReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef",
+    "TableUpdateReplicaUpdatesCreateTypeDef",
+    "TableUpdateReplicaUpdatesDeleteTypeDef",
+    "TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    "TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef",
+    "TableUpdateReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef",
+    "TableUpdateReplicaUpdatesUpdateTypeDef",
+    "TableUpdateReplicaUpdatesTypeDef",
+    "TableUpdateSSESpecificationTypeDef",
+    "TableUpdateStreamSpecificationTypeDef",
+)
+
+
+_ClientBatchGetItemRequestItemsKeysTypeDef = TypedDict(
+    "_ClientBatchGetItemRequestItemsKeysTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientBatchGetItemRequestItemsKeysTypeDef(_ClientBatchGetItemRequestItemsKeysTypeDef):
+    pass
+
+
+_ClientBatchGetItemRequestItemsTypeDef = TypedDict(
+    "_ClientBatchGetItemRequestItemsTypeDef",
+    {
+        "Keys": List[Dict[str, ClientBatchGetItemRequestItemsKeysTypeDef]],
+        "AttributesToGet": List[str],
+        "ConsistentRead": bool,
+        "ProjectionExpression": str,
+        "ExpressionAttributeNames": Dict[str, str],
+    },
+    total=False,
+)
+
+
+class ClientBatchGetItemRequestItemsTypeDef(_ClientBatchGetItemRequestItemsTypeDef):
+    pass
+
+
+_ClientBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientBatchGetItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientBatchGetItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientBatchGetItemResponseConsumedCapacityTableTypeDef(
+    _ClientBatchGetItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientBatchGetItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientBatchGetItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientBatchGetItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientBatchGetItemResponseConsumedCapacityTypeDef(
+    _ClientBatchGetItemResponseConsumedCapacityTypeDef
+):
+    pass
+
+
+_ClientBatchGetItemResponseResponsesTypeDef = TypedDict(
+    "_ClientBatchGetItemResponseResponsesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientBatchGetItemResponseResponsesTypeDef(_ClientBatchGetItemResponseResponsesTypeDef):
+    pass
+
+
+_ClientBatchGetItemResponseUnprocessedKeysKeysTypeDef = TypedDict(
+    "_ClientBatchGetItemResponseUnprocessedKeysKeysTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientBatchGetItemResponseUnprocessedKeysKeysTypeDef(
+    _ClientBatchGetItemResponseUnprocessedKeysKeysTypeDef
+):
+    pass
+
+
+_ClientBatchGetItemResponseUnprocessedKeysTypeDef = TypedDict(
+    "_ClientBatchGetItemResponseUnprocessedKeysTypeDef",
+    {
+        "Keys": List[Dict[str, ClientBatchGetItemResponseUnprocessedKeysKeysTypeDef]],
+        "AttributesToGet": List[str],
+        "ConsistentRead": bool,
+        "ProjectionExpression": str,
+        "ExpressionAttributeNames": Dict[str, str],
+    },
+    total=False,
+)
+
+
+class ClientBatchGetItemResponseUnprocessedKeysTypeDef(
+    _ClientBatchGetItemResponseUnprocessedKeysTypeDef
+):
+    pass
+
+
+_ClientBatchGetItemResponseTypeDef = TypedDict(
+    "_ClientBatchGetItemResponseTypeDef",
+    {
+        "Responses": Dict[str, List[Dict[str, ClientBatchGetItemResponseResponsesTypeDef]]],
+        "UnprocessedKeys": Dict[str, ClientBatchGetItemResponseUnprocessedKeysTypeDef],
+        "ConsumedCapacity": List[ClientBatchGetItemResponseConsumedCapacityTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientBatchGetItemResponseTypeDef(_ClientBatchGetItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``BatchGetItem`` operation.
+      - **Responses** *(dict) --*
+
+        A map of table name to a list of items. Each object in ``Responses`` consists of a table
+        name, along with a map of attribute data consisting of the data type and attribute value.
+        - *(string) --*
+
+          - *(list) --*
+
+            - *(dict) --*
+
+              - *(string) --*
+
+                - *(dict) --*
+
+                  Represents the data for an attribute.
+                  Each attribute value is described as a name-value pair. The name is the data type,
+                  and the value is the data itself.
+                  For more information, see `Data Types
+                  <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+                  in the *Amazon DynamoDB Developer Guide* .
+                  - **S** *(string) --*
+
+                    An attribute of type String. For example:
+
+                      ``"S": "Hello"``
+    """
+
+
+_ClientBatchWriteItemRequestItemsDeleteRequestKeyTypeDef = TypedDict(
+    "_ClientBatchWriteItemRequestItemsDeleteRequestKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemRequestItemsDeleteRequestKeyTypeDef(
+    _ClientBatchWriteItemRequestItemsDeleteRequestKeyTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemRequestItemsDeleteRequestTypeDef = TypedDict(
+    "_ClientBatchWriteItemRequestItemsDeleteRequestTypeDef",
+    {"Key": Dict[str, ClientBatchWriteItemRequestItemsDeleteRequestKeyTypeDef]},
+    total=False,
+)
+
+
+class ClientBatchWriteItemRequestItemsDeleteRequestTypeDef(
+    _ClientBatchWriteItemRequestItemsDeleteRequestTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemRequestItemsPutRequestItemTypeDef = TypedDict(
+    "_ClientBatchWriteItemRequestItemsPutRequestItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemRequestItemsPutRequestItemTypeDef(
+    _ClientBatchWriteItemRequestItemsPutRequestItemTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemRequestItemsPutRequestTypeDef = TypedDict(
+    "_ClientBatchWriteItemRequestItemsPutRequestTypeDef",
+    {"Item": Dict[str, ClientBatchWriteItemRequestItemsPutRequestItemTypeDef]},
+    total=False,
+)
+
+
+class ClientBatchWriteItemRequestItemsPutRequestTypeDef(
+    _ClientBatchWriteItemRequestItemsPutRequestTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemRequestItemsTypeDef = TypedDict(
+    "_ClientBatchWriteItemRequestItemsTypeDef",
+    {
+        "PutRequest": ClientBatchWriteItemRequestItemsPutRequestTypeDef,
+        "DeleteRequest": ClientBatchWriteItemRequestItemsDeleteRequestTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemRequestItemsTypeDef(_ClientBatchWriteItemRequestItemsTypeDef):
+    pass
+
+
+_ClientBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseConsumedCapacityTableTypeDef(
+    _ClientBatchWriteItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientBatchWriteItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseConsumedCapacityTypeDef(
+    _ClientBatchWriteItemResponseConsumedCapacityTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef(
+    _ClientBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseItemCollectionMetricsTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseItemCollectionMetricsTypeDef",
+    {
+        "ItemCollectionKey": Dict[
+            str, ClientBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+        ],
+        "SizeEstimateRangeGB": List[float],
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseItemCollectionMetricsTypeDef(
+    _ClientBatchWriteItemResponseItemCollectionMetricsTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef(
+    _ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef",
+    {"Key": Dict[str, ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef]},
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef(
+    _ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef(
+    _ClientBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef",
+    {"Item": Dict[str, ClientBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef]},
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef(
+    _ClientBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseUnprocessedItemsTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseUnprocessedItemsTypeDef",
+    {
+        "PutRequest": ClientBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef,
+        "DeleteRequest": ClientBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseUnprocessedItemsTypeDef(
+    _ClientBatchWriteItemResponseUnprocessedItemsTypeDef
+):
+    pass
+
+
+_ClientBatchWriteItemResponseTypeDef = TypedDict(
+    "_ClientBatchWriteItemResponseTypeDef",
+    {
+        "UnprocessedItems": Dict[str, List[ClientBatchWriteItemResponseUnprocessedItemsTypeDef]],
+        "ItemCollectionMetrics": Dict[
+            str, List[ClientBatchWriteItemResponseItemCollectionMetricsTypeDef]
+        ],
+        "ConsumedCapacity": List[ClientBatchWriteItemResponseConsumedCapacityTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientBatchWriteItemResponseTypeDef(_ClientBatchWriteItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``BatchWriteItem`` operation.
+      - **UnprocessedItems** *(dict) --*
+
+        A map of tables and requests against those tables that were not processed. The
+        ``UnprocessedItems`` value is in the same form as ``RequestItems`` , so you can provide this
+        value directly to a subsequent ``BatchGetItem`` operation. For more information, see
+        ``RequestItems`` in the Request Parameters section.
+        Each ``UnprocessedItems`` entry consists of a table name and, for that table, a list of
+        operations to perform (``DeleteRequest`` or ``PutRequest`` ).
+        * ``DeleteRequest`` - Perform a ``DeleteItem`` operation on the specified item. The item to
+        be deleted is identified by a ``Key`` subelement:
+
+          * ``Key`` - A map of primary key attribute values that uniquely identify the item. Each
+          entry in this map consists of an attribute name and an attribute value.
+    """
+
+
+_ClientCreateBackupResponseBackupDetailsTypeDef = TypedDict(
+    "_ClientCreateBackupResponseBackupDetailsTypeDef",
+    {
+        "BackupArn": str,
+        "BackupName": str,
+        "BackupSizeBytes": int,
+        "BackupStatus": Literal["CREATING", "DELETED", "AVAILABLE"],
+        "BackupType": Literal["USER", "SYSTEM", "AWS_BACKUP"],
+        "BackupCreationDateTime": datetime,
+        "BackupExpiryDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientCreateBackupResponseBackupDetailsTypeDef(
+    _ClientCreateBackupResponseBackupDetailsTypeDef
+):
+    """
+    - **BackupDetails** *(dict) --*
+
+      Contains the details of the backup created for the table.
+      - **BackupArn** *(string) --*
+
+        ARN associated with the backup.
+    """
+
+
+_ClientCreateBackupResponseTypeDef = TypedDict(
+    "_ClientCreateBackupResponseTypeDef",
+    {"BackupDetails": ClientCreateBackupResponseBackupDetailsTypeDef},
+    total=False,
+)
+
+
+class ClientCreateBackupResponseTypeDef(_ClientCreateBackupResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **BackupDetails** *(dict) --*
+
+        Contains the details of the backup created for the table.
+        - **BackupArn** *(string) --*
+
+          ARN associated with the backup.
+    """
+
+
+_ClientCreateGlobalTableReplicationGroupTypeDef = TypedDict(
+    "_ClientCreateGlobalTableReplicationGroupTypeDef", {"RegionName": str}, total=False
+)
+
+
+class ClientCreateGlobalTableReplicationGroupTypeDef(
+    _ClientCreateGlobalTableReplicationGroupTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents the properties of a replica.
+      - **RegionName** *(string) --*
+
+        The Region where the replica needs to be created.
+    """
+
+
+_ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef(
+    _ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef(
+    _ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef = TypedDict(
+    "_ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef(
+    _ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef
+):
+    """
+    - *(dict) --*
+
+      Contains the details of the replica.
+      - **RegionName** *(string) --*
+
+        The name of the Region.
+    """
+
+
+_ClientCreateGlobalTableResponseGlobalTableDescriptionTypeDef = TypedDict(
+    "_ClientCreateGlobalTableResponseGlobalTableDescriptionTypeDef",
+    {
+        "ReplicationGroup": List[
+            ClientCreateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef
+        ],
+        "GlobalTableArn": str,
+        "CreationDateTime": datetime,
+        "GlobalTableStatus": Literal["CREATING", "ACTIVE", "DELETING", "UPDATING"],
+        "GlobalTableName": str,
+    },
+    total=False,
+)
+
+
+class ClientCreateGlobalTableResponseGlobalTableDescriptionTypeDef(
+    _ClientCreateGlobalTableResponseGlobalTableDescriptionTypeDef
+):
+    """
+    - **GlobalTableDescription** *(dict) --*
+
+      Contains the details of the global table.
+      - **ReplicationGroup** *(list) --*
+
+        The Regions where the global table has replicas.
+        - *(dict) --*
+
+          Contains the details of the replica.
+          - **RegionName** *(string) --*
+
+            The name of the Region.
+    """
+
+
+_ClientCreateGlobalTableResponseTypeDef = TypedDict(
+    "_ClientCreateGlobalTableResponseTypeDef",
+    {"GlobalTableDescription": ClientCreateGlobalTableResponseGlobalTableDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientCreateGlobalTableResponseTypeDef(_ClientCreateGlobalTableResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **GlobalTableDescription** *(dict) --*
+
+        Contains the details of the global table.
+        - **ReplicationGroup** *(list) --*
+
+          The Regions where the global table has replicas.
+          - *(dict) --*
+
+            Contains the details of the replica.
+            - **RegionName** *(string) --*
+
+              The name of the Region.
+    """
+
+
+_RequiredClientCreateTableAttributeDefinitionsTypeDef = TypedDict(
+    "_RequiredClientCreateTableAttributeDefinitionsTypeDef", {"AttributeName": str}
+)
+_OptionalClientCreateTableAttributeDefinitionsTypeDef = TypedDict(
+    "_OptionalClientCreateTableAttributeDefinitionsTypeDef",
+    {"AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class ClientCreateTableAttributeDefinitionsTypeDef(
+    _RequiredClientCreateTableAttributeDefinitionsTypeDef,
+    _OptionalClientCreateTableAttributeDefinitionsTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --***[REQUIRED]**
+
+        A name for the attribute.
+    """
+
+
+_ClientCreateTableGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientCreateTableGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientCreateTableGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ClientCreateTableGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientCreateTableGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientCreateTableGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientCreateTableGlobalSecondaryIndexesProjectionTypeDef(
+    _ClientCreateTableGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ClientCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ClientCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientCreateTableGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientCreateTableGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[ClientCreateTableGlobalSecondaryIndexesKeySchemaTypeDef],
+        "Projection": ClientCreateTableGlobalSecondaryIndexesProjectionTypeDef,
+        "ProvisionedThroughput": ClientCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableGlobalSecondaryIndexesTypeDef(
+    _ClientCreateTableGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientCreateTableKeySchemaTypeDef = TypedDict(
+    "_ClientCreateTableKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientCreateTableKeySchemaTypeDef(_ClientCreateTableKeySchemaTypeDef):
+    pass
+
+
+_ClientCreateTableLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientCreateTableLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientCreateTableLocalSecondaryIndexesKeySchemaTypeDef(
+    _ClientCreateTableLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientCreateTableLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientCreateTableLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientCreateTableLocalSecondaryIndexesProjectionTypeDef(
+    _ClientCreateTableLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientCreateTableLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientCreateTableLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[ClientCreateTableLocalSecondaryIndexesKeySchemaTypeDef],
+        "Projection": ClientCreateTableLocalSecondaryIndexesProjectionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableLocalSecondaryIndexesTypeDef(_ClientCreateTableLocalSecondaryIndexesTypeDef):
+    pass
+
+
+_RequiredClientCreateTableProvisionedThroughputTypeDef = TypedDict(
+    "_RequiredClientCreateTableProvisionedThroughputTypeDef", {"ReadCapacityUnits": int}
+)
+_OptionalClientCreateTableProvisionedThroughputTypeDef = TypedDict(
+    "_OptionalClientCreateTableProvisionedThroughputTypeDef",
+    {"WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientCreateTableProvisionedThroughputTypeDef(
+    _RequiredClientCreateTableProvisionedThroughputTypeDef,
+    _OptionalClientCreateTableProvisionedThroughputTypeDef,
+):
+    """
+    Represents the provisioned throughput settings for a specified table or index. The settings can
+    be modified using the ``UpdateTable`` operation.
+    If you set BillingMode as ``PROVISIONED`` , you must specify this property. If you set
+    BillingMode as ``PAY_PER_REQUEST`` , you cannot specify this property.
+    For current minimum and maximum provisioned throughput values, see `Limits
+    <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon
+    DynamoDB Developer Guide* .
+    - **ReadCapacityUnits** *(integer) --***[REQUIRED]**
+
+      The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
+      ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__
+      in the *Amazon DynamoDB Developer Guide* .
+      If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+    """
+
+
+_ClientCreateTableResponseTableDescriptionArchivalSummaryTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionArchivalSummaryTypeDef",
+    {"ArchivalDateTime": datetime, "ArchivalReason": str, "ArchivalBackupArn": str},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionArchivalSummaryTypeDef(
+    _ClientCreateTableResponseTableDescriptionArchivalSummaryTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionAttributeDefinitionsTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionAttributeDefinitionsTypeDef",
+    {"AttributeName": str, "AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionAttributeDefinitionsTypeDef(
+    _ClientCreateTableResponseTableDescriptionAttributeDefinitionsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --*
+
+        A name for the attribute.
+    """
+
+
+_ClientCreateTableResponseTableDescriptionBillingModeSummaryTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionBillingModeSummaryTypeDef",
+    {
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+        "LastUpdateToPayPerRequestDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionBillingModeSummaryTypeDef(
+    _ClientCreateTableResponseTableDescriptionBillingModeSummaryTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef(
+    _ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "Backfilling": bool,
+        "ProvisionedThroughput": ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef(
+    _ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionKeySchemaTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionKeySchemaTypeDef(
+    _ClientCreateTableResponseTableDescriptionKeySchemaTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef(
+    _ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef(
+    _ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef(
+    _ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionProvisionedThroughputTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionProvisionedThroughputTypeDef(
+    _ClientCreateTableResponseTableDescriptionProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef(
+    _ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef(
+    _ClientCreateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionReplicasTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionReplicasTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientCreateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientCreateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionReplicasTypeDef(
+    _ClientCreateTableResponseTableDescriptionReplicasTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionRestoreSummaryTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionRestoreSummaryTypeDef",
+    {
+        "SourceBackupArn": str,
+        "SourceTableArn": str,
+        "RestoreDateTime": datetime,
+        "RestoreInProgress": bool,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionRestoreSummaryTypeDef(
+    _ClientCreateTableResponseTableDescriptionRestoreSummaryTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionSSEDescriptionTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionSSEDescriptionTypeDef",
+    {
+        "Status": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"],
+        "SSEType": Literal["AES256", "KMS"],
+        "KMSMasterKeyArn": str,
+        "InaccessibleEncryptionDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionSSEDescriptionTypeDef(
+    _ClientCreateTableResponseTableDescriptionSSEDescriptionTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionStreamSpecificationTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionStreamSpecificationTypeDef(
+    _ClientCreateTableResponseTableDescriptionStreamSpecificationTypeDef
+):
+    pass
+
+
+_ClientCreateTableResponseTableDescriptionTypeDef = TypedDict(
+    "_ClientCreateTableResponseTableDescriptionTypeDef",
+    {
+        "AttributeDefinitions": List[
+            ClientCreateTableResponseTableDescriptionAttributeDefinitionsTypeDef
+        ],
+        "TableName": str,
+        "KeySchema": List[ClientCreateTableResponseTableDescriptionKeySchemaTypeDef],
+        "TableStatus": Literal[
+            "CREATING",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "ARCHIVING",
+            "ARCHIVED",
+        ],
+        "CreationDateTime": datetime,
+        "ProvisionedThroughput": ClientCreateTableResponseTableDescriptionProvisionedThroughputTypeDef,
+        "TableSizeBytes": int,
+        "ItemCount": int,
+        "TableArn": str,
+        "TableId": str,
+        "BillingModeSummary": ClientCreateTableResponseTableDescriptionBillingModeSummaryTypeDef,
+        "LocalSecondaryIndexes": List[
+            ClientCreateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": List[
+            ClientCreateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+        ],
+        "StreamSpecification": ClientCreateTableResponseTableDescriptionStreamSpecificationTypeDef,
+        "LatestStreamLabel": str,
+        "LatestStreamArn": str,
+        "GlobalTableVersion": str,
+        "Replicas": List[ClientCreateTableResponseTableDescriptionReplicasTypeDef],
+        "RestoreSummary": ClientCreateTableResponseTableDescriptionRestoreSummaryTypeDef,
+        "SSEDescription": ClientCreateTableResponseTableDescriptionSSEDescriptionTypeDef,
+        "ArchivalSummary": ClientCreateTableResponseTableDescriptionArchivalSummaryTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientCreateTableResponseTableDescriptionTypeDef(
+    _ClientCreateTableResponseTableDescriptionTypeDef
+):
+    """
+    - **TableDescription** *(dict) --*
+
+      Represents the properties of the table.
+      - **AttributeDefinitions** *(list) --*
+
+        An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+        in the table and index key schema.
+        Each ``AttributeDefinition`` object in this array is composed of:
+        * ``AttributeName`` - The name of the attribute.
+        * ``AttributeType`` - The data type for the attribute.
+        - *(dict) --*
+
+          Represents an attribute for describing the key schema for the table and indexes.
+          - **AttributeName** *(string) --*
+
+            A name for the attribute.
+    """
+
+
+_ClientCreateTableResponseTypeDef = TypedDict(
+    "_ClientCreateTableResponseTypeDef",
+    {"TableDescription": ClientCreateTableResponseTableDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientCreateTableResponseTypeDef(_ClientCreateTableResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``CreateTable`` operation.
+      - **TableDescription** *(dict) --*
+
+        Represents the properties of the table.
+        - **AttributeDefinitions** *(list) --*
+
+          An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+          in the table and index key schema.
+          Each ``AttributeDefinition`` object in this array is composed of:
+          * ``AttributeName`` - The name of the attribute.
+          * ``AttributeType`` - The data type for the attribute.
+          - *(dict) --*
+
+            Represents an attribute for describing the key schema for the table and indexes.
+            - **AttributeName** *(string) --*
+
+              A name for the attribute.
+    """
+
+
+_ClientCreateTableSSESpecificationTypeDef = TypedDict(
+    "_ClientCreateTableSSESpecificationTypeDef",
+    {"Enabled": bool, "SSEType": Literal["AES256", "KMS"], "KMSMasterKeyId": str},
+    total=False,
+)
+
+
+class ClientCreateTableSSESpecificationTypeDef(_ClientCreateTableSSESpecificationTypeDef):
+    """
+    Represents the settings used to enable server-side encryption.
+    - **Enabled** *(boolean) --*
+
+      Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK.
+      If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed CMK is
+      used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is
+      set to AWS owned CMK.
+    """
+
+
+_ClientCreateTableStreamSpecificationTypeDef = TypedDict(
+    "_ClientCreateTableStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientCreateTableStreamSpecificationTypeDef(_ClientCreateTableStreamSpecificationTypeDef):
+    """
+    The settings for DynamoDB Streams on the table. These settings consist of:
+    * ``StreamEnabled`` - Indicates whether DynamoDB Streams is to be enabled (true) or disabled
+    (false).
+    * ``StreamViewType`` - When an item in the table is modified, ``StreamViewType`` determines what
+    information is written to the table's stream. Valid values for ``StreamViewType`` are:
+
+      * ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+      * ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the
+      stream.
+      * ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the
+      stream.
+      * ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the
+      stream.
+    """
+
+
+_RequiredClientCreateTableTagsTypeDef = TypedDict(
+    "_RequiredClientCreateTableTagsTypeDef", {"Key": str}
+)
+_OptionalClientCreateTableTagsTypeDef = TypedDict(
+    "_OptionalClientCreateTableTagsTypeDef", {"Value": str}, total=False
+)
+
+
+class ClientCreateTableTagsTypeDef(
+    _RequiredClientCreateTableTagsTypeDef, _OptionalClientCreateTableTagsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB
+      table.
+      AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the
+      user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50.
+      User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot
+      backdate the application of a tag.
+      For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the
+      *Amazon DynamoDB Developer Guide* .
+      - **Key** *(string) --***[REQUIRED]**
+
+        The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one
+        tag with the same key. If you try to add an existing tag (same key), the existing tag value
+        will be updated to the new value.
+    """
+
+
+_ClientDeleteBackupResponseBackupDescriptionBackupDetailsTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionBackupDetailsTypeDef",
+    {
+        "BackupArn": str,
+        "BackupName": str,
+        "BackupSizeBytes": int,
+        "BackupStatus": Literal["CREATING", "DELETED", "AVAILABLE"],
+        "BackupType": Literal["USER", "SYSTEM", "AWS_BACKUP"],
+        "BackupCreationDateTime": datetime,
+        "BackupExpiryDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionBackupDetailsTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionBackupDetailsTypeDef
+):
+    """
+    - **BackupDetails** *(dict) --*
+
+      Contains the details of the backup created for the table.
+      - **BackupArn** *(string) --*
+
+        ARN associated with the backup.
+    """
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsTypeDef",
+    {
+        "TableName": str,
+        "TableId": str,
+        "TableArn": str,
+        "TableSizeBytes": int,
+        "KeySchema": List[
+            ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef
+        ],
+        "TableCreationDateTime": datetime,
+        "ProvisionedThroughput": ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef,
+        "ItemCount": int,
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+    },
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef,
+        "ProvisionedThroughput": ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef",
+    {
+        "Status": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"],
+        "SSEType": Literal["AES256", "KMS"],
+        "KMSMasterKeyArn": str,
+        "InaccessibleEncryptionDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef",
+    {
+        "TimeToLiveStatus": Literal["ENABLING", "DISABLING", "ENABLED", "DISABLED"],
+        "AttributeName": str,
+    },
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef",
+    {
+        "LocalSecondaryIndexes": List[
+            ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": List[
+            ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef
+        ],
+        "StreamDescription": ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef,
+        "TimeToLiveDescription": ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef,
+        "SSEDescription": ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef
+):
+    pass
+
+
+_ClientDeleteBackupResponseBackupDescriptionTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseBackupDescriptionTypeDef",
+    {
+        "BackupDetails": ClientDeleteBackupResponseBackupDescriptionBackupDetailsTypeDef,
+        "SourceTableDetails": ClientDeleteBackupResponseBackupDescriptionSourceTableDetailsTypeDef,
+        "SourceTableFeatureDetails": ClientDeleteBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseBackupDescriptionTypeDef(
+    _ClientDeleteBackupResponseBackupDescriptionTypeDef
+):
+    """
+    - **BackupDescription** *(dict) --*
+
+      Contains the description of the backup created for the table.
+      - **BackupDetails** *(dict) --*
+
+        Contains the details of the backup created for the table.
+        - **BackupArn** *(string) --*
+
+          ARN associated with the backup.
+    """
+
+
+_ClientDeleteBackupResponseTypeDef = TypedDict(
+    "_ClientDeleteBackupResponseTypeDef",
+    {"BackupDescription": ClientDeleteBackupResponseBackupDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientDeleteBackupResponseTypeDef(_ClientDeleteBackupResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **BackupDescription** *(dict) --*
+
+        Contains the description of the backup created for the table.
+        - **BackupDetails** *(dict) --*
+
+          Contains the details of the backup created for the table.
+          - **BackupArn** *(string) --*
+
+            ARN associated with the backup.
+    """
+
+
+_ClientDeleteItemExpectedAttributeValueListTypeDef = TypedDict(
+    "_ClientDeleteItemExpectedAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemExpectedAttributeValueListTypeDef(
+    _ClientDeleteItemExpectedAttributeValueListTypeDef
+):
+    pass
+
+
+_ClientDeleteItemExpectedValueTypeDef = TypedDict(
+    "_ClientDeleteItemExpectedValueTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemExpectedValueTypeDef(_ClientDeleteItemExpectedValueTypeDef):
+    pass
+
+
+_ClientDeleteItemExpectedTypeDef = TypedDict(
+    "_ClientDeleteItemExpectedTypeDef",
+    {
+        "Value": ClientDeleteItemExpectedValueTypeDef,
+        "Exists": bool,
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+        "AttributeValueList": List[ClientDeleteItemExpectedAttributeValueListTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemExpectedTypeDef(_ClientDeleteItemExpectedTypeDef):
+    pass
+
+
+_ClientDeleteItemExpressionAttributeValuesTypeDef = TypedDict(
+    "_ClientDeleteItemExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemExpressionAttributeValuesTypeDef(
+    _ClientDeleteItemExpressionAttributeValuesTypeDef
+):
+    pass
+
+
+_ClientDeleteItemKeyTypeDef = TypedDict(
+    "_ClientDeleteItemKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemKeyTypeDef(_ClientDeleteItemKeyTypeDef):
+    pass
+
+
+_ClientDeleteItemResponseAttributesTypeDef = TypedDict(
+    "_ClientDeleteItemResponseAttributesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemResponseAttributesTypeDef(_ClientDeleteItemResponseAttributesTypeDef):
+    pass
+
+
+_ClientDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDeleteItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientDeleteItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientDeleteItemResponseConsumedCapacityTableTypeDef(
+    _ClientDeleteItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientDeleteItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientDeleteItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientDeleteItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemResponseConsumedCapacityTypeDef(
+    _ClientDeleteItemResponseConsumedCapacityTypeDef
+):
+    pass
+
+
+_ClientDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef = TypedDict(
+    "_ClientDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef(
+    _ClientDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+):
+    pass
+
+
+_ClientDeleteItemResponseItemCollectionMetricsTypeDef = TypedDict(
+    "_ClientDeleteItemResponseItemCollectionMetricsTypeDef",
+    {
+        "ItemCollectionKey": Dict[
+            str, ClientDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+        ],
+        "SizeEstimateRangeGB": List[float],
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemResponseItemCollectionMetricsTypeDef(
+    _ClientDeleteItemResponseItemCollectionMetricsTypeDef
+):
+    pass
+
+
+_ClientDeleteItemResponseTypeDef = TypedDict(
+    "_ClientDeleteItemResponseTypeDef",
+    {
+        "Attributes": Dict[str, ClientDeleteItemResponseAttributesTypeDef],
+        "ConsumedCapacity": ClientDeleteItemResponseConsumedCapacityTypeDef,
+        "ItemCollectionMetrics": ClientDeleteItemResponseItemCollectionMetricsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDeleteItemResponseTypeDef(_ClientDeleteItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``DeleteItem`` operation.
+      - **Attributes** *(dict) --*
+
+        A map of attribute names to ``AttributeValue`` objects, representing the item as it appeared
+        before the ``DeleteItem`` operation. This map appears in the response only if
+        ``ReturnValues`` was specified as ``ALL_OLD`` in the request.
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_ClientDeleteTableResponseTableDescriptionArchivalSummaryTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionArchivalSummaryTypeDef",
+    {"ArchivalDateTime": datetime, "ArchivalReason": str, "ArchivalBackupArn": str},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionArchivalSummaryTypeDef(
+    _ClientDeleteTableResponseTableDescriptionArchivalSummaryTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionAttributeDefinitionsTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionAttributeDefinitionsTypeDef",
+    {"AttributeName": str, "AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionAttributeDefinitionsTypeDef(
+    _ClientDeleteTableResponseTableDescriptionAttributeDefinitionsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --*
+
+        A name for the attribute.
+    """
+
+
+_ClientDeleteTableResponseTableDescriptionBillingModeSummaryTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionBillingModeSummaryTypeDef",
+    {
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+        "LastUpdateToPayPerRequestDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionBillingModeSummaryTypeDef(
+    _ClientDeleteTableResponseTableDescriptionBillingModeSummaryTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef(
+    _ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "Backfilling": bool,
+        "ProvisionedThroughput": ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef(
+    _ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionKeySchemaTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionKeySchemaTypeDef(
+    _ClientDeleteTableResponseTableDescriptionKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef(
+    _ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef(
+    _ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesTypeDef(
+    _ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionProvisionedThroughputTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionProvisionedThroughputTypeDef(
+    _ClientDeleteTableResponseTableDescriptionProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef(
+    _ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef(
+    _ClientDeleteTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionReplicasTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionReplicasTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientDeleteTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientDeleteTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionReplicasTypeDef(
+    _ClientDeleteTableResponseTableDescriptionReplicasTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionRestoreSummaryTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionRestoreSummaryTypeDef",
+    {
+        "SourceBackupArn": str,
+        "SourceTableArn": str,
+        "RestoreDateTime": datetime,
+        "RestoreInProgress": bool,
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionRestoreSummaryTypeDef(
+    _ClientDeleteTableResponseTableDescriptionRestoreSummaryTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionSSEDescriptionTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionSSEDescriptionTypeDef",
+    {
+        "Status": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"],
+        "SSEType": Literal["AES256", "KMS"],
+        "KMSMasterKeyArn": str,
+        "InaccessibleEncryptionDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionSSEDescriptionTypeDef(
+    _ClientDeleteTableResponseTableDescriptionSSEDescriptionTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionStreamSpecificationTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionStreamSpecificationTypeDef(
+    _ClientDeleteTableResponseTableDescriptionStreamSpecificationTypeDef
+):
+    pass
+
+
+_ClientDeleteTableResponseTableDescriptionTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTableDescriptionTypeDef",
+    {
+        "AttributeDefinitions": List[
+            ClientDeleteTableResponseTableDescriptionAttributeDefinitionsTypeDef
+        ],
+        "TableName": str,
+        "KeySchema": List[ClientDeleteTableResponseTableDescriptionKeySchemaTypeDef],
+        "TableStatus": Literal[
+            "CREATING",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "ARCHIVING",
+            "ARCHIVED",
+        ],
+        "CreationDateTime": datetime,
+        "ProvisionedThroughput": ClientDeleteTableResponseTableDescriptionProvisionedThroughputTypeDef,
+        "TableSizeBytes": int,
+        "ItemCount": int,
+        "TableArn": str,
+        "TableId": str,
+        "BillingModeSummary": ClientDeleteTableResponseTableDescriptionBillingModeSummaryTypeDef,
+        "LocalSecondaryIndexes": List[
+            ClientDeleteTableResponseTableDescriptionLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": List[
+            ClientDeleteTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+        ],
+        "StreamSpecification": ClientDeleteTableResponseTableDescriptionStreamSpecificationTypeDef,
+        "LatestStreamLabel": str,
+        "LatestStreamArn": str,
+        "GlobalTableVersion": str,
+        "Replicas": List[ClientDeleteTableResponseTableDescriptionReplicasTypeDef],
+        "RestoreSummary": ClientDeleteTableResponseTableDescriptionRestoreSummaryTypeDef,
+        "SSEDescription": ClientDeleteTableResponseTableDescriptionSSEDescriptionTypeDef,
+        "ArchivalSummary": ClientDeleteTableResponseTableDescriptionArchivalSummaryTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTableDescriptionTypeDef(
+    _ClientDeleteTableResponseTableDescriptionTypeDef
+):
+    """
+    - **TableDescription** *(dict) --*
+
+      Represents the properties of a table.
+      - **AttributeDefinitions** *(list) --*
+
+        An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+        in the table and index key schema.
+        Each ``AttributeDefinition`` object in this array is composed of:
+        * ``AttributeName`` - The name of the attribute.
+        * ``AttributeType`` - The data type for the attribute.
+        - *(dict) --*
+
+          Represents an attribute for describing the key schema for the table and indexes.
+          - **AttributeName** *(string) --*
+
+            A name for the attribute.
+    """
+
+
+_ClientDeleteTableResponseTypeDef = TypedDict(
+    "_ClientDeleteTableResponseTypeDef",
+    {"TableDescription": ClientDeleteTableResponseTableDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientDeleteTableResponseTypeDef(_ClientDeleteTableResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``DeleteTable`` operation.
+      - **TableDescription** *(dict) --*
+
+        Represents the properties of a table.
+        - **AttributeDefinitions** *(list) --*
+
+          An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+          in the table and index key schema.
+          Each ``AttributeDefinition`` object in this array is composed of:
+          * ``AttributeName`` - The name of the attribute.
+          * ``AttributeType`` - The data type for the attribute.
+          - *(dict) --*
+
+            Represents an attribute for describing the key schema for the table and indexes.
+            - **AttributeName** *(string) --*
+
+              A name for the attribute.
+    """
+
+
+_ClientDescribeBackupResponseBackupDescriptionBackupDetailsTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionBackupDetailsTypeDef",
+    {
+        "BackupArn": str,
+        "BackupName": str,
+        "BackupSizeBytes": int,
+        "BackupStatus": Literal["CREATING", "DELETED", "AVAILABLE"],
+        "BackupType": Literal["USER", "SYSTEM", "AWS_BACKUP"],
+        "BackupCreationDateTime": datetime,
+        "BackupExpiryDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionBackupDetailsTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionBackupDetailsTypeDef
+):
+    """
+    - **BackupDetails** *(dict) --*
+
+      Contains the details of the backup created for the table.
+      - **BackupArn** *(string) --*
+
+        ARN associated with the backup.
+    """
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsTypeDef",
+    {
+        "TableName": str,
+        "TableId": str,
+        "TableArn": str,
+        "TableSizeBytes": int,
+        "KeySchema": List[
+            ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsKeySchemaTypeDef
+        ],
+        "TableCreationDateTime": datetime,
+        "ProvisionedThroughput": ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsProvisionedThroughputTypeDef,
+        "ItemCount": int,
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+    },
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProjectionTypeDef,
+        "ProvisionedThroughput": ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesProjectionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef",
+    {
+        "Status": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"],
+        "SSEType": Literal["AES256", "KMS"],
+        "KMSMasterKeyArn": str,
+        "InaccessibleEncryptionDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef",
+    {
+        "TimeToLiveStatus": Literal["ENABLING", "DISABLING", "ENABLED", "DISABLED"],
+        "AttributeName": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef",
+    {
+        "LocalSecondaryIndexes": List[
+            ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": List[
+            ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsGlobalSecondaryIndexesTypeDef
+        ],
+        "StreamDescription": ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsStreamDescriptionTypeDef,
+        "TimeToLiveDescription": ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTimeToLiveDescriptionTypeDef,
+        "SSEDescription": ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsSSEDescriptionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef
+):
+    pass
+
+
+_ClientDescribeBackupResponseBackupDescriptionTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseBackupDescriptionTypeDef",
+    {
+        "BackupDetails": ClientDescribeBackupResponseBackupDescriptionBackupDetailsTypeDef,
+        "SourceTableDetails": ClientDescribeBackupResponseBackupDescriptionSourceTableDetailsTypeDef,
+        "SourceTableFeatureDetails": ClientDescribeBackupResponseBackupDescriptionSourceTableFeatureDetailsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseBackupDescriptionTypeDef(
+    _ClientDescribeBackupResponseBackupDescriptionTypeDef
+):
+    """
+    - **BackupDescription** *(dict) --*
+
+      Contains the description of the backup created for the table.
+      - **BackupDetails** *(dict) --*
+
+        Contains the details of the backup created for the table.
+        - **BackupArn** *(string) --*
+
+          ARN associated with the backup.
+    """
+
+
+_ClientDescribeBackupResponseTypeDef = TypedDict(
+    "_ClientDescribeBackupResponseTypeDef",
+    {"BackupDescription": ClientDescribeBackupResponseBackupDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientDescribeBackupResponseTypeDef(_ClientDescribeBackupResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **BackupDescription** *(dict) --*
+
+        Contains the description of the backup created for the table.
+        - **BackupDetails** *(dict) --*
+
+          Contains the details of the backup created for the table.
+          - **BackupArn** *(string) --*
+
+            ARN associated with the backup.
+    """
+
+
+_ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef = TypedDict(
+    "_ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef",
+    {
+        "PointInTimeRecoveryStatus": Literal["ENABLED", "DISABLED"],
+        "EarliestRestorableDateTime": datetime,
+        "LatestRestorableDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef(
+    _ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionTypeDef = TypedDict(
+    "_ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionTypeDef",
+    {
+        "ContinuousBackupsStatus": Literal["ENABLED", "DISABLED"],
+        "PointInTimeRecoveryDescription": ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionTypeDef(
+    _ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionTypeDef
+):
+    """
+    - **ContinuousBackupsDescription** *(dict) --*
+
+      Represents the continuous backups and point in time recovery settings on the table.
+      - **ContinuousBackupsStatus** *(string) --*
+
+        ``ContinuousBackupsStatus`` can be one of the following states: ENABLED, DISABLED
+    """
+
+
+_ClientDescribeContinuousBackupsResponseTypeDef = TypedDict(
+    "_ClientDescribeContinuousBackupsResponseTypeDef",
+    {
+        "ContinuousBackupsDescription": ClientDescribeContinuousBackupsResponseContinuousBackupsDescriptionTypeDef
+    },
+    total=False,
+)
+
+
+class ClientDescribeContinuousBackupsResponseTypeDef(
+    _ClientDescribeContinuousBackupsResponseTypeDef
+):
+    """
+    - *(dict) --*
+
+      - **ContinuousBackupsDescription** *(dict) --*
+
+        Represents the continuous backups and point in time recovery settings on the table.
+        - **ContinuousBackupsStatus** *(string) --*
+
+          ``ContinuousBackupsStatus`` can be one of the following states: ENABLED, DISABLED
+    """
+
+
+_ClientDescribeContributorInsightsResponseFailureExceptionTypeDef = TypedDict(
+    "_ClientDescribeContributorInsightsResponseFailureExceptionTypeDef",
+    {"ExceptionName": str, "ExceptionDescription": str},
+    total=False,
+)
+
+
+class ClientDescribeContributorInsightsResponseFailureExceptionTypeDef(
+    _ClientDescribeContributorInsightsResponseFailureExceptionTypeDef
+):
+    pass
+
+
+_ClientDescribeContributorInsightsResponseTypeDef = TypedDict(
+    "_ClientDescribeContributorInsightsResponseTypeDef",
+    {
+        "TableName": str,
+        "IndexName": str,
+        "ContributorInsightsRuleList": List[str],
+        "ContributorInsightsStatus": Literal[
+            "ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"
+        ],
+        "LastUpdateDateTime": datetime,
+        "FailureException": ClientDescribeContributorInsightsResponseFailureExceptionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeContributorInsightsResponseTypeDef(
+    _ClientDescribeContributorInsightsResponseTypeDef
+):
+    """
+    - *(dict) --*
+
+      - **TableName** *(string) --*
+
+        The name of the table being described.
+    """
+
+
+_ClientDescribeEndpointsResponseEndpointsTypeDef = TypedDict(
+    "_ClientDescribeEndpointsResponseEndpointsTypeDef",
+    {"Address": str, "CachePeriodInMinutes": int},
+    total=False,
+)
+
+
+class ClientDescribeEndpointsResponseEndpointsTypeDef(
+    _ClientDescribeEndpointsResponseEndpointsTypeDef
+):
+    """
+    - *(dict) --*
+
+      An endpoint information details.
+      - **Address** *(string) --*
+
+        IP address of the endpoint.
+    """
+
+
+_ClientDescribeEndpointsResponseTypeDef = TypedDict(
+    "_ClientDescribeEndpointsResponseTypeDef",
+    {"Endpoints": List[ClientDescribeEndpointsResponseEndpointsTypeDef]},
+    total=False,
+)
+
+
+class ClientDescribeEndpointsResponseTypeDef(_ClientDescribeEndpointsResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **Endpoints** *(list) --*
+
+        List of endpoints.
+        - *(dict) --*
+
+          An endpoint information details.
+          - **Address** *(string) --*
+
+            IP address of the endpoint.
+    """
+
+
+_ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef(
+    _ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef(
+    _ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef(
+    _ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef
+):
+    """
+    - *(dict) --*
+
+      Contains the details of the replica.
+      - **RegionName** *(string) --*
+
+        The name of the Region.
+    """
+
+
+_ClientDescribeGlobalTableResponseGlobalTableDescriptionTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableResponseGlobalTableDescriptionTypeDef",
+    {
+        "ReplicationGroup": List[
+            ClientDescribeGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef
+        ],
+        "GlobalTableArn": str,
+        "CreationDateTime": datetime,
+        "GlobalTableStatus": Literal["CREATING", "ACTIVE", "DELETING", "UPDATING"],
+        "GlobalTableName": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableResponseGlobalTableDescriptionTypeDef(
+    _ClientDescribeGlobalTableResponseGlobalTableDescriptionTypeDef
+):
+    """
+    - **GlobalTableDescription** *(dict) --*
+
+      Contains the details of the global table.
+      - **ReplicationGroup** *(list) --*
+
+        The Regions where the global table has replicas.
+        - *(dict) --*
+
+          Contains the details of the replica.
+          - **RegionName** *(string) --*
+
+            The name of the Region.
+    """
+
+
+_ClientDescribeGlobalTableResponseTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableResponseTypeDef",
+    {"GlobalTableDescription": ClientDescribeGlobalTableResponseGlobalTableDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableResponseTypeDef(_ClientDescribeGlobalTableResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **GlobalTableDescription** *(dict) --*
+
+        Contains the details of the global table.
+        - **ReplicationGroup** *(list) --*
+
+          The Regions where the global table has replicas.
+          - *(dict) --*
+
+            Contains the details of the replica.
+            - **RegionName** *(string) --*
+
+              The name of the Region.
+    """
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef",
+    {
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+        "LastUpdateToPayPerRequestDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef",
+    {
+        "IndexName": str,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "ProvisionedReadCapacityUnits": int,
+        "ProvisionedReadCapacityAutoScalingSettings": ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef,
+        "ProvisionedWriteCapacityUnits": int,
+        "ProvisionedWriteCapacityAutoScalingSettings": ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseReplicaSettingsTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseReplicaSettingsTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaBillingModeSummary": ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef,
+        "ReplicaProvisionedReadCapacityUnits": int,
+        "ReplicaProvisionedReadCapacityAutoScalingSettings": ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef,
+        "ReplicaProvisionedWriteCapacityUnits": int,
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings": ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef,
+        "ReplicaGlobalSecondaryIndexSettings": List[
+            ClientDescribeGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseReplicaSettingsTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseReplicaSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeGlobalTableSettingsResponseTypeDef = TypedDict(
+    "_ClientDescribeGlobalTableSettingsResponseTypeDef",
+    {
+        "GlobalTableName": str,
+        "ReplicaSettings": List[ClientDescribeGlobalTableSettingsResponseReplicaSettingsTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientDescribeGlobalTableSettingsResponseTypeDef(
+    _ClientDescribeGlobalTableSettingsResponseTypeDef
+):
+    """
+    - *(dict) --*
+
+      - **GlobalTableName** *(string) --*
+
+        The name of the global table.
+    """
+
+
+_ClientDescribeLimitsResponseTypeDef = TypedDict(
+    "_ClientDescribeLimitsResponseTypeDef",
+    {
+        "AccountMaxReadCapacityUnits": int,
+        "AccountMaxWriteCapacityUnits": int,
+        "TableMaxReadCapacityUnits": int,
+        "TableMaxWriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientDescribeLimitsResponseTypeDef(_ClientDescribeLimitsResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``DescribeLimits`` operation.
+      - **AccountMaxReadCapacityUnits** *(integer) --*
+
+        The maximum total read capacity units that your account allows you to provision across all
+        of your tables in this Region.
+    """
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "ProvisionedReadCapacityAutoScalingSettings": ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef,
+        "ProvisionedWriteCapacityAutoScalingSettings": ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef",
+    {
+        "RegionName": str,
+        "GlobalSecondaryIndexes": List[
+            ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef
+        ],
+        "ReplicaProvisionedReadCapacityAutoScalingSettings": ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef,
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings": ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef
+):
+    pass
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef",
+    {
+        "TableName": str,
+        "TableStatus": Literal[
+            "CREATING",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "ARCHIVING",
+            "ARCHIVED",
+        ],
+        "Replicas": List[
+            ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef
+):
+    """
+    - **TableAutoScalingDescription** *(dict) --*
+
+      Represents the auto scaling properties of the table.
+      - **TableName** *(string) --*
+
+        The name of the table.
+    """
+
+
+_ClientDescribeTableReplicaAutoScalingResponseTypeDef = TypedDict(
+    "_ClientDescribeTableReplicaAutoScalingResponseTypeDef",
+    {
+        "TableAutoScalingDescription": ClientDescribeTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableReplicaAutoScalingResponseTypeDef(
+    _ClientDescribeTableReplicaAutoScalingResponseTypeDef
+):
+    """
+    - *(dict) --*
+
+      - **TableAutoScalingDescription** *(dict) --*
+
+        Represents the auto scaling properties of the table.
+        - **TableName** *(string) --*
+
+          The name of the table.
+    """
+
+
+_ClientDescribeTableResponseTableArchivalSummaryTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableArchivalSummaryTypeDef",
+    {"ArchivalDateTime": datetime, "ArchivalReason": str, "ArchivalBackupArn": str},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableArchivalSummaryTypeDef(
+    _ClientDescribeTableResponseTableArchivalSummaryTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableAttributeDefinitionsTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableAttributeDefinitionsTypeDef",
+    {"AttributeName": str, "AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableAttributeDefinitionsTypeDef(
+    _ClientDescribeTableResponseTableAttributeDefinitionsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --*
+
+        A name for the attribute.
+    """
+
+
+_ClientDescribeTableResponseTableBillingModeSummaryTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableBillingModeSummaryTypeDef",
+    {
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+        "LastUpdateToPayPerRequestDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableBillingModeSummaryTypeDef(
+    _ClientDescribeTableResponseTableBillingModeSummaryTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ClientDescribeTableResponseTableGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableGlobalSecondaryIndexesProjectionTypeDef(
+    _ClientDescribeTableResponseTableGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ClientDescribeTableResponseTableGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[ClientDescribeTableResponseTableGlobalSecondaryIndexesKeySchemaTypeDef],
+        "Projection": ClientDescribeTableResponseTableGlobalSecondaryIndexesProjectionTypeDef,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "Backfilling": bool,
+        "ProvisionedThroughput": ClientDescribeTableResponseTableGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableGlobalSecondaryIndexesTypeDef(
+    _ClientDescribeTableResponseTableGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableKeySchemaTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableKeySchemaTypeDef(
+    _ClientDescribeTableResponseTableKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableLocalSecondaryIndexesKeySchemaTypeDef(
+    _ClientDescribeTableResponseTableLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableLocalSecondaryIndexesProjectionTypeDef(
+    _ClientDescribeTableResponseTableLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[ClientDescribeTableResponseTableLocalSecondaryIndexesKeySchemaTypeDef],
+        "Projection": ClientDescribeTableResponseTableLocalSecondaryIndexesProjectionTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableLocalSecondaryIndexesTypeDef(
+    _ClientDescribeTableResponseTableLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableProvisionedThroughputTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableProvisionedThroughputTypeDef(
+    _ClientDescribeTableResponseTableProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesTypeDef(
+    _ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableReplicasProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableReplicasProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableReplicasProvisionedThroughputOverrideTypeDef(
+    _ClientDescribeTableResponseTableReplicasProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableReplicasTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableReplicasTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientDescribeTableResponseTableReplicasProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientDescribeTableResponseTableReplicasGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableReplicasTypeDef(
+    _ClientDescribeTableResponseTableReplicasTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableRestoreSummaryTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableRestoreSummaryTypeDef",
+    {
+        "SourceBackupArn": str,
+        "SourceTableArn": str,
+        "RestoreDateTime": datetime,
+        "RestoreInProgress": bool,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableRestoreSummaryTypeDef(
+    _ClientDescribeTableResponseTableRestoreSummaryTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableSSEDescriptionTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableSSEDescriptionTypeDef",
+    {
+        "Status": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"],
+        "SSEType": Literal["AES256", "KMS"],
+        "KMSMasterKeyArn": str,
+        "InaccessibleEncryptionDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableSSEDescriptionTypeDef(
+    _ClientDescribeTableResponseTableSSEDescriptionTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableStreamSpecificationTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableStreamSpecificationTypeDef(
+    _ClientDescribeTableResponseTableStreamSpecificationTypeDef
+):
+    pass
+
+
+_ClientDescribeTableResponseTableTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTableTypeDef",
+    {
+        "AttributeDefinitions": List[ClientDescribeTableResponseTableAttributeDefinitionsTypeDef],
+        "TableName": str,
+        "KeySchema": List[ClientDescribeTableResponseTableKeySchemaTypeDef],
+        "TableStatus": Literal[
+            "CREATING",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "ARCHIVING",
+            "ARCHIVED",
+        ],
+        "CreationDateTime": datetime,
+        "ProvisionedThroughput": ClientDescribeTableResponseTableProvisionedThroughputTypeDef,
+        "TableSizeBytes": int,
+        "ItemCount": int,
+        "TableArn": str,
+        "TableId": str,
+        "BillingModeSummary": ClientDescribeTableResponseTableBillingModeSummaryTypeDef,
+        "LocalSecondaryIndexes": List[ClientDescribeTableResponseTableLocalSecondaryIndexesTypeDef],
+        "GlobalSecondaryIndexes": List[
+            ClientDescribeTableResponseTableGlobalSecondaryIndexesTypeDef
+        ],
+        "StreamSpecification": ClientDescribeTableResponseTableStreamSpecificationTypeDef,
+        "LatestStreamLabel": str,
+        "LatestStreamArn": str,
+        "GlobalTableVersion": str,
+        "Replicas": List[ClientDescribeTableResponseTableReplicasTypeDef],
+        "RestoreSummary": ClientDescribeTableResponseTableRestoreSummaryTypeDef,
+        "SSEDescription": ClientDescribeTableResponseTableSSEDescriptionTypeDef,
+        "ArchivalSummary": ClientDescribeTableResponseTableArchivalSummaryTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTableTypeDef(_ClientDescribeTableResponseTableTypeDef):
+    """
+    - **Table** *(dict) --*
+
+      The properties of the table.
+      - **AttributeDefinitions** *(list) --*
+
+        An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+        in the table and index key schema.
+        Each ``AttributeDefinition`` object in this array is composed of:
+        * ``AttributeName`` - The name of the attribute.
+        * ``AttributeType`` - The data type for the attribute.
+        - *(dict) --*
+
+          Represents an attribute for describing the key schema for the table and indexes.
+          - **AttributeName** *(string) --*
+
+            A name for the attribute.
+    """
+
+
+_ClientDescribeTableResponseTypeDef = TypedDict(
+    "_ClientDescribeTableResponseTypeDef",
+    {"Table": ClientDescribeTableResponseTableTypeDef},
+    total=False,
+)
+
+
+class ClientDescribeTableResponseTypeDef(_ClientDescribeTableResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``DescribeTable`` operation.
+      - **Table** *(dict) --*
+
+        The properties of the table.
+        - **AttributeDefinitions** *(list) --*
+
+          An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+          in the table and index key schema.
+          Each ``AttributeDefinition`` object in this array is composed of:
+          * ``AttributeName`` - The name of the attribute.
+          * ``AttributeType`` - The data type for the attribute.
+          - *(dict) --*
+
+            Represents an attribute for describing the key schema for the table and indexes.
+            - **AttributeName** *(string) --*
+
+              A name for the attribute.
+    """
+
+
+_ClientDescribeTimeToLiveResponseTimeToLiveDescriptionTypeDef = TypedDict(
+    "_ClientDescribeTimeToLiveResponseTimeToLiveDescriptionTypeDef",
+    {
+        "TimeToLiveStatus": Literal["ENABLING", "DISABLING", "ENABLED", "DISABLED"],
+        "AttributeName": str,
+    },
+    total=False,
+)
+
+
+class ClientDescribeTimeToLiveResponseTimeToLiveDescriptionTypeDef(
+    _ClientDescribeTimeToLiveResponseTimeToLiveDescriptionTypeDef
+):
+    """
+    - **TimeToLiveDescription** *(dict) --*
+
+      - **TimeToLiveStatus** *(string) --*
+
+        The TTL status for the table.
+    """
+
+
+_ClientDescribeTimeToLiveResponseTypeDef = TypedDict(
+    "_ClientDescribeTimeToLiveResponseTypeDef",
+    {"TimeToLiveDescription": ClientDescribeTimeToLiveResponseTimeToLiveDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientDescribeTimeToLiveResponseTypeDef(_ClientDescribeTimeToLiveResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **TimeToLiveDescription** *(dict) --*
+
+        - **TimeToLiveStatus** *(string) --*
+
+          The TTL status for the table.
+    """
+
+
+_ClientGetItemKeyTypeDef = TypedDict(
+    "_ClientGetItemKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientGetItemKeyTypeDef(_ClientGetItemKeyTypeDef):
+    pass
+
+
+_ClientGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientGetItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientGetItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientGetItemResponseConsumedCapacityTableTypeDef(
+    _ClientGetItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientGetItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientGetItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientGetItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientGetItemResponseConsumedCapacityTypeDef(_ClientGetItemResponseConsumedCapacityTypeDef):
+    pass
+
+
+_ClientGetItemResponseItemTypeDef = TypedDict(
+    "_ClientGetItemResponseItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientGetItemResponseItemTypeDef(_ClientGetItemResponseItemTypeDef):
+    pass
+
+
+_ClientGetItemResponseTypeDef = TypedDict(
+    "_ClientGetItemResponseTypeDef",
+    {
+        "Item": Dict[str, ClientGetItemResponseItemTypeDef],
+        "ConsumedCapacity": ClientGetItemResponseConsumedCapacityTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientGetItemResponseTypeDef(_ClientGetItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``GetItem`` operation.
+      - **Item** *(dict) --*
+
+        A map of attribute names to ``AttributeValue`` objects, as specified by
+        ``ProjectionExpression`` .
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_ClientListBackupsResponseBackupSummariesTypeDef = TypedDict(
+    "_ClientListBackupsResponseBackupSummariesTypeDef",
+    {
+        "TableName": str,
+        "TableId": str,
+        "TableArn": str,
+        "BackupArn": str,
+        "BackupName": str,
+        "BackupCreationDateTime": datetime,
+        "BackupExpiryDateTime": datetime,
+        "BackupStatus": Literal["CREATING", "DELETED", "AVAILABLE"],
+        "BackupType": Literal["USER", "SYSTEM", "AWS_BACKUP"],
+        "BackupSizeBytes": int,
+    },
+    total=False,
+)
+
+
+class ClientListBackupsResponseBackupSummariesTypeDef(
+    _ClientListBackupsResponseBackupSummariesTypeDef
+):
+    """
+    - *(dict) --*
+
+      Contains details for the backup.
+      - **TableName** *(string) --*
+
+        Name of the table.
+    """
+
+
+_ClientListBackupsResponseTypeDef = TypedDict(
+    "_ClientListBackupsResponseTypeDef",
+    {
+        "BackupSummaries": List[ClientListBackupsResponseBackupSummariesTypeDef],
+        "LastEvaluatedBackupArn": str,
+    },
+    total=False,
+)
+
+
+class ClientListBackupsResponseTypeDef(_ClientListBackupsResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **BackupSummaries** *(list) --*
+
+        List of ``BackupSummary`` objects.
+        - *(dict) --*
+
+          Contains details for the backup.
+          - **TableName** *(string) --*
+
+            Name of the table.
+    """
+
+
+_ClientListContributorInsightsResponseContributorInsightsSummariesTypeDef = TypedDict(
+    "_ClientListContributorInsightsResponseContributorInsightsSummariesTypeDef",
+    {
+        "TableName": str,
+        "IndexName": str,
+        "ContributorInsightsStatus": Literal[
+            "ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"
+        ],
+    },
+    total=False,
+)
+
+
+class ClientListContributorInsightsResponseContributorInsightsSummariesTypeDef(
+    _ClientListContributorInsightsResponseContributorInsightsSummariesTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents a Contributor Insights summary entry..
+      - **TableName** *(string) --*
+
+        Name of the table associated with the summary.
+    """
+
+
+_ClientListContributorInsightsResponseTypeDef = TypedDict(
+    "_ClientListContributorInsightsResponseTypeDef",
+    {
+        "ContributorInsightsSummaries": List[
+            ClientListContributorInsightsResponseContributorInsightsSummariesTypeDef
+        ],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+
+class ClientListContributorInsightsResponseTypeDef(_ClientListContributorInsightsResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **ContributorInsightsSummaries** *(list) --*
+
+        A list of ContributorInsightsSummary.
+        - *(dict) --*
+
+          Represents a Contributor Insights summary entry..
+          - **TableName** *(string) --*
+
+            Name of the table associated with the summary.
+    """
+
+
+_ClientListGlobalTablesResponseGlobalTablesReplicationGroupTypeDef = TypedDict(
+    "_ClientListGlobalTablesResponseGlobalTablesReplicationGroupTypeDef",
+    {"RegionName": str},
+    total=False,
+)
+
+
+class ClientListGlobalTablesResponseGlobalTablesReplicationGroupTypeDef(
+    _ClientListGlobalTablesResponseGlobalTablesReplicationGroupTypeDef
+):
+    pass
+
+
+_ClientListGlobalTablesResponseGlobalTablesTypeDef = TypedDict(
+    "_ClientListGlobalTablesResponseGlobalTablesTypeDef",
+    {
+        "GlobalTableName": str,
+        "ReplicationGroup": List[ClientListGlobalTablesResponseGlobalTablesReplicationGroupTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientListGlobalTablesResponseGlobalTablesTypeDef(
+    _ClientListGlobalTablesResponseGlobalTablesTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents the properties of a global table.
+      - **GlobalTableName** *(string) --*
+
+        The global table name.
+    """
+
+
+_ClientListGlobalTablesResponseTypeDef = TypedDict(
+    "_ClientListGlobalTablesResponseTypeDef",
+    {
+        "GlobalTables": List[ClientListGlobalTablesResponseGlobalTablesTypeDef],
+        "LastEvaluatedGlobalTableName": str,
+    },
+    total=False,
+)
+
+
+class ClientListGlobalTablesResponseTypeDef(_ClientListGlobalTablesResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **GlobalTables** *(list) --*
+
+        List of global table names.
+        - *(dict) --*
+
+          Represents the properties of a global table.
+          - **GlobalTableName** *(string) --*
+
+            The global table name.
+    """
+
+
+_ClientListTablesResponseTypeDef = TypedDict(
+    "_ClientListTablesResponseTypeDef",
+    {"TableNames": List[str], "LastEvaluatedTableName": str},
+    total=False,
+)
+
+
+class ClientListTablesResponseTypeDef(_ClientListTablesResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``ListTables`` operation.
+      - **TableNames** *(list) --*
+
+        The names of the tables associated with the current account at the current endpoint. The
+        maximum size of this array is 100.
+        If ``LastEvaluatedTableName`` also appears in the output, you can use this value as the
+        ``ExclusiveStartTableName`` parameter in a subsequent ``ListTables`` request and obtain the
+        next page of results.
+        - *(string) --*
+    """
+
+
+_ClientListTagsOfResourceResponseTagsTypeDef = TypedDict(
+    "_ClientListTagsOfResourceResponseTagsTypeDef", {"Key": str, "Value": str}, total=False
+)
+
+
+class ClientListTagsOfResourceResponseTagsTypeDef(_ClientListTagsOfResourceResponseTagsTypeDef):
+    """
+    - *(dict) --*
+
+      Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB
+      table.
+      AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the
+      user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50.
+      User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot
+      backdate the application of a tag.
+      For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the
+      *Amazon DynamoDB Developer Guide* .
+      - **Key** *(string) --*
+
+        The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one
+        tag with the same key. If you try to add an existing tag (same key), the existing tag value
+        will be updated to the new value.
+    """
+
+
+_ClientListTagsOfResourceResponseTypeDef = TypedDict(
+    "_ClientListTagsOfResourceResponseTypeDef",
+    {"Tags": List[ClientListTagsOfResourceResponseTagsTypeDef], "NextToken": str},
+    total=False,
+)
+
+
+class ClientListTagsOfResourceResponseTypeDef(_ClientListTagsOfResourceResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **Tags** *(list) --*
+
+        The tags currently associated with the Amazon DynamoDB resource.
+        - *(dict) --*
+
+          Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB
+          table.
+          AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which
+          the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50.
+          User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You
+          cannot backdate the application of a tag.
+          For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB
+          <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the
+          *Amazon DynamoDB Developer Guide* .
+          - **Key** *(string) --*
+
+            The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to
+            one tag with the same key. If you try to add an existing tag (same key), the existing
+            tag value will be updated to the new value.
+    """
+
+
+_ClientPutItemExpectedAttributeValueListTypeDef = TypedDict(
+    "_ClientPutItemExpectedAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientPutItemExpectedAttributeValueListTypeDef(
+    _ClientPutItemExpectedAttributeValueListTypeDef
+):
+    pass
+
+
+_ClientPutItemExpectedValueTypeDef = TypedDict(
+    "_ClientPutItemExpectedValueTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientPutItemExpectedValueTypeDef(_ClientPutItemExpectedValueTypeDef):
+    pass
+
+
+_ClientPutItemExpectedTypeDef = TypedDict(
+    "_ClientPutItemExpectedTypeDef",
+    {
+        "Value": ClientPutItemExpectedValueTypeDef,
+        "Exists": bool,
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+        "AttributeValueList": List[ClientPutItemExpectedAttributeValueListTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientPutItemExpectedTypeDef(_ClientPutItemExpectedTypeDef):
+    pass
+
+
+_ClientPutItemExpressionAttributeValuesTypeDef = TypedDict(
+    "_ClientPutItemExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientPutItemExpressionAttributeValuesTypeDef(_ClientPutItemExpressionAttributeValuesTypeDef):
+    pass
+
+
+_ClientPutItemItemTypeDef = TypedDict(
+    "_ClientPutItemItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientPutItemItemTypeDef(_ClientPutItemItemTypeDef):
+    pass
+
+
+_ClientPutItemResponseAttributesTypeDef = TypedDict(
+    "_ClientPutItemResponseAttributesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientPutItemResponseAttributesTypeDef(_ClientPutItemResponseAttributesTypeDef):
+    pass
+
+
+_ClientPutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientPutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientPutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientPutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientPutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientPutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientPutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientPutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientPutItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientPutItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientPutItemResponseConsumedCapacityTableTypeDef(
+    _ClientPutItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientPutItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientPutItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientPutItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientPutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientPutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientPutItemResponseConsumedCapacityTypeDef(_ClientPutItemResponseConsumedCapacityTypeDef):
+    pass
+
+
+_ClientPutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef = TypedDict(
+    "_ClientPutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientPutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef(
+    _ClientPutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+):
+    pass
+
+
+_ClientPutItemResponseItemCollectionMetricsTypeDef = TypedDict(
+    "_ClientPutItemResponseItemCollectionMetricsTypeDef",
+    {
+        "ItemCollectionKey": Dict[
+            str, ClientPutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+        ],
+        "SizeEstimateRangeGB": List[float],
+    },
+    total=False,
+)
+
+
+class ClientPutItemResponseItemCollectionMetricsTypeDef(
+    _ClientPutItemResponseItemCollectionMetricsTypeDef
+):
+    pass
+
+
+_ClientPutItemResponseTypeDef = TypedDict(
+    "_ClientPutItemResponseTypeDef",
+    {
+        "Attributes": Dict[str, ClientPutItemResponseAttributesTypeDef],
+        "ConsumedCapacity": ClientPutItemResponseConsumedCapacityTypeDef,
+        "ItemCollectionMetrics": ClientPutItemResponseItemCollectionMetricsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientPutItemResponseTypeDef(_ClientPutItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``PutItem`` operation.
+      - **Attributes** *(dict) --*
+
+        The attribute values as they appeared before the ``PutItem`` operation, but only if
+        ``ReturnValues`` is specified as ``ALL_OLD`` in the request. Each element consists of an
+        attribute name and an attribute value.
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_ClientQueryExclusiveStartKeyTypeDef = TypedDict(
+    "_ClientQueryExclusiveStartKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientQueryExclusiveStartKeyTypeDef(_ClientQueryExclusiveStartKeyTypeDef):
+    pass
+
+
+_ClientQueryExpressionAttributeValuesTypeDef = TypedDict(
+    "_ClientQueryExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientQueryExpressionAttributeValuesTypeDef(_ClientQueryExpressionAttributeValuesTypeDef):
+    pass
+
+
+_ClientQueryKeyConditionsAttributeValueListTypeDef = TypedDict(
+    "_ClientQueryKeyConditionsAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientQueryKeyConditionsAttributeValueListTypeDef(
+    _ClientQueryKeyConditionsAttributeValueListTypeDef
+):
+    pass
+
+
+_ClientQueryKeyConditionsTypeDef = TypedDict(
+    "_ClientQueryKeyConditionsTypeDef",
+    {
+        "AttributeValueList": List[ClientQueryKeyConditionsAttributeValueListTypeDef],
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+    },
+    total=False,
+)
+
+
+class ClientQueryKeyConditionsTypeDef(_ClientQueryKeyConditionsTypeDef):
+    pass
+
+
+_ClientQueryQueryFilterAttributeValueListTypeDef = TypedDict(
+    "_ClientQueryQueryFilterAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientQueryQueryFilterAttributeValueListTypeDef(
+    _ClientQueryQueryFilterAttributeValueListTypeDef
+):
+    pass
+
+
+_ClientQueryQueryFilterTypeDef = TypedDict(
+    "_ClientQueryQueryFilterTypeDef",
+    {
+        "AttributeValueList": List[ClientQueryQueryFilterAttributeValueListTypeDef],
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+    },
+    total=False,
+)
+
+
+class ClientQueryQueryFilterTypeDef(_ClientQueryQueryFilterTypeDef):
+    pass
+
+
+_ClientQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientQueryResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientQueryResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientQueryResponseConsumedCapacityTableTypeDef(
+    _ClientQueryResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientQueryResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientQueryResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientQueryResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientQueryResponseConsumedCapacityTypeDef(_ClientQueryResponseConsumedCapacityTypeDef):
+    pass
+
+
+_ClientQueryResponseItemsTypeDef = TypedDict(
+    "_ClientQueryResponseItemsTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientQueryResponseItemsTypeDef(_ClientQueryResponseItemsTypeDef):
+    pass
+
+
+_ClientQueryResponseLastEvaluatedKeyTypeDef = TypedDict(
+    "_ClientQueryResponseLastEvaluatedKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientQueryResponseLastEvaluatedKeyTypeDef(_ClientQueryResponseLastEvaluatedKeyTypeDef):
+    pass
+
+
+_ClientQueryResponseTypeDef = TypedDict(
+    "_ClientQueryResponseTypeDef",
+    {
+        "Items": List[Dict[str, ClientQueryResponseItemsTypeDef]],
+        "Count": int,
+        "ScannedCount": int,
+        "LastEvaluatedKey": Dict[str, ClientQueryResponseLastEvaluatedKeyTypeDef],
+        "ConsumedCapacity": ClientQueryResponseConsumedCapacityTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientQueryResponseTypeDef(_ClientQueryResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``Query`` operation.
+      - **Items** *(list) --*
+
+        An array of item attributes that match the query criteria. Each element in this array
+        consists of an attribute name and the value for that attribute.
+        - *(dict) --*
+
+          - *(string) --*
+
+            - *(dict) --*
+
+              Represents the data for an attribute.
+              Each attribute value is described as a name-value pair. The name is the data type, and
+              the value is the data itself.
+              For more information, see `Data Types
+              <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+              in the *Amazon DynamoDB Developer Guide* .
+              - **S** *(string) --*
+
+                An attribute of type String. For example:
+
+                  ``"S": "Hello"``
+    """
+
+
+_ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideKeySchemaTypeDef(
+    _ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProjectionTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProjectionTypeDef(
+    _ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProjectionTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef(
+    _ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef
+):
+    pass
+
+
+_RequiredClientRestoreTableFromBackupGlobalSecondaryIndexOverrideTypeDef = TypedDict(
+    "_RequiredClientRestoreTableFromBackupGlobalSecondaryIndexOverrideTypeDef", {"IndexName": str}
+)
+_OptionalClientRestoreTableFromBackupGlobalSecondaryIndexOverrideTypeDef = TypedDict(
+    "_OptionalClientRestoreTableFromBackupGlobalSecondaryIndexOverrideTypeDef",
+    {
+        "KeySchema": List[ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideKeySchemaTypeDef],
+        "Projection": ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProjectionTypeDef,
+        "ProvisionedThroughput": ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupGlobalSecondaryIndexOverrideTypeDef(
+    _RequiredClientRestoreTableFromBackupGlobalSecondaryIndexOverrideTypeDef,
+    _OptionalClientRestoreTableFromBackupGlobalSecondaryIndexOverrideTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents the properties of a global secondary index.
+      - **IndexName** *(string) --***[REQUIRED]**
+
+        The name of the global secondary index. The name must be unique among all other indexes on
+        this table.
+    """
+
+
+_ClientRestoreTableFromBackupLocalSecondaryIndexOverrideKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupLocalSecondaryIndexOverrideKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupLocalSecondaryIndexOverrideKeySchemaTypeDef(
+    _ClientRestoreTableFromBackupLocalSecondaryIndexOverrideKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupLocalSecondaryIndexOverrideProjectionTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupLocalSecondaryIndexOverrideProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupLocalSecondaryIndexOverrideProjectionTypeDef(
+    _ClientRestoreTableFromBackupLocalSecondaryIndexOverrideProjectionTypeDef
+):
+    pass
+
+
+_RequiredClientRestoreTableFromBackupLocalSecondaryIndexOverrideTypeDef = TypedDict(
+    "_RequiredClientRestoreTableFromBackupLocalSecondaryIndexOverrideTypeDef", {"IndexName": str}
+)
+_OptionalClientRestoreTableFromBackupLocalSecondaryIndexOverrideTypeDef = TypedDict(
+    "_OptionalClientRestoreTableFromBackupLocalSecondaryIndexOverrideTypeDef",
+    {
+        "KeySchema": List[ClientRestoreTableFromBackupLocalSecondaryIndexOverrideKeySchemaTypeDef],
+        "Projection": ClientRestoreTableFromBackupLocalSecondaryIndexOverrideProjectionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupLocalSecondaryIndexOverrideTypeDef(
+    _RequiredClientRestoreTableFromBackupLocalSecondaryIndexOverrideTypeDef,
+    _OptionalClientRestoreTableFromBackupLocalSecondaryIndexOverrideTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents the properties of a local secondary index.
+      - **IndexName** *(string) --***[REQUIRED]**
+
+        The name of the local secondary index. The name must be unique among all other indexes on
+        this table.
+    """
+
+
+_RequiredClientRestoreTableFromBackupProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_RequiredClientRestoreTableFromBackupProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+)
+_OptionalClientRestoreTableFromBackupProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_OptionalClientRestoreTableFromBackupProvisionedThroughputOverrideTypeDef",
+    {"WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupProvisionedThroughputOverrideTypeDef(
+    _RequiredClientRestoreTableFromBackupProvisionedThroughputOverrideTypeDef,
+    _OptionalClientRestoreTableFromBackupProvisionedThroughputOverrideTypeDef,
+):
+    """
+    Provisioned throughput settings for the restored table.
+    - **ReadCapacityUnits** *(integer) --***[REQUIRED]**
+
+      The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
+      ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__
+      in the *Amazon DynamoDB Developer Guide* .
+      If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+    """
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionArchivalSummaryTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionArchivalSummaryTypeDef",
+    {"ArchivalDateTime": datetime, "ArchivalReason": str, "ArchivalBackupArn": str},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionArchivalSummaryTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionArchivalSummaryTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionAttributeDefinitionsTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionAttributeDefinitionsTypeDef",
+    {"AttributeName": str, "AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionAttributeDefinitionsTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionAttributeDefinitionsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --*
+
+        A name for the attribute.
+    """
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionBillingModeSummaryTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionBillingModeSummaryTypeDef",
+    {
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+        "LastUpdateToPayPerRequestDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionBillingModeSummaryTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionBillingModeSummaryTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "Backfilling": bool,
+        "ProvisionedThroughput": ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionKeySchemaTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionProvisionedThroughputTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionProvisionedThroughputTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionReplicasTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionReplicasTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientRestoreTableFromBackupResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientRestoreTableFromBackupResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionReplicasTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionReplicasTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionRestoreSummaryTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionRestoreSummaryTypeDef",
+    {
+        "SourceBackupArn": str,
+        "SourceTableArn": str,
+        "RestoreDateTime": datetime,
+        "RestoreInProgress": bool,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionRestoreSummaryTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionRestoreSummaryTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionSSEDescriptionTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionSSEDescriptionTypeDef",
+    {
+        "Status": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"],
+        "SSEType": Literal["AES256", "KMS"],
+        "KMSMasterKeyArn": str,
+        "InaccessibleEncryptionDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionSSEDescriptionTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionSSEDescriptionTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionStreamSpecificationTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionStreamSpecificationTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionStreamSpecificationTypeDef
+):
+    pass
+
+
+_ClientRestoreTableFromBackupResponseTableDescriptionTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTableDescriptionTypeDef",
+    {
+        "AttributeDefinitions": List[
+            ClientRestoreTableFromBackupResponseTableDescriptionAttributeDefinitionsTypeDef
+        ],
+        "TableName": str,
+        "KeySchema": List[ClientRestoreTableFromBackupResponseTableDescriptionKeySchemaTypeDef],
+        "TableStatus": Literal[
+            "CREATING",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "ARCHIVING",
+            "ARCHIVED",
+        ],
+        "CreationDateTime": datetime,
+        "ProvisionedThroughput": ClientRestoreTableFromBackupResponseTableDescriptionProvisionedThroughputTypeDef,
+        "TableSizeBytes": int,
+        "ItemCount": int,
+        "TableArn": str,
+        "TableId": str,
+        "BillingModeSummary": ClientRestoreTableFromBackupResponseTableDescriptionBillingModeSummaryTypeDef,
+        "LocalSecondaryIndexes": List[
+            ClientRestoreTableFromBackupResponseTableDescriptionLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": List[
+            ClientRestoreTableFromBackupResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+        ],
+        "StreamSpecification": ClientRestoreTableFromBackupResponseTableDescriptionStreamSpecificationTypeDef,
+        "LatestStreamLabel": str,
+        "LatestStreamArn": str,
+        "GlobalTableVersion": str,
+        "Replicas": List[ClientRestoreTableFromBackupResponseTableDescriptionReplicasTypeDef],
+        "RestoreSummary": ClientRestoreTableFromBackupResponseTableDescriptionRestoreSummaryTypeDef,
+        "SSEDescription": ClientRestoreTableFromBackupResponseTableDescriptionSSEDescriptionTypeDef,
+        "ArchivalSummary": ClientRestoreTableFromBackupResponseTableDescriptionArchivalSummaryTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTableDescriptionTypeDef(
+    _ClientRestoreTableFromBackupResponseTableDescriptionTypeDef
+):
+    """
+    - **TableDescription** *(dict) --*
+
+      The description of the table created from an existing backup.
+      - **AttributeDefinitions** *(list) --*
+
+        An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+        in the table and index key schema.
+        Each ``AttributeDefinition`` object in this array is composed of:
+        * ``AttributeName`` - The name of the attribute.
+        * ``AttributeType`` - The data type for the attribute.
+        - *(dict) --*
+
+          Represents an attribute for describing the key schema for the table and indexes.
+          - **AttributeName** *(string) --*
+
+            A name for the attribute.
+    """
+
+
+_ClientRestoreTableFromBackupResponseTypeDef = TypedDict(
+    "_ClientRestoreTableFromBackupResponseTypeDef",
+    {"TableDescription": ClientRestoreTableFromBackupResponseTableDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientRestoreTableFromBackupResponseTypeDef(_ClientRestoreTableFromBackupResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **TableDescription** *(dict) --*
+
+        The description of the table created from an existing backup.
+        - **AttributeDefinitions** *(list) --*
+
+          An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+          in the table and index key schema.
+          Each ``AttributeDefinition`` object in this array is composed of:
+          * ``AttributeName`` - The name of the attribute.
+          * ``AttributeType`` - The data type for the attribute.
+          - *(dict) --*
+
+            Represents an attribute for describing the key schema for the table and indexes.
+            - **AttributeName** *(string) --*
+
+              A name for the attribute.
+    """
+
+
+_ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideKeySchemaTypeDef(
+    _ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProjectionTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProjectionTypeDef(
+    _ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProjectionTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef(
+    _ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef
+):
+    pass
+
+
+_RequiredClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideTypeDef = TypedDict(
+    "_RequiredClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideTypeDef",
+    {"IndexName": str},
+)
+_OptionalClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideTypeDef = TypedDict(
+    "_OptionalClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideTypeDef",
+    {
+        "KeySchema": List[
+            ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideKeySchemaTypeDef
+        ],
+        "Projection": ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProjectionTypeDef,
+        "ProvisionedThroughput": ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideProvisionedThroughputTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideTypeDef(
+    _RequiredClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideTypeDef,
+    _OptionalClientRestoreTableToPointInTimeGlobalSecondaryIndexOverrideTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents the properties of a global secondary index.
+      - **IndexName** *(string) --***[REQUIRED]**
+
+        The name of the global secondary index. The name must be unique among all other indexes on
+        this table.
+    """
+
+
+_ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideKeySchemaTypeDef(
+    _ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideProjectionTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideProjectionTypeDef(
+    _ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideProjectionTypeDef
+):
+    pass
+
+
+_RequiredClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideTypeDef = TypedDict(
+    "_RequiredClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideTypeDef", {"IndexName": str}
+)
+_OptionalClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideTypeDef = TypedDict(
+    "_OptionalClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideTypeDef",
+    {
+        "KeySchema": List[
+            ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideKeySchemaTypeDef
+        ],
+        "Projection": ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideProjectionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideTypeDef(
+    _RequiredClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideTypeDef,
+    _OptionalClientRestoreTableToPointInTimeLocalSecondaryIndexOverrideTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents the properties of a local secondary index.
+      - **IndexName** *(string) --***[REQUIRED]**
+
+        The name of the local secondary index. The name must be unique among all other indexes on
+        this table.
+    """
+
+
+_RequiredClientRestoreTableToPointInTimeProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_RequiredClientRestoreTableToPointInTimeProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+)
+_OptionalClientRestoreTableToPointInTimeProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_OptionalClientRestoreTableToPointInTimeProvisionedThroughputOverrideTypeDef",
+    {"WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeProvisionedThroughputOverrideTypeDef(
+    _RequiredClientRestoreTableToPointInTimeProvisionedThroughputOverrideTypeDef,
+    _OptionalClientRestoreTableToPointInTimeProvisionedThroughputOverrideTypeDef,
+):
+    """
+    Provisioned throughput settings for the restored table.
+    - **ReadCapacityUnits** *(integer) --***[REQUIRED]**
+
+      The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
+      ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__
+      in the *Amazon DynamoDB Developer Guide* .
+      If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+    """
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionArchivalSummaryTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionArchivalSummaryTypeDef",
+    {"ArchivalDateTime": datetime, "ArchivalReason": str, "ArchivalBackupArn": str},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionArchivalSummaryTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionArchivalSummaryTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionAttributeDefinitionsTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionAttributeDefinitionsTypeDef",
+    {"AttributeName": str, "AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionAttributeDefinitionsTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionAttributeDefinitionsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --*
+
+        A name for the attribute.
+    """
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionBillingModeSummaryTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionBillingModeSummaryTypeDef",
+    {
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+        "LastUpdateToPayPerRequestDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionBillingModeSummaryTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionBillingModeSummaryTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "Backfilling": bool,
+        "ProvisionedThroughput": ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionKeySchemaTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionProvisionedThroughputTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionProvisionedThroughputTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionRestoreSummaryTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionRestoreSummaryTypeDef",
+    {
+        "SourceBackupArn": str,
+        "SourceTableArn": str,
+        "RestoreDateTime": datetime,
+        "RestoreInProgress": bool,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionRestoreSummaryTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionRestoreSummaryTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionSSEDescriptionTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionSSEDescriptionTypeDef",
+    {
+        "Status": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"],
+        "SSEType": Literal["AES256", "KMS"],
+        "KMSMasterKeyArn": str,
+        "InaccessibleEncryptionDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionSSEDescriptionTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionSSEDescriptionTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionStreamSpecificationTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionStreamSpecificationTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionStreamSpecificationTypeDef
+):
+    pass
+
+
+_ClientRestoreTableToPointInTimeResponseTableDescriptionTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTableDescriptionTypeDef",
+    {
+        "AttributeDefinitions": List[
+            ClientRestoreTableToPointInTimeResponseTableDescriptionAttributeDefinitionsTypeDef
+        ],
+        "TableName": str,
+        "KeySchema": List[ClientRestoreTableToPointInTimeResponseTableDescriptionKeySchemaTypeDef],
+        "TableStatus": Literal[
+            "CREATING",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "ARCHIVING",
+            "ARCHIVED",
+        ],
+        "CreationDateTime": datetime,
+        "ProvisionedThroughput": ClientRestoreTableToPointInTimeResponseTableDescriptionProvisionedThroughputTypeDef,
+        "TableSizeBytes": int,
+        "ItemCount": int,
+        "TableArn": str,
+        "TableId": str,
+        "BillingModeSummary": ClientRestoreTableToPointInTimeResponseTableDescriptionBillingModeSummaryTypeDef,
+        "LocalSecondaryIndexes": List[
+            ClientRestoreTableToPointInTimeResponseTableDescriptionLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": List[
+            ClientRestoreTableToPointInTimeResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+        ],
+        "StreamSpecification": ClientRestoreTableToPointInTimeResponseTableDescriptionStreamSpecificationTypeDef,
+        "LatestStreamLabel": str,
+        "LatestStreamArn": str,
+        "GlobalTableVersion": str,
+        "Replicas": List[ClientRestoreTableToPointInTimeResponseTableDescriptionReplicasTypeDef],
+        "RestoreSummary": ClientRestoreTableToPointInTimeResponseTableDescriptionRestoreSummaryTypeDef,
+        "SSEDescription": ClientRestoreTableToPointInTimeResponseTableDescriptionSSEDescriptionTypeDef,
+        "ArchivalSummary": ClientRestoreTableToPointInTimeResponseTableDescriptionArchivalSummaryTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTableDescriptionTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTableDescriptionTypeDef
+):
+    """
+    - **TableDescription** *(dict) --*
+
+      Represents the properties of a table.
+      - **AttributeDefinitions** *(list) --*
+
+        An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+        in the table and index key schema.
+        Each ``AttributeDefinition`` object in this array is composed of:
+        * ``AttributeName`` - The name of the attribute.
+        * ``AttributeType`` - The data type for the attribute.
+        - *(dict) --*
+
+          Represents an attribute for describing the key schema for the table and indexes.
+          - **AttributeName** *(string) --*
+
+            A name for the attribute.
+    """
+
+
+_ClientRestoreTableToPointInTimeResponseTypeDef = TypedDict(
+    "_ClientRestoreTableToPointInTimeResponseTypeDef",
+    {"TableDescription": ClientRestoreTableToPointInTimeResponseTableDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientRestoreTableToPointInTimeResponseTypeDef(
+    _ClientRestoreTableToPointInTimeResponseTypeDef
+):
+    """
+    - *(dict) --*
+
+      - **TableDescription** *(dict) --*
+
+        Represents the properties of a table.
+        - **AttributeDefinitions** *(list) --*
+
+          An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+          in the table and index key schema.
+          Each ``AttributeDefinition`` object in this array is composed of:
+          * ``AttributeName`` - The name of the attribute.
+          * ``AttributeType`` - The data type for the attribute.
+          - *(dict) --*
+
+            Represents an attribute for describing the key schema for the table and indexes.
+            - **AttributeName** *(string) --*
+
+              A name for the attribute.
+    """
+
+
+_ClientScanExclusiveStartKeyTypeDef = TypedDict(
+    "_ClientScanExclusiveStartKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientScanExclusiveStartKeyTypeDef(_ClientScanExclusiveStartKeyTypeDef):
+    pass
+
+
+_ClientScanExpressionAttributeValuesTypeDef = TypedDict(
+    "_ClientScanExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientScanExpressionAttributeValuesTypeDef(_ClientScanExpressionAttributeValuesTypeDef):
+    pass
+
+
+_ClientScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientScanResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientScanResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientScanResponseConsumedCapacityTableTypeDef(
+    _ClientScanResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientScanResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientScanResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientScanResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientScanResponseConsumedCapacityTypeDef(_ClientScanResponseConsumedCapacityTypeDef):
+    pass
+
+
+_ClientScanResponseItemsTypeDef = TypedDict(
+    "_ClientScanResponseItemsTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientScanResponseItemsTypeDef(_ClientScanResponseItemsTypeDef):
+    pass
+
+
+_ClientScanResponseLastEvaluatedKeyTypeDef = TypedDict(
+    "_ClientScanResponseLastEvaluatedKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientScanResponseLastEvaluatedKeyTypeDef(_ClientScanResponseLastEvaluatedKeyTypeDef):
+    pass
+
+
+_ClientScanResponseTypeDef = TypedDict(
+    "_ClientScanResponseTypeDef",
+    {
+        "Items": List[Dict[str, ClientScanResponseItemsTypeDef]],
+        "Count": int,
+        "ScannedCount": int,
+        "LastEvaluatedKey": Dict[str, ClientScanResponseLastEvaluatedKeyTypeDef],
+        "ConsumedCapacity": ClientScanResponseConsumedCapacityTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientScanResponseTypeDef(_ClientScanResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``Scan`` operation.
+      - **Items** *(list) --*
+
+        An array of item attributes that match the scan criteria. Each element in this array
+        consists of an attribute name and the value for that attribute.
+        - *(dict) --*
+
+          - *(string) --*
+
+            - *(dict) --*
+
+              Represents the data for an attribute.
+              Each attribute value is described as a name-value pair. The name is the data type, and
+              the value is the data itself.
+              For more information, see `Data Types
+              <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+              in the *Amazon DynamoDB Developer Guide* .
+              - **S** *(string) --*
+
+                An attribute of type String. For example:
+
+                  ``"S": "Hello"``
+    """
+
+
+_ClientScanScanFilterAttributeValueListTypeDef = TypedDict(
+    "_ClientScanScanFilterAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientScanScanFilterAttributeValueListTypeDef(_ClientScanScanFilterAttributeValueListTypeDef):
+    pass
+
+
+_ClientScanScanFilterTypeDef = TypedDict(
+    "_ClientScanScanFilterTypeDef",
+    {
+        "AttributeValueList": List[ClientScanScanFilterAttributeValueListTypeDef],
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+    },
+    total=False,
+)
+
+
+class ClientScanScanFilterTypeDef(_ClientScanScanFilterTypeDef):
+    pass
+
+
+_RequiredClientTagResourceTagsTypeDef = TypedDict(
+    "_RequiredClientTagResourceTagsTypeDef", {"Key": str}
+)
+_OptionalClientTagResourceTagsTypeDef = TypedDict(
+    "_OptionalClientTagResourceTagsTypeDef", {"Value": str}, total=False
+)
+
+
+class ClientTagResourceTagsTypeDef(
+    _RequiredClientTagResourceTagsTypeDef, _OptionalClientTagResourceTagsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB
+      table.
+      AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the
+      user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50.
+      User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot
+      backdate the application of a tag.
+      For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the
+      *Amazon DynamoDB Developer Guide* .
+      - **Key** *(string) --***[REQUIRED]**
+
+        The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one
+        tag with the same key. If you try to add an existing tag (same key), the existing tag value
+        will be updated to the new value.
+    """
+
+
+_ClientTransactGetItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientTransactGetItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientTransactGetItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientTransactGetItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientTransactGetItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientTransactGetItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientTransactGetItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientTransactGetItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientTransactGetItemsResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientTransactGetItemsResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientTransactGetItemsResponseConsumedCapacityTableTypeDef(
+    _ClientTransactGetItemsResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientTransactGetItemsResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientTransactGetItemsResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientTransactGetItemsResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientTransactGetItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientTransactGetItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientTransactGetItemsResponseConsumedCapacityTypeDef(
+    _ClientTransactGetItemsResponseConsumedCapacityTypeDef
+):
+    """
+    - *(dict) --*
+
+      The capacity units consumed by an operation. The data returned includes the total provisioned
+      throughput consumed, along with statistics for the table and any indexes involved in the
+      operation. ``ConsumedCapacity`` is only returned if the request asked for it. For more
+      information, see `Provisioned Throughput
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__
+      in the *Amazon DynamoDB Developer Guide* .
+      - **TableName** *(string) --*
+
+        The name of the table that was affected by the operation.
+    """
+
+
+_ClientTransactGetItemsResponseResponsesItemTypeDef = TypedDict(
+    "_ClientTransactGetItemsResponseResponsesItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactGetItemsResponseResponsesItemTypeDef(
+    _ClientTransactGetItemsResponseResponsesItemTypeDef
+):
+    pass
+
+
+_ClientTransactGetItemsResponseResponsesTypeDef = TypedDict(
+    "_ClientTransactGetItemsResponseResponsesTypeDef",
+    {"Item": Dict[str, ClientTransactGetItemsResponseResponsesItemTypeDef]},
+    total=False,
+)
+
+
+class ClientTransactGetItemsResponseResponsesTypeDef(
+    _ClientTransactGetItemsResponseResponsesTypeDef
+):
+    pass
+
+
+_ClientTransactGetItemsResponseTypeDef = TypedDict(
+    "_ClientTransactGetItemsResponseTypeDef",
+    {
+        "ConsumedCapacity": List[ClientTransactGetItemsResponseConsumedCapacityTypeDef],
+        "Responses": List[ClientTransactGetItemsResponseResponsesTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientTransactGetItemsResponseTypeDef(_ClientTransactGetItemsResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **ConsumedCapacity** *(list) --*
+
+        If the *ReturnConsumedCapacity* value was ``TOTAL`` , this is an array of
+        ``ConsumedCapacity`` objects, one for each table addressed by ``TransactGetItem`` objects in
+        the *TransactItems* parameter. These ``ConsumedCapacity`` objects report the read-capacity
+        units consumed by the ``TransactGetItems`` call in that table.
+        - *(dict) --*
+
+          The capacity units consumed by an operation. The data returned includes the total
+          provisioned throughput consumed, along with statistics for the table and any indexes
+          involved in the operation. ``ConsumedCapacity`` is only returned if the request asked for
+          it. For more information, see `Provisioned Throughput
+          <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__
+          in the *Amazon DynamoDB Developer Guide* .
+          - **TableName** *(string) --*
+
+            The name of the table that was affected by the operation.
+    """
+
+
+_ClientTransactGetItemsTransactItemsGetKeyTypeDef = TypedDict(
+    "_ClientTransactGetItemsTransactItemsGetKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactGetItemsTransactItemsGetKeyTypeDef(
+    _ClientTransactGetItemsTransactItemsGetKeyTypeDef
+):
+    pass
+
+
+_RequiredClientTransactGetItemsTransactItemsGetTypeDef = TypedDict(
+    "_RequiredClientTransactGetItemsTransactItemsGetTypeDef",
+    {"Key": Dict[str, ClientTransactGetItemsTransactItemsGetKeyTypeDef]},
+)
+_OptionalClientTransactGetItemsTransactItemsGetTypeDef = TypedDict(
+    "_OptionalClientTransactGetItemsTransactItemsGetTypeDef",
+    {"TableName": str, "ProjectionExpression": str, "ExpressionAttributeNames": Dict[str, str]},
+    total=False,
+)
+
+
+class ClientTransactGetItemsTransactItemsGetTypeDef(
+    _RequiredClientTransactGetItemsTransactItemsGetTypeDef,
+    _OptionalClientTransactGetItemsTransactItemsGetTypeDef,
+):
+    """
+    - **Get** *(dict) --***[REQUIRED]**
+
+      Contains the primary key that identifies the item to get, together with the name of the table
+      that contains the item, and optionally the specific attributes of the item to retrieve.
+      - **Key** *(dict) --***[REQUIRED]**
+
+        A map of attribute names to ``AttributeValue`` objects that specifies the primary key of the
+        item to retrieve.
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_ClientTransactGetItemsTransactItemsTypeDef = TypedDict(
+    "_ClientTransactGetItemsTransactItemsTypeDef",
+    {"Get": ClientTransactGetItemsTransactItemsGetTypeDef},
+)
+
+
+class ClientTransactGetItemsTransactItemsTypeDef(_ClientTransactGetItemsTransactItemsTypeDef):
+    """
+    - *(dict) --*
+
+      Specifies an item to be retrieved as part of the transaction.
+      - **Get** *(dict) --***[REQUIRED]**
+
+        Contains the primary key that identifies the item to get, together with the name of the
+        table that contains the item, and optionally the specific attributes of the item to
+        retrieve.
+        - **Key** *(dict) --***[REQUIRED]**
+
+          A map of attribute names to ``AttributeValue`` objects that specifies the primary key of
+          the item to retrieve.
+          - *(string) --*
+
+            - *(dict) --*
+
+              Represents the data for an attribute.
+              Each attribute value is described as a name-value pair. The name is the data type, and
+              the value is the data itself.
+              For more information, see `Data Types
+              <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+              in the *Amazon DynamoDB Developer Guide* .
+              - **S** *(string) --*
+
+                An attribute of type String. For example:
+
+                  ``"S": "Hello"``
+    """
+
+
+_ClientTransactWriteItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientTransactWriteItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientTransactWriteItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientTransactWriteItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientTransactWriteItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientTransactWriteItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientTransactWriteItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientTransactWriteItemsResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientTransactWriteItemsResponseConsumedCapacityTableTypeDef(
+    _ClientTransactWriteItemsResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientTransactWriteItemsResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientTransactWriteItemsResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientTransactWriteItemsResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientTransactWriteItemsResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsResponseConsumedCapacityTypeDef(
+    _ClientTransactWriteItemsResponseConsumedCapacityTypeDef
+):
+    """
+    - *(dict) --*
+
+      The capacity units consumed by an operation. The data returned includes the total provisioned
+      throughput consumed, along with statistics for the table and any indexes involved in the
+      operation. ``ConsumedCapacity`` is only returned if the request asked for it. For more
+      information, see `Provisioned Throughput
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__
+      in the *Amazon DynamoDB Developer Guide* .
+      - **TableName** *(string) --*
+
+        The name of the table that was affected by the operation.
+    """
+
+
+_ClientTransactWriteItemsResponseItemCollectionMetricsItemCollectionKeyTypeDef = TypedDict(
+    "_ClientTransactWriteItemsResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsResponseItemCollectionMetricsItemCollectionKeyTypeDef(
+    _ClientTransactWriteItemsResponseItemCollectionMetricsItemCollectionKeyTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsResponseItemCollectionMetricsTypeDef = TypedDict(
+    "_ClientTransactWriteItemsResponseItemCollectionMetricsTypeDef",
+    {
+        "ItemCollectionKey": Dict[
+            str, ClientTransactWriteItemsResponseItemCollectionMetricsItemCollectionKeyTypeDef
+        ],
+        "SizeEstimateRangeGB": List[float],
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsResponseItemCollectionMetricsTypeDef(
+    _ClientTransactWriteItemsResponseItemCollectionMetricsTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsResponseTypeDef = TypedDict(
+    "_ClientTransactWriteItemsResponseTypeDef",
+    {
+        "ConsumedCapacity": List[ClientTransactWriteItemsResponseConsumedCapacityTypeDef],
+        "ItemCollectionMetrics": Dict[
+            str, List[ClientTransactWriteItemsResponseItemCollectionMetricsTypeDef]
+        ],
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsResponseTypeDef(_ClientTransactWriteItemsResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **ConsumedCapacity** *(list) --*
+
+        The capacity units consumed by the entire ``TransactWriteItems`` operation. The values of
+        the list are ordered according to the ordering of the ``TransactItems`` request parameter.
+        - *(dict) --*
+
+          The capacity units consumed by an operation. The data returned includes the total
+          provisioned throughput consumed, along with statistics for the table and any indexes
+          involved in the operation. ``ConsumedCapacity`` is only returned if the request asked for
+          it. For more information, see `Provisioned Throughput
+          <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html>`__
+          in the *Amazon DynamoDB Developer Guide* .
+          - **TableName** *(string) --*
+
+            The name of the table that was affected by the operation.
+    """
+
+
+_ClientTransactWriteItemsTransactItemsConditionCheckExpressionAttributeValuesTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsConditionCheckExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsConditionCheckExpressionAttributeValuesTypeDef(
+    _ClientTransactWriteItemsTransactItemsConditionCheckExpressionAttributeValuesTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsConditionCheckKeyTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsConditionCheckKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsConditionCheckKeyTypeDef(
+    _ClientTransactWriteItemsTransactItemsConditionCheckKeyTypeDef
+):
+    pass
+
+
+_RequiredClientTransactWriteItemsTransactItemsConditionCheckTypeDef = TypedDict(
+    "_RequiredClientTransactWriteItemsTransactItemsConditionCheckTypeDef",
+    {"Key": Dict[str, ClientTransactWriteItemsTransactItemsConditionCheckKeyTypeDef]},
+)
+_OptionalClientTransactWriteItemsTransactItemsConditionCheckTypeDef = TypedDict(
+    "_OptionalClientTransactWriteItemsTransactItemsConditionCheckTypeDef",
+    {
+        "TableName": str,
+        "ConditionExpression": str,
+        "ExpressionAttributeNames": Dict[str, str],
+        "ExpressionAttributeValues": Dict[
+            str, ClientTransactWriteItemsTransactItemsConditionCheckExpressionAttributeValuesTypeDef
+        ],
+        "ReturnValuesOnConditionCheckFailure": Literal["ALL_OLD", "NONE"],
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsConditionCheckTypeDef(
+    _RequiredClientTransactWriteItemsTransactItemsConditionCheckTypeDef,
+    _OptionalClientTransactWriteItemsTransactItemsConditionCheckTypeDef,
+):
+    """
+    - **ConditionCheck** *(dict) --*
+
+      A request to perform a check item operation.
+      - **Key** *(dict) --***[REQUIRED]**
+
+        The primary key of the item to be checked. Each element consists of an attribute name and a
+        value for that attribute.
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_ClientTransactWriteItemsTransactItemsDeleteExpressionAttributeValuesTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsDeleteExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsDeleteExpressionAttributeValuesTypeDef(
+    _ClientTransactWriteItemsTransactItemsDeleteExpressionAttributeValuesTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsDeleteKeyTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsDeleteKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsDeleteKeyTypeDef(
+    _ClientTransactWriteItemsTransactItemsDeleteKeyTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsDeleteTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsDeleteTypeDef",
+    {
+        "Key": Dict[str, ClientTransactWriteItemsTransactItemsDeleteKeyTypeDef],
+        "TableName": str,
+        "ConditionExpression": str,
+        "ExpressionAttributeNames": Dict[str, str],
+        "ExpressionAttributeValues": Dict[
+            str, ClientTransactWriteItemsTransactItemsDeleteExpressionAttributeValuesTypeDef
+        ],
+        "ReturnValuesOnConditionCheckFailure": Literal["ALL_OLD", "NONE"],
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsDeleteTypeDef(
+    _ClientTransactWriteItemsTransactItemsDeleteTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsPutExpressionAttributeValuesTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsPutExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsPutExpressionAttributeValuesTypeDef(
+    _ClientTransactWriteItemsTransactItemsPutExpressionAttributeValuesTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsPutItemTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsPutItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsPutItemTypeDef(
+    _ClientTransactWriteItemsTransactItemsPutItemTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsPutTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsPutTypeDef",
+    {
+        "Item": Dict[str, ClientTransactWriteItemsTransactItemsPutItemTypeDef],
+        "TableName": str,
+        "ConditionExpression": str,
+        "ExpressionAttributeNames": Dict[str, str],
+        "ExpressionAttributeValues": Dict[
+            str, ClientTransactWriteItemsTransactItemsPutExpressionAttributeValuesTypeDef
+        ],
+        "ReturnValuesOnConditionCheckFailure": Literal["ALL_OLD", "NONE"],
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsPutTypeDef(
+    _ClientTransactWriteItemsTransactItemsPutTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsUpdateExpressionAttributeValuesTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsUpdateExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsUpdateExpressionAttributeValuesTypeDef(
+    _ClientTransactWriteItemsTransactItemsUpdateExpressionAttributeValuesTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsUpdateKeyTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsUpdateKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsUpdateKeyTypeDef(
+    _ClientTransactWriteItemsTransactItemsUpdateKeyTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsUpdateTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsUpdateTypeDef",
+    {
+        "Key": Dict[str, ClientTransactWriteItemsTransactItemsUpdateKeyTypeDef],
+        "UpdateExpression": str,
+        "TableName": str,
+        "ConditionExpression": str,
+        "ExpressionAttributeNames": Dict[str, str],
+        "ExpressionAttributeValues": Dict[
+            str, ClientTransactWriteItemsTransactItemsUpdateExpressionAttributeValuesTypeDef
+        ],
+        "ReturnValuesOnConditionCheckFailure": Literal["ALL_OLD", "NONE"],
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsUpdateTypeDef(
+    _ClientTransactWriteItemsTransactItemsUpdateTypeDef
+):
+    pass
+
+
+_ClientTransactWriteItemsTransactItemsTypeDef = TypedDict(
+    "_ClientTransactWriteItemsTransactItemsTypeDef",
+    {
+        "ConditionCheck": ClientTransactWriteItemsTransactItemsConditionCheckTypeDef,
+        "Put": ClientTransactWriteItemsTransactItemsPutTypeDef,
+        "Delete": ClientTransactWriteItemsTransactItemsDeleteTypeDef,
+        "Update": ClientTransactWriteItemsTransactItemsUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientTransactWriteItemsTransactItemsTypeDef(_ClientTransactWriteItemsTransactItemsTypeDef):
+    """
+    - *(dict) --*
+
+      A list of requests that can perform update, put, delete, or check operations on multiple items
+      in one or more tables atomically.
+      - **ConditionCheck** *(dict) --*
+
+        A request to perform a check item operation.
+        - **Key** *(dict) --***[REQUIRED]**
+
+          The primary key of the item to be checked. Each element consists of an attribute name and
+          a value for that attribute.
+          - *(string) --*
+
+            - *(dict) --*
+
+              Represents the data for an attribute.
+              Each attribute value is described as a name-value pair. The name is the data type, and
+              the value is the data itself.
+              For more information, see `Data Types
+              <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+              in the *Amazon DynamoDB Developer Guide* .
+              - **S** *(string) --*
+
+                An attribute of type String. For example:
+
+                  ``"S": "Hello"``
+    """
+
+
+_ClientUpdateContinuousBackupsPointInTimeRecoverySpecificationTypeDef = TypedDict(
+    "_ClientUpdateContinuousBackupsPointInTimeRecoverySpecificationTypeDef",
+    {"PointInTimeRecoveryEnabled": bool},
+)
+
+
+class ClientUpdateContinuousBackupsPointInTimeRecoverySpecificationTypeDef(
+    _ClientUpdateContinuousBackupsPointInTimeRecoverySpecificationTypeDef
+):
+    """
+    Represents the settings used to enable point in time recovery.
+    - **PointInTimeRecoveryEnabled** *(boolean) --***[REQUIRED]**
+
+      Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+    """
+
+
+_ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef = TypedDict(
+    "_ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef",
+    {
+        "PointInTimeRecoveryStatus": Literal["ENABLED", "DISABLED"],
+        "EarliestRestorableDateTime": datetime,
+        "LatestRestorableDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef(
+    _ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef
+):
+    pass
+
+
+_ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionTypeDef = TypedDict(
+    "_ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionTypeDef",
+    {
+        "ContinuousBackupsStatus": Literal["ENABLED", "DISABLED"],
+        "PointInTimeRecoveryDescription": ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionPointInTimeRecoveryDescriptionTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionTypeDef(
+    _ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionTypeDef
+):
+    """
+    - **ContinuousBackupsDescription** *(dict) --*
+
+      Represents the continuous backups and point in time recovery settings on the table.
+      - **ContinuousBackupsStatus** *(string) --*
+
+        ``ContinuousBackupsStatus`` can be one of the following states: ENABLED, DISABLED
+    """
+
+
+_ClientUpdateContinuousBackupsResponseTypeDef = TypedDict(
+    "_ClientUpdateContinuousBackupsResponseTypeDef",
+    {
+        "ContinuousBackupsDescription": ClientUpdateContinuousBackupsResponseContinuousBackupsDescriptionTypeDef
+    },
+    total=False,
+)
+
+
+class ClientUpdateContinuousBackupsResponseTypeDef(_ClientUpdateContinuousBackupsResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **ContinuousBackupsDescription** *(dict) --*
+
+        Represents the continuous backups and point in time recovery settings on the table.
+        - **ContinuousBackupsStatus** *(string) --*
+
+          ``ContinuousBackupsStatus`` can be one of the following states: ENABLED, DISABLED
+    """
+
+
+_ClientUpdateContributorInsightsResponseTypeDef = TypedDict(
+    "_ClientUpdateContributorInsightsResponseTypeDef",
+    {
+        "TableName": str,
+        "IndexName": str,
+        "ContributorInsightsStatus": Literal[
+            "ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateContributorInsightsResponseTypeDef(
+    _ClientUpdateContributorInsightsResponseTypeDef
+):
+    """
+    - *(dict) --*
+
+      - **TableName** *(string) --*
+
+        The name of the table.
+    """
+
+
+_ClientUpdateGlobalTableReplicaUpdatesCreateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableReplicaUpdatesCreateTypeDef", {"RegionName": str}
+)
+
+
+class ClientUpdateGlobalTableReplicaUpdatesCreateTypeDef(
+    _ClientUpdateGlobalTableReplicaUpdatesCreateTypeDef
+):
+    """
+    - **Create** *(dict) --*
+
+      The parameters required for creating a replica on an existing global table.
+      - **RegionName** *(string) --***[REQUIRED]**
+
+        The Region of the replica to be added.
+    """
+
+
+_ClientUpdateGlobalTableReplicaUpdatesDeleteTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableReplicaUpdatesDeleteTypeDef", {"RegionName": str}, total=False
+)
+
+
+class ClientUpdateGlobalTableReplicaUpdatesDeleteTypeDef(
+    _ClientUpdateGlobalTableReplicaUpdatesDeleteTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableReplicaUpdatesTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableReplicaUpdatesTypeDef",
+    {
+        "Create": ClientUpdateGlobalTableReplicaUpdatesCreateTypeDef,
+        "Delete": ClientUpdateGlobalTableReplicaUpdatesDeleteTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableReplicaUpdatesTypeDef(_ClientUpdateGlobalTableReplicaUpdatesTypeDef):
+    """
+    - *(dict) --*
+
+      Represents one of the following:
+      * A new replica to be added to an existing global table.
+      * New parameters for an existing replica.
+      * An existing replica to be removed from an existing global table.
+      - **Create** *(dict) --*
+
+        The parameters required for creating a replica on an existing global table.
+        - **RegionName** *(string) --***[REQUIRED]**
+
+          The Region of the replica to be added.
+    """
+
+
+_ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef(
+    _ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef(
+    _ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef(
+    _ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef
+):
+    """
+    - *(dict) --*
+
+      Contains the details of the replica.
+      - **RegionName** *(string) --*
+
+        The name of the Region.
+    """
+
+
+_ClientUpdateGlobalTableResponseGlobalTableDescriptionTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableResponseGlobalTableDescriptionTypeDef",
+    {
+        "ReplicationGroup": List[
+            ClientUpdateGlobalTableResponseGlobalTableDescriptionReplicationGroupTypeDef
+        ],
+        "GlobalTableArn": str,
+        "CreationDateTime": datetime,
+        "GlobalTableStatus": Literal["CREATING", "ACTIVE", "DELETING", "UPDATING"],
+        "GlobalTableName": str,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableResponseGlobalTableDescriptionTypeDef(
+    _ClientUpdateGlobalTableResponseGlobalTableDescriptionTypeDef
+):
+    """
+    - **GlobalTableDescription** *(dict) --*
+
+      Contains the details of the global table.
+      - **ReplicationGroup** *(list) --*
+
+        The Regions where the global table has replicas.
+        - *(dict) --*
+
+          Contains the details of the replica.
+          - **RegionName** *(string) --*
+
+            The name of the Region.
+    """
+
+
+_ClientUpdateGlobalTableResponseTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableResponseTypeDef",
+    {"GlobalTableDescription": ClientUpdateGlobalTableResponseGlobalTableDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableResponseTypeDef(_ClientUpdateGlobalTableResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **GlobalTableDescription** *(dict) --*
+
+        Contains the details of the global table.
+        - **ReplicationGroup** *(list) --*
+
+          The Regions where the global table has replicas.
+          - *(dict) --*
+
+            Contains the details of the replica.
+            - **RegionName** *(string) --*
+
+              The name of the Region.
+    """
+
+
+_ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef(
+    _ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicyUpdate": ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef(
+    _ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef
+):
+    pass
+
+
+_RequiredClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef = TypedDict(
+    "_RequiredClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
+    {"IndexName": str},
+)
+_OptionalClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef = TypedDict(
+    "_OptionalClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
+    {
+        "ProvisionedWriteCapacityUnits": int,
+        "ProvisionedWriteCapacityAutoScalingSettingsUpdate": ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef(
+    _RequiredClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef,
+    _OptionalClientUpdateGlobalTableSettingsGlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents the settings of a global secondary index for a global table that will be modified.
+      - **IndexName** *(string) --***[REQUIRED]**
+
+        The name of the global secondary index. The name must be unique among all other indexes on
+        this table.
+    """
+
+
+_ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef(
+    _ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicyUpdate": ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef(
+    _ClientUpdateGlobalTableSettingsGlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateTypeDef
+):
+    """
+    Auto scaling settings for managing provisioned write capacity for the global table.
+    - **MinimumUnits** *(integer) --*
+
+      The minimum capacity units that a global table or global secondary index should be scaled down
+      to.
+    """
+
+
+_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef(
+    _ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicyUpdate": ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef(
+    _ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedReadCapacityUnits": int,
+        "ProvisionedReadCapacityAutoScalingSettingsUpdate": ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateTypeDef(
+    _ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef(
+    _ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicyUpdate": ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateScalingPolicyUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef(
+    _ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef
+):
+    pass
+
+
+_RequiredClientUpdateGlobalTableSettingsReplicaSettingsUpdateTypeDef = TypedDict(
+    "_RequiredClientUpdateGlobalTableSettingsReplicaSettingsUpdateTypeDef", {"RegionName": str}
+)
+_OptionalClientUpdateGlobalTableSettingsReplicaSettingsUpdateTypeDef = TypedDict(
+    "_OptionalClientUpdateGlobalTableSettingsReplicaSettingsUpdateTypeDef",
+    {
+        "ReplicaProvisionedReadCapacityUnits": int,
+        "ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate": ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaProvisionedReadCapacityAutoScalingSettingsUpdateTypeDef,
+        "ReplicaGlobalSecondaryIndexSettingsUpdate": List[
+            ClientUpdateGlobalTableSettingsReplicaSettingsUpdateReplicaGlobalSecondaryIndexSettingsUpdateTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsReplicaSettingsUpdateTypeDef(
+    _RequiredClientUpdateGlobalTableSettingsReplicaSettingsUpdateTypeDef,
+    _OptionalClientUpdateGlobalTableSettingsReplicaSettingsUpdateTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents the settings for a global table in a Region that will be modified.
+      - **RegionName** *(string) --***[REQUIRED]**
+
+        The Region of the replica to be added.
+    """
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef",
+    {
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+        "LastUpdateToPayPerRequestDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef",
+    {
+        "IndexName": str,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "ProvisionedReadCapacityUnits": int,
+        "ProvisionedReadCapacityAutoScalingSettings": ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedReadCapacityAutoScalingSettingsTypeDef,
+        "ProvisionedWriteCapacityUnits": int,
+        "ProvisionedWriteCapacityAutoScalingSettings": ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsProvisionedWriteCapacityAutoScalingSettingsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseReplicaSettingsTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseReplicaSettingsTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaBillingModeSummary": ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaBillingModeSummaryTypeDef,
+        "ReplicaProvisionedReadCapacityUnits": int,
+        "ReplicaProvisionedReadCapacityAutoScalingSettings": ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef,
+        "ReplicaProvisionedWriteCapacityUnits": int,
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings": ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef,
+        "ReplicaGlobalSecondaryIndexSettings": List[
+            ClientUpdateGlobalTableSettingsResponseReplicaSettingsReplicaGlobalSecondaryIndexSettingsTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseReplicaSettingsTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseReplicaSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateGlobalTableSettingsResponseTypeDef = TypedDict(
+    "_ClientUpdateGlobalTableSettingsResponseTypeDef",
+    {
+        "GlobalTableName": str,
+        "ReplicaSettings": List[ClientUpdateGlobalTableSettingsResponseReplicaSettingsTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientUpdateGlobalTableSettingsResponseTypeDef(
+    _ClientUpdateGlobalTableSettingsResponseTypeDef
+):
+    """
+    - *(dict) --*
+
+      - **GlobalTableName** *(string) --*
+
+        The name of the global table.
+    """
+
+
+_ClientUpdateItemAttributeUpdatesValueTypeDef = TypedDict(
+    "_ClientUpdateItemAttributeUpdatesValueTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemAttributeUpdatesValueTypeDef(_ClientUpdateItemAttributeUpdatesValueTypeDef):
+    pass
+
+
+_ClientUpdateItemAttributeUpdatesTypeDef = TypedDict(
+    "_ClientUpdateItemAttributeUpdatesTypeDef",
+    {
+        "Value": ClientUpdateItemAttributeUpdatesValueTypeDef,
+        "Action": Literal["ADD", "PUT", "DELETE"],
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemAttributeUpdatesTypeDef(_ClientUpdateItemAttributeUpdatesTypeDef):
+    pass
+
+
+_ClientUpdateItemExpectedAttributeValueListTypeDef = TypedDict(
+    "_ClientUpdateItemExpectedAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemExpectedAttributeValueListTypeDef(
+    _ClientUpdateItemExpectedAttributeValueListTypeDef
+):
+    pass
+
+
+_ClientUpdateItemExpectedValueTypeDef = TypedDict(
+    "_ClientUpdateItemExpectedValueTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemExpectedValueTypeDef(_ClientUpdateItemExpectedValueTypeDef):
+    pass
+
+
+_ClientUpdateItemExpectedTypeDef = TypedDict(
+    "_ClientUpdateItemExpectedTypeDef",
+    {
+        "Value": ClientUpdateItemExpectedValueTypeDef,
+        "Exists": bool,
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+        "AttributeValueList": List[ClientUpdateItemExpectedAttributeValueListTypeDef],
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemExpectedTypeDef(_ClientUpdateItemExpectedTypeDef):
+    pass
+
+
+_ClientUpdateItemExpressionAttributeValuesTypeDef = TypedDict(
+    "_ClientUpdateItemExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemExpressionAttributeValuesTypeDef(
+    _ClientUpdateItemExpressionAttributeValuesTypeDef
+):
+    pass
+
+
+_ClientUpdateItemKeyTypeDef = TypedDict(
+    "_ClientUpdateItemKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemKeyTypeDef(_ClientUpdateItemKeyTypeDef):
+    pass
+
+
+_ClientUpdateItemResponseAttributesTypeDef = TypedDict(
+    "_ClientUpdateItemResponseAttributesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemResponseAttributesTypeDef(_ClientUpdateItemResponseAttributesTypeDef):
+    pass
+
+
+_ClientUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ClientUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ClientUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientUpdateItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ClientUpdateItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ClientUpdateItemResponseConsumedCapacityTableTypeDef(
+    _ClientUpdateItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ClientUpdateItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_ClientUpdateItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ClientUpdateItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ClientUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ClientUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemResponseConsumedCapacityTypeDef(
+    _ClientUpdateItemResponseConsumedCapacityTypeDef
+):
+    pass
+
+
+_ClientUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef = TypedDict(
+    "_ClientUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef(
+    _ClientUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+):
+    pass
+
+
+_ClientUpdateItemResponseItemCollectionMetricsTypeDef = TypedDict(
+    "_ClientUpdateItemResponseItemCollectionMetricsTypeDef",
+    {
+        "ItemCollectionKey": Dict[
+            str, ClientUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+        ],
+        "SizeEstimateRangeGB": List[float],
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemResponseItemCollectionMetricsTypeDef(
+    _ClientUpdateItemResponseItemCollectionMetricsTypeDef
+):
+    pass
+
+
+_ClientUpdateItemResponseTypeDef = TypedDict(
+    "_ClientUpdateItemResponseTypeDef",
+    {
+        "Attributes": Dict[str, ClientUpdateItemResponseAttributesTypeDef],
+        "ConsumedCapacity": ClientUpdateItemResponseConsumedCapacityTypeDef,
+        "ItemCollectionMetrics": ClientUpdateItemResponseItemCollectionMetricsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateItemResponseTypeDef(_ClientUpdateItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of an ``UpdateItem`` operation.
+      - **Attributes** *(dict) --*
+
+        A map of attribute values as they appear before or after the ``UpdateItem`` operation, as
+        determined by the ``ReturnValues`` parameter.
+        The ``Attributes`` map is only present if ``ReturnValues`` was specified as something other
+        than ``NONE`` in the request. Each element represents one attribute.
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_RequiredClientUpdateTableAttributeDefinitionsTypeDef = TypedDict(
+    "_RequiredClientUpdateTableAttributeDefinitionsTypeDef", {"AttributeName": str}
+)
+_OptionalClientUpdateTableAttributeDefinitionsTypeDef = TypedDict(
+    "_OptionalClientUpdateTableAttributeDefinitionsTypeDef",
+    {"AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class ClientUpdateTableAttributeDefinitionsTypeDef(
+    _RequiredClientUpdateTableAttributeDefinitionsTypeDef,
+    _OptionalClientUpdateTableAttributeDefinitionsTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --***[REQUIRED]**
+
+        A name for the attribute.
+    """
+
+
+_ClientUpdateTableGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef = TypedDict(
+    "_ClientUpdateTableGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientUpdateTableGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef(
+    _ClientUpdateTableGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef
+):
+    pass
+
+
+_ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProjectionTypeDef = TypedDict(
+    "_ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProjectionTypeDef(
+    _ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProjectionTypeDef
+):
+    pass
+
+
+_ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef = TypedDict(
+    "_ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef(
+    _ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientUpdateTableGlobalSecondaryIndexUpdatesCreateTypeDef = TypedDict(
+    "_ClientUpdateTableGlobalSecondaryIndexUpdatesCreateTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[ClientUpdateTableGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef],
+        "Projection": ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProjectionTypeDef,
+        "ProvisionedThroughput": ClientUpdateTableGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableGlobalSecondaryIndexUpdatesCreateTypeDef(
+    _ClientUpdateTableGlobalSecondaryIndexUpdatesCreateTypeDef
+):
+    pass
+
+
+_ClientUpdateTableGlobalSecondaryIndexUpdatesDeleteTypeDef = TypedDict(
+    "_ClientUpdateTableGlobalSecondaryIndexUpdatesDeleteTypeDef", {"IndexName": str}, total=False
+)
+
+
+class ClientUpdateTableGlobalSecondaryIndexUpdatesDeleteTypeDef(
+    _ClientUpdateTableGlobalSecondaryIndexUpdatesDeleteTypeDef
+):
+    pass
+
+
+_ClientUpdateTableGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef = TypedDict(
+    "_ClientUpdateTableGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateTableGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef(
+    _ClientUpdateTableGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef
+):
+    pass
+
+
+_RequiredClientUpdateTableGlobalSecondaryIndexUpdatesUpdateTypeDef = TypedDict(
+    "_RequiredClientUpdateTableGlobalSecondaryIndexUpdatesUpdateTypeDef", {"IndexName": str}
+)
+_OptionalClientUpdateTableGlobalSecondaryIndexUpdatesUpdateTypeDef = TypedDict(
+    "_OptionalClientUpdateTableGlobalSecondaryIndexUpdatesUpdateTypeDef",
+    {
+        "ProvisionedThroughput": ClientUpdateTableGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableGlobalSecondaryIndexUpdatesUpdateTypeDef(
+    _RequiredClientUpdateTableGlobalSecondaryIndexUpdatesUpdateTypeDef,
+    _OptionalClientUpdateTableGlobalSecondaryIndexUpdatesUpdateTypeDef,
+):
+    """
+    - **Update** *(dict) --*
+
+      The name of an existing global secondary index, along with new provisioned throughput settings
+      to be applied to that index.
+      - **IndexName** *(string) --***[REQUIRED]**
+
+        The name of the global secondary index to be updated.
+    """
+
+
+_ClientUpdateTableGlobalSecondaryIndexUpdatesTypeDef = TypedDict(
+    "_ClientUpdateTableGlobalSecondaryIndexUpdatesTypeDef",
+    {
+        "Update": ClientUpdateTableGlobalSecondaryIndexUpdatesUpdateTypeDef,
+        "Create": ClientUpdateTableGlobalSecondaryIndexUpdatesCreateTypeDef,
+        "Delete": ClientUpdateTableGlobalSecondaryIndexUpdatesDeleteTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableGlobalSecondaryIndexUpdatesTypeDef(
+    _ClientUpdateTableGlobalSecondaryIndexUpdatesTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents one of the following:
+      * A new global secondary index to be added to an existing table.
+      * New provisioned throughput parameters for an existing global secondary index.
+      * An existing global secondary index to be removed from an existing table.
+      - **Update** *(dict) --*
+
+        The name of an existing global secondary index, along with new provisioned throughput
+        settings to be applied to that index.
+        - **IndexName** *(string) --***[REQUIRED]**
+
+          The name of the global secondary index to be updated.
+    """
+
+
+_RequiredClientUpdateTableProvisionedThroughputTypeDef = TypedDict(
+    "_RequiredClientUpdateTableProvisionedThroughputTypeDef", {"ReadCapacityUnits": int}
+)
+_OptionalClientUpdateTableProvisionedThroughputTypeDef = TypedDict(
+    "_OptionalClientUpdateTableProvisionedThroughputTypeDef",
+    {"WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateTableProvisionedThroughputTypeDef(
+    _RequiredClientUpdateTableProvisionedThroughputTypeDef,
+    _OptionalClientUpdateTableProvisionedThroughputTypeDef,
+):
+    """
+    The new provisioned throughput settings for the specified table or index.
+    - **ReadCapacityUnits** *(integer) --***[REQUIRED]**
+
+      The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
+      ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__
+      in the *Amazon DynamoDB Developer Guide* .
+      If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+    """
+
+
+_ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef(
+    _ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicyUpdate": ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateTypeDef(
+    _ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedWriteCapacityAutoScalingUpdate": ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesProvisionedWriteCapacityAutoScalingUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesTypeDef(
+    _ClientUpdateTableReplicaAutoScalingGlobalSecondaryIndexUpdatesTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents the auto scaling settings of a global secondary index for a global table that will
+      be modified.
+      - **IndexName** *(string) --*
+
+        The name of the global secondary index.
+    """
+
+
+_ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef(
+    _ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicyUpdate": ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateTypeDef(
+    _ClientUpdateTableReplicaAutoScalingProvisionedWriteCapacityAutoScalingUpdateTypeDef
+):
+    """
+    Represents the auto scaling settings to be modified for a global table or global secondary
+    index.
+    - **MinimumUnits** *(integer) --*
+
+      The minimum capacity units that a global table or global secondary index should be scaled down
+      to.
+    """
+
+
+_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef(
+    _ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicyUpdate": ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateTypeDef(
+    _ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedReadCapacityAutoScalingUpdate": ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesProvisionedReadCapacityAutoScalingUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesTypeDef(
+    _ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef(
+    _ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicyUpdate": ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateScalingPolicyUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateTypeDef(
+    _ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateTypeDef
+):
+    pass
+
+
+_RequiredClientUpdateTableReplicaAutoScalingReplicaUpdatesTypeDef = TypedDict(
+    "_RequiredClientUpdateTableReplicaAutoScalingReplicaUpdatesTypeDef", {"RegionName": str}
+)
+_OptionalClientUpdateTableReplicaAutoScalingReplicaUpdatesTypeDef = TypedDict(
+    "_OptionalClientUpdateTableReplicaAutoScalingReplicaUpdatesTypeDef",
+    {
+        "ReplicaGlobalSecondaryIndexUpdates": List[
+            ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaGlobalSecondaryIndexUpdatesTypeDef
+        ],
+        "ReplicaProvisionedReadCapacityAutoScalingUpdate": ClientUpdateTableReplicaAutoScalingReplicaUpdatesReplicaProvisionedReadCapacityAutoScalingUpdateTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingReplicaUpdatesTypeDef(
+    _RequiredClientUpdateTableReplicaAutoScalingReplicaUpdatesTypeDef,
+    _OptionalClientUpdateTableReplicaAutoScalingReplicaUpdatesTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents the auto scaling settings of a replica that will be modified.
+      - **RegionName** *(string) --***[REQUIRED]**
+
+        The Region where the replica exists.
+    """
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "ProvisionedReadCapacityAutoScalingSettings": ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedReadCapacityAutoScalingSettingsTypeDef,
+        "ProvisionedWriteCapacityAutoScalingSettings": ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesProvisionedWriteCapacityAutoScalingSettingsTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef",
+    {"DisableScaleIn": bool, "ScaleInCooldown": int, "ScaleOutCooldown": int, "TargetValue": float},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef",
+    {
+        "PolicyName": str,
+        "TargetTrackingScalingPolicyConfiguration": ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTargetTrackingScalingPolicyConfigurationTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef",
+    {
+        "MinimumUnits": int,
+        "MaximumUnits": int,
+        "AutoScalingDisabled": bool,
+        "AutoScalingRoleArn": str,
+        "ScalingPolicies": List[
+            ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsScalingPoliciesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef",
+    {
+        "RegionName": str,
+        "GlobalSecondaryIndexes": List[
+            ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasGlobalSecondaryIndexesTypeDef
+        ],
+        "ReplicaProvisionedReadCapacityAutoScalingSettings": ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedReadCapacityAutoScalingSettingsTypeDef,
+        "ReplicaProvisionedWriteCapacityAutoScalingSettings": ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasReplicaProvisionedWriteCapacityAutoScalingSettingsTypeDef,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef",
+    {
+        "TableName": str,
+        "TableStatus": Literal[
+            "CREATING",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "ARCHIVING",
+            "ARCHIVED",
+        ],
+        "Replicas": List[
+            ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionReplicasTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef
+):
+    """
+    - **TableAutoScalingDescription** *(dict) --*
+
+      Returns information about the auto scaling settings of a table with replicas.
+      - **TableName** *(string) --*
+
+        The name of the table.
+    """
+
+
+_ClientUpdateTableReplicaAutoScalingResponseTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaAutoScalingResponseTypeDef",
+    {
+        "TableAutoScalingDescription": ClientUpdateTableReplicaAutoScalingResponseTableAutoScalingDescriptionTypeDef
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaAutoScalingResponseTypeDef(
+    _ClientUpdateTableReplicaAutoScalingResponseTypeDef
+):
+    """
+    - *(dict) --*
+
+      - **TableAutoScalingDescription** *(dict) --*
+
+        Returns information about the auto scaling settings of a table with replicas.
+        - **TableName** *(string) --*
+
+          The name of the table.
+    """
+
+
+_ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef(
+    _ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef(
+    _ClientUpdateTableReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaUpdatesCreateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesCreateTypeDef",
+    {
+        "RegionName": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientUpdateTableReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientUpdateTableReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaUpdatesCreateTypeDef(_ClientUpdateTableReplicaUpdatesCreateTypeDef):
+    pass
+
+
+_ClientUpdateTableReplicaUpdatesDeleteTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesDeleteTypeDef", {"RegionName": str}, total=False
+)
+
+
+class ClientUpdateTableReplicaUpdatesDeleteTypeDef(_ClientUpdateTableReplicaUpdatesDeleteTypeDef):
+    pass
+
+
+_ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef(
+    _ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef(
+    _ClientUpdateTableReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientUpdateTableReplicaUpdatesUpdateTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesUpdateTypeDef",
+    {
+        "RegionName": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientUpdateTableReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientUpdateTableReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaUpdatesUpdateTypeDef(_ClientUpdateTableReplicaUpdatesUpdateTypeDef):
+    pass
+
+
+_ClientUpdateTableReplicaUpdatesTypeDef = TypedDict(
+    "_ClientUpdateTableReplicaUpdatesTypeDef",
+    {
+        "Create": ClientUpdateTableReplicaUpdatesCreateTypeDef,
+        "Update": ClientUpdateTableReplicaUpdatesUpdateTypeDef,
+        "Delete": ClientUpdateTableReplicaUpdatesDeleteTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableReplicaUpdatesTypeDef(_ClientUpdateTableReplicaUpdatesTypeDef):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionArchivalSummaryTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionArchivalSummaryTypeDef",
+    {"ArchivalDateTime": datetime, "ArchivalReason": str, "ArchivalBackupArn": str},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionArchivalSummaryTypeDef(
+    _ClientUpdateTableResponseTableDescriptionArchivalSummaryTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionAttributeDefinitionsTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionAttributeDefinitionsTypeDef",
+    {"AttributeName": str, "AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionAttributeDefinitionsTypeDef(
+    _ClientUpdateTableResponseTableDescriptionAttributeDefinitionsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --*
+
+        A name for the attribute.
+    """
+
+
+_ClientUpdateTableResponseTableDescriptionBillingModeSummaryTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionBillingModeSummaryTypeDef",
+    {
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+        "LastUpdateToPayPerRequestDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionBillingModeSummaryTypeDef(
+    _ClientUpdateTableResponseTableDescriptionBillingModeSummaryTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef(
+    _ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "Backfilling": bool,
+        "ProvisionedThroughput": ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef(
+    _ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionKeySchemaTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionKeySchemaTypeDef(
+    _ClientUpdateTableResponseTableDescriptionKeySchemaTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef(
+    _ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef(
+    _ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef(
+    _ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionProvisionedThroughputTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionProvisionedThroughputTypeDef(
+    _ClientUpdateTableResponseTableDescriptionProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef(
+    _ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef(
+    _ClientUpdateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionReplicasTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionReplicasTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": ClientUpdateTableResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            ClientUpdateTableResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionReplicasTypeDef(
+    _ClientUpdateTableResponseTableDescriptionReplicasTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionRestoreSummaryTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionRestoreSummaryTypeDef",
+    {
+        "SourceBackupArn": str,
+        "SourceTableArn": str,
+        "RestoreDateTime": datetime,
+        "RestoreInProgress": bool,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionRestoreSummaryTypeDef(
+    _ClientUpdateTableResponseTableDescriptionRestoreSummaryTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionSSEDescriptionTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionSSEDescriptionTypeDef",
+    {
+        "Status": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"],
+        "SSEType": Literal["AES256", "KMS"],
+        "KMSMasterKeyArn": str,
+        "InaccessibleEncryptionDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionSSEDescriptionTypeDef(
+    _ClientUpdateTableResponseTableDescriptionSSEDescriptionTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionStreamSpecificationTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionStreamSpecificationTypeDef(
+    _ClientUpdateTableResponseTableDescriptionStreamSpecificationTypeDef
+):
+    pass
+
+
+_ClientUpdateTableResponseTableDescriptionTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTableDescriptionTypeDef",
+    {
+        "AttributeDefinitions": List[
+            ClientUpdateTableResponseTableDescriptionAttributeDefinitionsTypeDef
+        ],
+        "TableName": str,
+        "KeySchema": List[ClientUpdateTableResponseTableDescriptionKeySchemaTypeDef],
+        "TableStatus": Literal[
+            "CREATING",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "ARCHIVING",
+            "ARCHIVED",
+        ],
+        "CreationDateTime": datetime,
+        "ProvisionedThroughput": ClientUpdateTableResponseTableDescriptionProvisionedThroughputTypeDef,
+        "TableSizeBytes": int,
+        "ItemCount": int,
+        "TableArn": str,
+        "TableId": str,
+        "BillingModeSummary": ClientUpdateTableResponseTableDescriptionBillingModeSummaryTypeDef,
+        "LocalSecondaryIndexes": List[
+            ClientUpdateTableResponseTableDescriptionLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": List[
+            ClientUpdateTableResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+        ],
+        "StreamSpecification": ClientUpdateTableResponseTableDescriptionStreamSpecificationTypeDef,
+        "LatestStreamLabel": str,
+        "LatestStreamArn": str,
+        "GlobalTableVersion": str,
+        "Replicas": List[ClientUpdateTableResponseTableDescriptionReplicasTypeDef],
+        "RestoreSummary": ClientUpdateTableResponseTableDescriptionRestoreSummaryTypeDef,
+        "SSEDescription": ClientUpdateTableResponseTableDescriptionSSEDescriptionTypeDef,
+        "ArchivalSummary": ClientUpdateTableResponseTableDescriptionArchivalSummaryTypeDef,
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTableDescriptionTypeDef(
+    _ClientUpdateTableResponseTableDescriptionTypeDef
+):
+    """
+    - **TableDescription** *(dict) --*
+
+      Represents the properties of the table.
+      - **AttributeDefinitions** *(list) --*
+
+        An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+        in the table and index key schema.
+        Each ``AttributeDefinition`` object in this array is composed of:
+        * ``AttributeName`` - The name of the attribute.
+        * ``AttributeType`` - The data type for the attribute.
+        - *(dict) --*
+
+          Represents an attribute for describing the key schema for the table and indexes.
+          - **AttributeName** *(string) --*
+
+            A name for the attribute.
+    """
+
+
+_ClientUpdateTableResponseTypeDef = TypedDict(
+    "_ClientUpdateTableResponseTypeDef",
+    {"TableDescription": ClientUpdateTableResponseTableDescriptionTypeDef},
+    total=False,
+)
+
+
+class ClientUpdateTableResponseTypeDef(_ClientUpdateTableResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of an ``UpdateTable`` operation.
+      - **TableDescription** *(dict) --*
+
+        Represents the properties of the table.
+        - **AttributeDefinitions** *(list) --*
+
+          An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+          in the table and index key schema.
+          Each ``AttributeDefinition`` object in this array is composed of:
+          * ``AttributeName`` - The name of the attribute.
+          * ``AttributeType`` - The data type for the attribute.
+          - *(dict) --*
+
+            Represents an attribute for describing the key schema for the table and indexes.
+            - **AttributeName** *(string) --*
+
+              A name for the attribute.
+    """
+
+
+_ClientUpdateTableSSESpecificationTypeDef = TypedDict(
+    "_ClientUpdateTableSSESpecificationTypeDef",
+    {"Enabled": bool, "SSEType": Literal["AES256", "KMS"], "KMSMasterKeyId": str},
+    total=False,
+)
+
+
+class ClientUpdateTableSSESpecificationTypeDef(_ClientUpdateTableSSESpecificationTypeDef):
+    """
+    The new server-side encryption settings for the specified table.
+    - **Enabled** *(boolean) --*
+
+      Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK.
+      If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed CMK is
+      used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is
+      set to AWS owned CMK.
+    """
+
+
+_ClientUpdateTableStreamSpecificationTypeDef = TypedDict(
+    "_ClientUpdateTableStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ClientUpdateTableStreamSpecificationTypeDef(_ClientUpdateTableStreamSpecificationTypeDef):
+    """
+    Represents the DynamoDB Streams configuration for the table.
+    .. note::
+
+      You receive a ``ResourceInUseException`` if you try to enable a stream on a table that already
+      has a stream, or if you try to disable a stream on a table that doesn't have a stream.
+    """
+
+
+_ClientUpdateTimeToLiveResponseTimeToLiveSpecificationTypeDef = TypedDict(
+    "_ClientUpdateTimeToLiveResponseTimeToLiveSpecificationTypeDef",
+    {"Enabled": bool, "AttributeName": str},
+    total=False,
+)
+
+
+class ClientUpdateTimeToLiveResponseTimeToLiveSpecificationTypeDef(
+    _ClientUpdateTimeToLiveResponseTimeToLiveSpecificationTypeDef
+):
+    """
+    - **TimeToLiveSpecification** *(dict) --*
+
+      Represents the output of an ``UpdateTimeToLive`` operation.
+      - **Enabled** *(boolean) --*
+
+        Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+    """
+
+
+_ClientUpdateTimeToLiveResponseTypeDef = TypedDict(
+    "_ClientUpdateTimeToLiveResponseTypeDef",
+    {"TimeToLiveSpecification": ClientUpdateTimeToLiveResponseTimeToLiveSpecificationTypeDef},
+    total=False,
+)
+
+
+class ClientUpdateTimeToLiveResponseTypeDef(_ClientUpdateTimeToLiveResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **TimeToLiveSpecification** *(dict) --*
+
+        Represents the output of an ``UpdateTimeToLive`` operation.
+        - **Enabled** *(boolean) --*
+
+          Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+    """
+
+
+_RequiredClientUpdateTimeToLiveTimeToLiveSpecificationTypeDef = TypedDict(
+    "_RequiredClientUpdateTimeToLiveTimeToLiveSpecificationTypeDef", {"Enabled": bool}
+)
+_OptionalClientUpdateTimeToLiveTimeToLiveSpecificationTypeDef = TypedDict(
+    "_OptionalClientUpdateTimeToLiveTimeToLiveSpecificationTypeDef",
+    {"AttributeName": str},
+    total=False,
+)
+
+
+class ClientUpdateTimeToLiveTimeToLiveSpecificationTypeDef(
+    _RequiredClientUpdateTimeToLiveTimeToLiveSpecificationTypeDef,
+    _OptionalClientUpdateTimeToLiveTimeToLiveSpecificationTypeDef,
+):
+    """
+    Represents the settings used to enable or disable Time to Live for the specified table.
+    - **Enabled** *(boolean) --***[REQUIRED]**
+
+      Indicates whether TTL is to be enabled (true) or disabled (false) on the table.
+    """
+
+
+_ListBackupsPaginatePaginationConfigTypeDef = TypedDict(
+    "_ListBackupsPaginatePaginationConfigTypeDef",
+    {"MaxItems": int, "PageSize": int, "StartingToken": str},
+    total=False,
+)
+
+
+class ListBackupsPaginatePaginationConfigTypeDef(_ListBackupsPaginatePaginationConfigTypeDef):
+    """
+    A dictionary that provides parameters to control pagination.
+    - **MaxItems** *(integer) --*
+
+      The total number of items to return. If the total number of items available is more than the
+      value specified in max-items then a ``NextToken`` will be provided in the output that you can
+      use to resume pagination.
+    """
+
+
+_ListBackupsPaginateResponseBackupSummariesTypeDef = TypedDict(
+    "_ListBackupsPaginateResponseBackupSummariesTypeDef",
+    {
+        "TableName": str,
+        "TableId": str,
+        "TableArn": str,
+        "BackupArn": str,
+        "BackupName": str,
+        "BackupCreationDateTime": datetime,
+        "BackupExpiryDateTime": datetime,
+        "BackupStatus": Literal["CREATING", "DELETED", "AVAILABLE"],
+        "BackupType": Literal["USER", "SYSTEM", "AWS_BACKUP"],
+        "BackupSizeBytes": int,
+    },
+    total=False,
+)
+
+
+class ListBackupsPaginateResponseBackupSummariesTypeDef(
+    _ListBackupsPaginateResponseBackupSummariesTypeDef
+):
+    """
+    - *(dict) --*
+
+      Contains details for the backup.
+      - **TableName** *(string) --*
+
+        Name of the table.
+    """
+
+
+_ListBackupsPaginateResponseTypeDef = TypedDict(
+    "_ListBackupsPaginateResponseTypeDef",
+    {"BackupSummaries": List[ListBackupsPaginateResponseBackupSummariesTypeDef], "NextToken": str},
+    total=False,
+)
+
+
+class ListBackupsPaginateResponseTypeDef(_ListBackupsPaginateResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **BackupSummaries** *(list) --*
+
+        List of ``BackupSummary`` objects.
+        - *(dict) --*
+
+          Contains details for the backup.
+          - **TableName** *(string) --*
+
+            Name of the table.
+    """
+
+
+_ListTablesPaginatePaginationConfigTypeDef = TypedDict(
+    "_ListTablesPaginatePaginationConfigTypeDef",
+    {"MaxItems": int, "PageSize": int, "StartingToken": str},
+    total=False,
+)
+
+
+class ListTablesPaginatePaginationConfigTypeDef(_ListTablesPaginatePaginationConfigTypeDef):
+    """
+    A dictionary that provides parameters to control pagination.
+    - **MaxItems** *(integer) --*
+
+      The total number of items to return. If the total number of items available is more than the
+      value specified in max-items then a ``NextToken`` will be provided in the output that you can
+      use to resume pagination.
+    """
+
+
+_ListTablesPaginateResponseTypeDef = TypedDict(
+    "_ListTablesPaginateResponseTypeDef", {"TableNames": List[str], "NextToken": str}, total=False
+)
+
+
+class ListTablesPaginateResponseTypeDef(_ListTablesPaginateResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``ListTables`` operation.
+      - **TableNames** *(list) --*
+
+        The names of the tables associated with the current account at the current endpoint. The
+        maximum size of this array is 100.
+        If ``LastEvaluatedTableName`` also appears in the output, you can use this value as the
+        ``ExclusiveStartTableName`` parameter in a subsequent ``ListTables`` request and obtain the
+        next page of results.
+        - *(string) --*
+    """
+
+
+_ListTagsOfResourcePaginatePaginationConfigTypeDef = TypedDict(
+    "_ListTagsOfResourcePaginatePaginationConfigTypeDef",
+    {"MaxItems": int, "StartingToken": str},
+    total=False,
+)
+
+
+class ListTagsOfResourcePaginatePaginationConfigTypeDef(
+    _ListTagsOfResourcePaginatePaginationConfigTypeDef
+):
+    """
+    A dictionary that provides parameters to control pagination.
+    - **MaxItems** *(integer) --*
+
+      The total number of items to return. If the total number of items available is more than the
+      value specified in max-items then a ``NextToken`` will be provided in the output that you can
+      use to resume pagination.
+    """
+
+
+_ListTagsOfResourcePaginateResponseTagsTypeDef = TypedDict(
+    "_ListTagsOfResourcePaginateResponseTagsTypeDef", {"Key": str, "Value": str}, total=False
+)
+
+
+class ListTagsOfResourcePaginateResponseTagsTypeDef(_ListTagsOfResourcePaginateResponseTagsTypeDef):
+    """
+    - *(dict) --*
+
+      Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB
+      table.
+      AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the
+      user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50.
+      User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot
+      backdate the application of a tag.
+      For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the
+      *Amazon DynamoDB Developer Guide* .
+      - **Key** *(string) --*
+
+        The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one
+        tag with the same key. If you try to add an existing tag (same key), the existing tag value
+        will be updated to the new value.
+    """
+
+
+_ListTagsOfResourcePaginateResponseTypeDef = TypedDict(
+    "_ListTagsOfResourcePaginateResponseTypeDef",
+    {"Tags": List[ListTagsOfResourcePaginateResponseTagsTypeDef]},
+    total=False,
+)
+
+
+class ListTagsOfResourcePaginateResponseTypeDef(_ListTagsOfResourcePaginateResponseTypeDef):
+    """
+    - *(dict) --*
+
+      - **Tags** *(list) --*
+
+        The tags currently associated with the Amazon DynamoDB resource.
+        - *(dict) --*
+
+          Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB
+          table.
+          AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which
+          the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50.
+          User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You
+          cannot backdate the application of a tag.
+          For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB
+          <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the
+          *Amazon DynamoDB Developer Guide* .
+          - **Key** *(string) --*
+
+            The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to
+            one tag with the same key. If you try to add an existing tag (same key), the existing
+            tag value will be updated to the new value.
+    """
+
+
+_QueryPaginateExpressionAttributeValuesTypeDef = TypedDict(
+    "_QueryPaginateExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class QueryPaginateExpressionAttributeValuesTypeDef(_QueryPaginateExpressionAttributeValuesTypeDef):
+    pass
+
+
+_QueryPaginateKeyConditionsAttributeValueListTypeDef = TypedDict(
+    "_QueryPaginateKeyConditionsAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class QueryPaginateKeyConditionsAttributeValueListTypeDef(
+    _QueryPaginateKeyConditionsAttributeValueListTypeDef
+):
+    pass
+
+
+_QueryPaginateKeyConditionsTypeDef = TypedDict(
+    "_QueryPaginateKeyConditionsTypeDef",
+    {
+        "AttributeValueList": List[QueryPaginateKeyConditionsAttributeValueListTypeDef],
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+    },
+    total=False,
+)
+
+
+class QueryPaginateKeyConditionsTypeDef(_QueryPaginateKeyConditionsTypeDef):
+    pass
+
+
+_QueryPaginatePaginationConfigTypeDef = TypedDict(
+    "_QueryPaginatePaginationConfigTypeDef",
+    {"MaxItems": int, "PageSize": int, "StartingToken": str},
+    total=False,
+)
+
+
+class QueryPaginatePaginationConfigTypeDef(_QueryPaginatePaginationConfigTypeDef):
+    """
+    A dictionary that provides parameters to control pagination.
+    - **MaxItems** *(integer) --*
+
+      The total number of items to return. If the total number of items available is more than the
+      value specified in max-items then a ``NextToken`` will be provided in the output that you can
+      use to resume pagination.
+    """
+
+
+_QueryPaginateQueryFilterAttributeValueListTypeDef = TypedDict(
+    "_QueryPaginateQueryFilterAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class QueryPaginateQueryFilterAttributeValueListTypeDef(
+    _QueryPaginateQueryFilterAttributeValueListTypeDef
+):
+    pass
+
+
+_QueryPaginateQueryFilterTypeDef = TypedDict(
+    "_QueryPaginateQueryFilterTypeDef",
+    {
+        "AttributeValueList": List[QueryPaginateQueryFilterAttributeValueListTypeDef],
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+    },
+    total=False,
+)
+
+
+class QueryPaginateQueryFilterTypeDef(_QueryPaginateQueryFilterTypeDef):
+    pass
+
+
+_QueryPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_QueryPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class QueryPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _QueryPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_QueryPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_QueryPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class QueryPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _QueryPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_QueryPaginateResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_QueryPaginateResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class QueryPaginateResponseConsumedCapacityTableTypeDef(
+    _QueryPaginateResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_QueryPaginateResponseConsumedCapacityTypeDef = TypedDict(
+    "_QueryPaginateResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": QueryPaginateResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, QueryPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, QueryPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class QueryPaginateResponseConsumedCapacityTypeDef(_QueryPaginateResponseConsumedCapacityTypeDef):
+    pass
+
+
+_QueryPaginateResponseItemsTypeDef = TypedDict(
+    "_QueryPaginateResponseItemsTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class QueryPaginateResponseItemsTypeDef(_QueryPaginateResponseItemsTypeDef):
+    pass
+
+
+_QueryPaginateResponseTypeDef = TypedDict(
+    "_QueryPaginateResponseTypeDef",
+    {
+        "Items": List[Dict[str, QueryPaginateResponseItemsTypeDef]],
+        "Count": int,
+        "ScannedCount": int,
+        "ConsumedCapacity": QueryPaginateResponseConsumedCapacityTypeDef,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+
+class QueryPaginateResponseTypeDef(_QueryPaginateResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``Query`` operation.
+      - **Items** *(list) --*
+
+        An array of item attributes that match the query criteria. Each element in this array
+        consists of an attribute name and the value for that attribute.
+        - *(dict) --*
+
+          - *(string) --*
+
+            - *(dict) --*
+
+              Represents the data for an attribute.
+              Each attribute value is described as a name-value pair. The name is the data type, and
+              the value is the data itself.
+              For more information, see `Data Types
+              <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+              in the *Amazon DynamoDB Developer Guide* .
+              - **S** *(string) --*
+
+                An attribute of type String. For example:
+
+                  ``"S": "Hello"``
+    """
+
+
+_ScanPaginateExpressionAttributeValuesTypeDef = TypedDict(
+    "_ScanPaginateExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ScanPaginateExpressionAttributeValuesTypeDef(_ScanPaginateExpressionAttributeValuesTypeDef):
+    pass
+
+
+_ScanPaginatePaginationConfigTypeDef = TypedDict(
+    "_ScanPaginatePaginationConfigTypeDef",
+    {"MaxItems": int, "PageSize": int, "StartingToken": str},
+    total=False,
+)
+
+
+class ScanPaginatePaginationConfigTypeDef(_ScanPaginatePaginationConfigTypeDef):
+    """
+    A dictionary that provides parameters to control pagination.
+    - **MaxItems** *(integer) --*
+
+      The total number of items to return. If the total number of items available is more than the
+      value specified in max-items then a ``NextToken`` will be provided in the output that you can
+      use to resume pagination.
+    """
+
+
+_ScanPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ScanPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ScanPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ScanPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ScanPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ScanPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ScanPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ScanPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ScanPaginateResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ScanPaginateResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ScanPaginateResponseConsumedCapacityTableTypeDef(
+    _ScanPaginateResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ScanPaginateResponseConsumedCapacityTypeDef = TypedDict(
+    "_ScanPaginateResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ScanPaginateResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ScanPaginateResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ScanPaginateResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ScanPaginateResponseConsumedCapacityTypeDef(_ScanPaginateResponseConsumedCapacityTypeDef):
+    pass
+
+
+_ScanPaginateResponseItemsTypeDef = TypedDict(
+    "_ScanPaginateResponseItemsTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ScanPaginateResponseItemsTypeDef(_ScanPaginateResponseItemsTypeDef):
+    pass
+
+
+_ScanPaginateResponseTypeDef = TypedDict(
+    "_ScanPaginateResponseTypeDef",
+    {
+        "Items": List[Dict[str, ScanPaginateResponseItemsTypeDef]],
+        "Count": int,
+        "ScannedCount": int,
+        "ConsumedCapacity": ScanPaginateResponseConsumedCapacityTypeDef,
+        "NextToken": str,
+    },
+    total=False,
+)
+
+
+class ScanPaginateResponseTypeDef(_ScanPaginateResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``Scan`` operation.
+      - **Items** *(list) --*
+
+        An array of item attributes that match the scan criteria. Each element in this array
+        consists of an attribute name and the value for that attribute.
+        - *(dict) --*
+
+          - *(string) --*
+
+            - *(dict) --*
+
+              Represents the data for an attribute.
+              Each attribute value is described as a name-value pair. The name is the data type, and
+              the value is the data itself.
+              For more information, see `Data Types
+              <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+              in the *Amazon DynamoDB Developer Guide* .
+              - **S** *(string) --*
+
+                An attribute of type String. For example:
+
+                  ``"S": "Hello"``
+    """
+
+
+_ScanPaginateScanFilterAttributeValueListTypeDef = TypedDict(
+    "_ScanPaginateScanFilterAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ScanPaginateScanFilterAttributeValueListTypeDef(
+    _ScanPaginateScanFilterAttributeValueListTypeDef
+):
+    pass
+
+
+_ScanPaginateScanFilterTypeDef = TypedDict(
+    "_ScanPaginateScanFilterTypeDef",
+    {
+        "AttributeValueList": List[ScanPaginateScanFilterAttributeValueListTypeDef],
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+    },
+    total=False,
+)
+
+
+class ScanPaginateScanFilterTypeDef(_ScanPaginateScanFilterTypeDef):
+    pass
+
+
+_ServiceResourceBatchGetItemRequestItemsKeysTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemRequestItemsKeysTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemRequestItemsKeysTypeDef(
+    _ServiceResourceBatchGetItemRequestItemsKeysTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchGetItemRequestItemsTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemRequestItemsTypeDef",
+    {
+        "Keys": List[Dict[str, ServiceResourceBatchGetItemRequestItemsKeysTypeDef]],
+        "AttributesToGet": List[str],
+        "ConsistentRead": bool,
+        "ProjectionExpression": str,
+        "ExpressionAttributeNames": Dict[str, str],
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemRequestItemsTypeDef(
+    _ServiceResourceBatchGetItemRequestItemsTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ServiceResourceBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ServiceResourceBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchGetItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemResponseConsumedCapacityTableTypeDef(
+    _ServiceResourceBatchGetItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchGetItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ServiceResourceBatchGetItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ServiceResourceBatchGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ServiceResourceBatchGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemResponseConsumedCapacityTypeDef(
+    _ServiceResourceBatchGetItemResponseConsumedCapacityTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchGetItemResponseResponsesTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemResponseResponsesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemResponseResponsesTypeDef(
+    _ServiceResourceBatchGetItemResponseResponsesTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchGetItemResponseUnprocessedKeysKeysTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemResponseUnprocessedKeysKeysTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemResponseUnprocessedKeysKeysTypeDef(
+    _ServiceResourceBatchGetItemResponseUnprocessedKeysKeysTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchGetItemResponseUnprocessedKeysTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemResponseUnprocessedKeysTypeDef",
+    {
+        "Keys": List[Dict[str, ServiceResourceBatchGetItemResponseUnprocessedKeysKeysTypeDef]],
+        "AttributesToGet": List[str],
+        "ConsistentRead": bool,
+        "ProjectionExpression": str,
+        "ExpressionAttributeNames": Dict[str, str],
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemResponseUnprocessedKeysTypeDef(
+    _ServiceResourceBatchGetItemResponseUnprocessedKeysTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchGetItemResponseTypeDef = TypedDict(
+    "_ServiceResourceBatchGetItemResponseTypeDef",
+    {
+        "Responses": Dict[
+            str, List[Dict[str, ServiceResourceBatchGetItemResponseResponsesTypeDef]]
+        ],
+        "UnprocessedKeys": Dict[str, ServiceResourceBatchGetItemResponseUnprocessedKeysTypeDef],
+        "ConsumedCapacity": List[ServiceResourceBatchGetItemResponseConsumedCapacityTypeDef],
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchGetItemResponseTypeDef(_ServiceResourceBatchGetItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``BatchGetItem`` operation.
+      - **Responses** *(dict) --*
+
+        A map of table name to a list of items. Each object in ``Responses`` consists of a table
+        name, along with a map of attribute data consisting of the data type and attribute value.
+        - *(string) --*
+
+          - *(list) --*
+
+            - *(dict) --*
+
+              - *(string) --*
+
+                - *(dict) --*
+
+                  Represents the data for an attribute.
+                  Each attribute value is described as a name-value pair. The name is the data type,
+                  and the value is the data itself.
+                  For more information, see `Data Types
+                  <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+                  in the *Amazon DynamoDB Developer Guide* .
+                  - **S** *(string) --*
+
+                    An attribute of type String. For example:
+
+                      ``"S": "Hello"``
+    """
+
+
+_ServiceResourceBatchWriteItemRequestItemsDeleteRequestKeyTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemRequestItemsDeleteRequestKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemRequestItemsDeleteRequestKeyTypeDef(
+    _ServiceResourceBatchWriteItemRequestItemsDeleteRequestKeyTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemRequestItemsDeleteRequestTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemRequestItemsDeleteRequestTypeDef",
+    {"Key": Dict[str, ServiceResourceBatchWriteItemRequestItemsDeleteRequestKeyTypeDef]},
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemRequestItemsDeleteRequestTypeDef(
+    _ServiceResourceBatchWriteItemRequestItemsDeleteRequestTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemRequestItemsPutRequestItemTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemRequestItemsPutRequestItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemRequestItemsPutRequestItemTypeDef(
+    _ServiceResourceBatchWriteItemRequestItemsPutRequestItemTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemRequestItemsPutRequestTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemRequestItemsPutRequestTypeDef",
+    {"Item": Dict[str, ServiceResourceBatchWriteItemRequestItemsPutRequestItemTypeDef]},
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemRequestItemsPutRequestTypeDef(
+    _ServiceResourceBatchWriteItemRequestItemsPutRequestTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemRequestItemsTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemRequestItemsTypeDef",
+    {
+        "PutRequest": ServiceResourceBatchWriteItemRequestItemsPutRequestTypeDef,
+        "DeleteRequest": ServiceResourceBatchWriteItemRequestItemsDeleteRequestTypeDef,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemRequestItemsTypeDef(
+    _ServiceResourceBatchWriteItemRequestItemsTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _ServiceResourceBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _ServiceResourceBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseConsumedCapacityTableTypeDef(
+    _ServiceResourceBatchWriteItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": ServiceResourceBatchWriteItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, ServiceResourceBatchWriteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, ServiceResourceBatchWriteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseConsumedCapacityTypeDef(
+    _ServiceResourceBatchWriteItemResponseConsumedCapacityTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef(
+    _ServiceResourceBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseItemCollectionMetricsTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseItemCollectionMetricsTypeDef",
+    {
+        "ItemCollectionKey": Dict[
+            str, ServiceResourceBatchWriteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+        ],
+        "SizeEstimateRangeGB": List[float],
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseItemCollectionMetricsTypeDef(
+    _ServiceResourceBatchWriteItemResponseItemCollectionMetricsTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef(
+    _ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef",
+    {
+        "Key": Dict[
+            str, ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestKeyTypeDef
+        ]
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef(
+    _ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef(
+    _ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef",
+    {"Item": Dict[str, ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestItemTypeDef]},
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef(
+    _ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseUnprocessedItemsTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseUnprocessedItemsTypeDef",
+    {
+        "PutRequest": ServiceResourceBatchWriteItemResponseUnprocessedItemsPutRequestTypeDef,
+        "DeleteRequest": ServiceResourceBatchWriteItemResponseUnprocessedItemsDeleteRequestTypeDef,
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseUnprocessedItemsTypeDef(
+    _ServiceResourceBatchWriteItemResponseUnprocessedItemsTypeDef
+):
+    pass
+
+
+_ServiceResourceBatchWriteItemResponseTypeDef = TypedDict(
+    "_ServiceResourceBatchWriteItemResponseTypeDef",
+    {
+        "UnprocessedItems": Dict[
+            str, List[ServiceResourceBatchWriteItemResponseUnprocessedItemsTypeDef]
+        ],
+        "ItemCollectionMetrics": Dict[
+            str, List[ServiceResourceBatchWriteItemResponseItemCollectionMetricsTypeDef]
+        ],
+        "ConsumedCapacity": List[ServiceResourceBatchWriteItemResponseConsumedCapacityTypeDef],
+    },
+    total=False,
+)
+
+
+class ServiceResourceBatchWriteItemResponseTypeDef(_ServiceResourceBatchWriteItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``BatchWriteItem`` operation.
+      - **UnprocessedItems** *(dict) --*
+
+        A map of tables and requests against those tables that were not processed. The
+        ``UnprocessedItems`` value is in the same form as ``RequestItems`` , so you can provide this
+        value directly to a subsequent ``BatchGetItem`` operation. For more information, see
+        ``RequestItems`` in the Request Parameters section.
+        Each ``UnprocessedItems`` entry consists of a table name and, for that table, a list of
+        operations to perform (``DeleteRequest`` or ``PutRequest`` ).
+        * ``DeleteRequest`` - Perform a ``DeleteItem`` operation on the specified item. The item to
+        be deleted is identified by a ``Key`` subelement:
+
+          * ``Key`` - A map of primary key attribute values that uniquely identify the item. Each
+          entry in this map consists of an attribute name and an attribute value.
+    """
+
+
+_RequiredServiceResourceCreateTableAttributeDefinitionsTypeDef = TypedDict(
+    "_RequiredServiceResourceCreateTableAttributeDefinitionsTypeDef", {"AttributeName": str}
+)
+_OptionalServiceResourceCreateTableAttributeDefinitionsTypeDef = TypedDict(
+    "_OptionalServiceResourceCreateTableAttributeDefinitionsTypeDef",
+    {"AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class ServiceResourceCreateTableAttributeDefinitionsTypeDef(
+    _RequiredServiceResourceCreateTableAttributeDefinitionsTypeDef,
+    _OptionalServiceResourceCreateTableAttributeDefinitionsTypeDef,
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --***[REQUIRED]**
+
+        A name for the attribute.
+    """
+
+
+_ServiceResourceCreateTableGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ServiceResourceCreateTableGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ServiceResourceCreateTableGlobalSecondaryIndexesKeySchemaTypeDef(
+    _ServiceResourceCreateTableGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ServiceResourceCreateTableGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ServiceResourceCreateTableGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ServiceResourceCreateTableGlobalSecondaryIndexesProjectionTypeDef(
+    _ServiceResourceCreateTableGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ServiceResourceCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_ServiceResourceCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ServiceResourceCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _ServiceResourceCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_ServiceResourceCreateTableGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_ServiceResourceCreateTableGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[ServiceResourceCreateTableGlobalSecondaryIndexesKeySchemaTypeDef],
+        "Projection": ServiceResourceCreateTableGlobalSecondaryIndexesProjectionTypeDef,
+        "ProvisionedThroughput": ServiceResourceCreateTableGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+    },
+    total=False,
+)
+
+
+class ServiceResourceCreateTableGlobalSecondaryIndexesTypeDef(
+    _ServiceResourceCreateTableGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_ServiceResourceCreateTableKeySchemaTypeDef = TypedDict(
+    "_ServiceResourceCreateTableKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ServiceResourceCreateTableKeySchemaTypeDef(_ServiceResourceCreateTableKeySchemaTypeDef):
+    pass
+
+
+_ServiceResourceCreateTableLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_ServiceResourceCreateTableLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class ServiceResourceCreateTableLocalSecondaryIndexesKeySchemaTypeDef(
+    _ServiceResourceCreateTableLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_ServiceResourceCreateTableLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_ServiceResourceCreateTableLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class ServiceResourceCreateTableLocalSecondaryIndexesProjectionTypeDef(
+    _ServiceResourceCreateTableLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_ServiceResourceCreateTableLocalSecondaryIndexesTypeDef = TypedDict(
+    "_ServiceResourceCreateTableLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[ServiceResourceCreateTableLocalSecondaryIndexesKeySchemaTypeDef],
+        "Projection": ServiceResourceCreateTableLocalSecondaryIndexesProjectionTypeDef,
+    },
+    total=False,
+)
+
+
+class ServiceResourceCreateTableLocalSecondaryIndexesTypeDef(
+    _ServiceResourceCreateTableLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_RequiredServiceResourceCreateTableProvisionedThroughputTypeDef = TypedDict(
+    "_RequiredServiceResourceCreateTableProvisionedThroughputTypeDef", {"ReadCapacityUnits": int}
+)
+_OptionalServiceResourceCreateTableProvisionedThroughputTypeDef = TypedDict(
+    "_OptionalServiceResourceCreateTableProvisionedThroughputTypeDef",
+    {"WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class ServiceResourceCreateTableProvisionedThroughputTypeDef(
+    _RequiredServiceResourceCreateTableProvisionedThroughputTypeDef,
+    _OptionalServiceResourceCreateTableProvisionedThroughputTypeDef,
+):
+    """
+    Represents the provisioned throughput settings for a specified table or index. The settings can
+    be modified using the ``UpdateTable`` operation.
+    If you set BillingMode as ``PROVISIONED`` , you must specify this property. If you set
+    BillingMode as ``PAY_PER_REQUEST`` , you cannot specify this property.
+    For current minimum and maximum provisioned throughput values, see `Limits
+    <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html>`__ in the *Amazon
+    DynamoDB Developer Guide* .
+    - **ReadCapacityUnits** *(integer) --***[REQUIRED]**
+
+      The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
+      ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__
+      in the *Amazon DynamoDB Developer Guide* .
+      If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+    """
+
+
+_ServiceResourceCreateTableSSESpecificationTypeDef = TypedDict(
+    "_ServiceResourceCreateTableSSESpecificationTypeDef",
+    {"Enabled": bool, "SSEType": Literal["AES256", "KMS"], "KMSMasterKeyId": str},
+    total=False,
+)
+
+
+class ServiceResourceCreateTableSSESpecificationTypeDef(
+    _ServiceResourceCreateTableSSESpecificationTypeDef
+):
+    """
+    Represents the settings used to enable server-side encryption.
+    - **Enabled** *(boolean) --*
+
+      Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK.
+      If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed CMK is
+      used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is
+      set to AWS owned CMK.
+    """
+
+
+_ServiceResourceCreateTableStreamSpecificationTypeDef = TypedDict(
+    "_ServiceResourceCreateTableStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class ServiceResourceCreateTableStreamSpecificationTypeDef(
+    _ServiceResourceCreateTableStreamSpecificationTypeDef
+):
+    """
+    The settings for DynamoDB Streams on the table. These settings consist of:
+    * ``StreamEnabled`` - Indicates whether DynamoDB Streams is to be enabled (true) or disabled
+    (false).
+    * ``StreamViewType`` - When an item in the table is modified, ``StreamViewType`` determines what
+    information is written to the table's stream. Valid values for ``StreamViewType`` are:
+
+      * ``KEYS_ONLY`` - Only the key attributes of the modified item are written to the stream.
+      * ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the
+      stream.
+      * ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the
+      stream.
+      * ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the
+      stream.
+    """
+
+
+_RequiredServiceResourceCreateTableTagsTypeDef = TypedDict(
+    "_RequiredServiceResourceCreateTableTagsTypeDef", {"Key": str}
+)
+_OptionalServiceResourceCreateTableTagsTypeDef = TypedDict(
+    "_OptionalServiceResourceCreateTableTagsTypeDef", {"Value": str}, total=False
+)
+
+
+class ServiceResourceCreateTableTagsTypeDef(
+    _RequiredServiceResourceCreateTableTagsTypeDef, _OptionalServiceResourceCreateTableTagsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB
+      table.
+      AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the
+      user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50.
+      User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot
+      backdate the application of a tag.
+      For an overview on tagging DynamoDB resources, see `Tagging for DynamoDB
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html>`__ in the
+      *Amazon DynamoDB Developer Guide* .
+      - **Key** *(string) --***[REQUIRED]**
+
+        The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one
+        tag with the same key. If you try to add an existing tag (same key), the existing tag value
+        will be updated to the new value.
+    """
+
+
+_TableDeleteItemExpectedAttributeValueListTypeDef = TypedDict(
+    "_TableDeleteItemExpectedAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableDeleteItemExpectedAttributeValueListTypeDef(
+    _TableDeleteItemExpectedAttributeValueListTypeDef
+):
+    pass
+
+
+_TableDeleteItemExpectedValueTypeDef = TypedDict(
+    "_TableDeleteItemExpectedValueTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableDeleteItemExpectedValueTypeDef(_TableDeleteItemExpectedValueTypeDef):
+    pass
+
+
+_TableDeleteItemExpectedTypeDef = TypedDict(
+    "_TableDeleteItemExpectedTypeDef",
+    {
+        "Value": TableDeleteItemExpectedValueTypeDef,
+        "Exists": bool,
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+        "AttributeValueList": List[TableDeleteItemExpectedAttributeValueListTypeDef],
+    },
+    total=False,
+)
+
+
+class TableDeleteItemExpectedTypeDef(_TableDeleteItemExpectedTypeDef):
+    pass
+
+
+_TableDeleteItemExpressionAttributeValuesTypeDef = TypedDict(
+    "_TableDeleteItemExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableDeleteItemExpressionAttributeValuesTypeDef(
+    _TableDeleteItemExpressionAttributeValuesTypeDef
+):
+    pass
+
+
+_TableDeleteItemKeyTypeDef = TypedDict(
+    "_TableDeleteItemKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableDeleteItemKeyTypeDef(_TableDeleteItemKeyTypeDef):
+    pass
+
+
+_TableDeleteItemResponseAttributesTypeDef = TypedDict(
+    "_TableDeleteItemResponseAttributesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableDeleteItemResponseAttributesTypeDef(_TableDeleteItemResponseAttributesTypeDef):
+    pass
+
+
+_TableDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TableDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _TableDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_TableDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _TableDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableDeleteItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_TableDeleteItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableDeleteItemResponseConsumedCapacityTableTypeDef(
+    _TableDeleteItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_TableDeleteItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_TableDeleteItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": TableDeleteItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, TableDeleteItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, TableDeleteItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class TableDeleteItemResponseConsumedCapacityTypeDef(
+    _TableDeleteItemResponseConsumedCapacityTypeDef
+):
+    pass
+
+
+_TableDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef = TypedDict(
+    "_TableDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef(
+    _TableDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+):
+    pass
+
+
+_TableDeleteItemResponseItemCollectionMetricsTypeDef = TypedDict(
+    "_TableDeleteItemResponseItemCollectionMetricsTypeDef",
+    {
+        "ItemCollectionKey": Dict[
+            str, TableDeleteItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+        ],
+        "SizeEstimateRangeGB": List[float],
+    },
+    total=False,
+)
+
+
+class TableDeleteItemResponseItemCollectionMetricsTypeDef(
+    _TableDeleteItemResponseItemCollectionMetricsTypeDef
+):
+    pass
+
+
+_TableDeleteItemResponseTypeDef = TypedDict(
+    "_TableDeleteItemResponseTypeDef",
+    {
+        "Attributes": Dict[str, TableDeleteItemResponseAttributesTypeDef],
+        "ConsumedCapacity": TableDeleteItemResponseConsumedCapacityTypeDef,
+        "ItemCollectionMetrics": TableDeleteItemResponseItemCollectionMetricsTypeDef,
+    },
+    total=False,
+)
+
+
+class TableDeleteItemResponseTypeDef(_TableDeleteItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``DeleteItem`` operation.
+      - **Attributes** *(dict) --*
+
+        A map of attribute names to ``AttributeValue`` objects, representing the item as it appeared
+        before the ``DeleteItem`` operation. This map appears in the response only if
+        ``ReturnValues`` was specified as ``ALL_OLD`` in the request.
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_TableDeleteResponseTableDescriptionArchivalSummaryTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionArchivalSummaryTypeDef",
+    {"ArchivalDateTime": datetime, "ArchivalReason": str, "ArchivalBackupArn": str},
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionArchivalSummaryTypeDef(
+    _TableDeleteResponseTableDescriptionArchivalSummaryTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionAttributeDefinitionsTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionAttributeDefinitionsTypeDef",
+    {"AttributeName": str, "AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionAttributeDefinitionsTypeDef(
+    _TableDeleteResponseTableDescriptionAttributeDefinitionsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --*
+
+        A name for the attribute.
+    """
+
+
+_TableDeleteResponseTableDescriptionBillingModeSummaryTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionBillingModeSummaryTypeDef",
+    {
+        "BillingMode": Literal["PROVISIONED", "PAY_PER_REQUEST"],
+        "LastUpdateToPayPerRequestDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionBillingModeSummaryTypeDef(
+    _TableDeleteResponseTableDescriptionBillingModeSummaryTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef(
+    _TableDeleteResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef(
+    _TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef(
+    _TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[
+            TableDeleteResponseTableDescriptionGlobalSecondaryIndexesKeySchemaTypeDef
+        ],
+        "Projection": TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProjectionTypeDef,
+        "IndexStatus": Literal["CREATING", "UPDATING", "DELETING", "ACTIVE"],
+        "Backfilling": bool,
+        "ProvisionedThroughput": TableDeleteResponseTableDescriptionGlobalSecondaryIndexesProvisionedThroughputTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionGlobalSecondaryIndexesTypeDef(
+    _TableDeleteResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionKeySchemaTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionKeySchemaTypeDef(
+    _TableDeleteResponseTableDescriptionKeySchemaTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef(
+    _TableDeleteResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef(
+    _TableDeleteResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionLocalSecondaryIndexesTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionLocalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[TableDeleteResponseTableDescriptionLocalSecondaryIndexesKeySchemaTypeDef],
+        "Projection": TableDeleteResponseTableDescriptionLocalSecondaryIndexesProjectionTypeDef,
+        "IndexSizeBytes": int,
+        "ItemCount": int,
+        "IndexArn": str,
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionLocalSecondaryIndexesTypeDef(
+    _TableDeleteResponseTableDescriptionLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionProvisionedThroughputTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionProvisionedThroughputTypeDef",
+    {
+        "LastIncreaseDateTime": datetime,
+        "LastDecreaseDateTime": datetime,
+        "NumberOfDecreasesToday": int,
+        "ReadCapacityUnits": int,
+        "WriteCapacityUnits": int,
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionProvisionedThroughputTypeDef(
+    _TableDeleteResponseTableDescriptionProvisionedThroughputTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef(
+    _TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef(
+    _TableDeleteResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionReplicasTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionReplicasTypeDef",
+    {
+        "RegionName": str,
+        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatusDescription": str,
+        "ReplicaStatusPercentProgress": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": TableDeleteResponseTableDescriptionReplicasProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            TableDeleteResponseTableDescriptionReplicasGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionReplicasTypeDef(
+    _TableDeleteResponseTableDescriptionReplicasTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionRestoreSummaryTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionRestoreSummaryTypeDef",
+    {
+        "SourceBackupArn": str,
+        "SourceTableArn": str,
+        "RestoreDateTime": datetime,
+        "RestoreInProgress": bool,
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionRestoreSummaryTypeDef(
+    _TableDeleteResponseTableDescriptionRestoreSummaryTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionSSEDescriptionTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionSSEDescriptionTypeDef",
+    {
+        "Status": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED", "UPDATING"],
+        "SSEType": Literal["AES256", "KMS"],
+        "KMSMasterKeyArn": str,
+        "InaccessibleEncryptionDateTime": datetime,
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionSSEDescriptionTypeDef(
+    _TableDeleteResponseTableDescriptionSSEDescriptionTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionStreamSpecificationTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionStreamSpecificationTypeDef(
+    _TableDeleteResponseTableDescriptionStreamSpecificationTypeDef
+):
+    pass
+
+
+_TableDeleteResponseTableDescriptionTypeDef = TypedDict(
+    "_TableDeleteResponseTableDescriptionTypeDef",
+    {
+        "AttributeDefinitions": List[
+            TableDeleteResponseTableDescriptionAttributeDefinitionsTypeDef
+        ],
+        "TableName": str,
+        "KeySchema": List[TableDeleteResponseTableDescriptionKeySchemaTypeDef],
+        "TableStatus": Literal[
+            "CREATING",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+            "ARCHIVING",
+            "ARCHIVED",
+        ],
+        "CreationDateTime": datetime,
+        "ProvisionedThroughput": TableDeleteResponseTableDescriptionProvisionedThroughputTypeDef,
+        "TableSizeBytes": int,
+        "ItemCount": int,
+        "TableArn": str,
+        "TableId": str,
+        "BillingModeSummary": TableDeleteResponseTableDescriptionBillingModeSummaryTypeDef,
+        "LocalSecondaryIndexes": List[
+            TableDeleteResponseTableDescriptionLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": List[
+            TableDeleteResponseTableDescriptionGlobalSecondaryIndexesTypeDef
+        ],
+        "StreamSpecification": TableDeleteResponseTableDescriptionStreamSpecificationTypeDef,
+        "LatestStreamLabel": str,
+        "LatestStreamArn": str,
+        "GlobalTableVersion": str,
+        "Replicas": List[TableDeleteResponseTableDescriptionReplicasTypeDef],
+        "RestoreSummary": TableDeleteResponseTableDescriptionRestoreSummaryTypeDef,
+        "SSEDescription": TableDeleteResponseTableDescriptionSSEDescriptionTypeDef,
+        "ArchivalSummary": TableDeleteResponseTableDescriptionArchivalSummaryTypeDef,
+    },
+    total=False,
+)
+
+
+class TableDeleteResponseTableDescriptionTypeDef(_TableDeleteResponseTableDescriptionTypeDef):
+    """
+    - **TableDescription** *(dict) --*
+
+      Represents the properties of a table.
+      - **AttributeDefinitions** *(list) --*
+
+        An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+        in the table and index key schema.
+        Each ``AttributeDefinition`` object in this array is composed of:
+        * ``AttributeName`` - The name of the attribute.
+        * ``AttributeType`` - The data type for the attribute.
+        - *(dict) --*
+
+          Represents an attribute for describing the key schema for the table and indexes.
+          - **AttributeName** *(string) --*
+
+            A name for the attribute.
+    """
+
+
+_TableDeleteResponseTypeDef = TypedDict(
+    "_TableDeleteResponseTypeDef",
+    {"TableDescription": TableDeleteResponseTableDescriptionTypeDef},
+    total=False,
+)
+
+
+class TableDeleteResponseTypeDef(_TableDeleteResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``DeleteTable`` operation.
+      - **TableDescription** *(dict) --*
+
+        Represents the properties of a table.
+        - **AttributeDefinitions** *(list) --*
+
+          An array of ``AttributeDefinition`` objects. Each of these objects describes one attribute
+          in the table and index key schema.
+          Each ``AttributeDefinition`` object in this array is composed of:
+          * ``AttributeName`` - The name of the attribute.
+          * ``AttributeType`` - The data type for the attribute.
+          - *(dict) --*
+
+            Represents an attribute for describing the key schema for the table and indexes.
+            - **AttributeName** *(string) --*
+
+              A name for the attribute.
+    """
+
+
+_TableExistsWaitWaiterConfigTypeDef = TypedDict(
+    "_TableExistsWaitWaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+)
+
+
+class TableExistsWaitWaiterConfigTypeDef(_TableExistsWaitWaiterConfigTypeDef):
+    """
+    A dictionary that provides parameters to control waiting behavior.
+    - **Delay** *(integer) --*
+
+      The amount of time in seconds to wait between attempts. Default: 20
+    """
+
+
+_TableGetItemKeyTypeDef = TypedDict(
+    "_TableGetItemKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableGetItemKeyTypeDef(_TableGetItemKeyTypeDef):
+    pass
+
+
+_TableGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TableGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _TableGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_TableGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _TableGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableGetItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_TableGetItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableGetItemResponseConsumedCapacityTableTypeDef(
+    _TableGetItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_TableGetItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_TableGetItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": TableGetItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, TableGetItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, TableGetItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class TableGetItemResponseConsumedCapacityTypeDef(_TableGetItemResponseConsumedCapacityTypeDef):
+    pass
+
+
+_TableGetItemResponseItemTypeDef = TypedDict(
+    "_TableGetItemResponseItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableGetItemResponseItemTypeDef(_TableGetItemResponseItemTypeDef):
+    pass
+
+
+_TableGetItemResponseTypeDef = TypedDict(
+    "_TableGetItemResponseTypeDef",
+    {
+        "Item": Dict[str, TableGetItemResponseItemTypeDef],
+        "ConsumedCapacity": TableGetItemResponseConsumedCapacityTypeDef,
+    },
+    total=False,
+)
+
+
+class TableGetItemResponseTypeDef(_TableGetItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``GetItem`` operation.
+      - **Item** *(dict) --*
+
+        A map of attribute names to ``AttributeValue`` objects, as specified by
+        ``ProjectionExpression`` .
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_TableNotExistsWaitWaiterConfigTypeDef = TypedDict(
+    "_TableNotExistsWaitWaiterConfigTypeDef", {"Delay": int, "MaxAttempts": int}, total=False
+)
+
+
+class TableNotExistsWaitWaiterConfigTypeDef(_TableNotExistsWaitWaiterConfigTypeDef):
+    """
+    A dictionary that provides parameters to control waiting behavior.
+    - **Delay** *(integer) --*
+
+      The amount of time in seconds to wait between attempts. Default: 20
+    """
+
+
+_TablePutItemExpectedAttributeValueListTypeDef = TypedDict(
+    "_TablePutItemExpectedAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TablePutItemExpectedAttributeValueListTypeDef(_TablePutItemExpectedAttributeValueListTypeDef):
+    pass
+
+
+_TablePutItemExpectedValueTypeDef = TypedDict(
+    "_TablePutItemExpectedValueTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TablePutItemExpectedValueTypeDef(_TablePutItemExpectedValueTypeDef):
+    pass
+
+
+_TablePutItemExpectedTypeDef = TypedDict(
+    "_TablePutItemExpectedTypeDef",
+    {
+        "Value": TablePutItemExpectedValueTypeDef,
+        "Exists": bool,
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+        "AttributeValueList": List[TablePutItemExpectedAttributeValueListTypeDef],
+    },
+    total=False,
+)
+
+
+class TablePutItemExpectedTypeDef(_TablePutItemExpectedTypeDef):
+    pass
+
+
+_TablePutItemExpressionAttributeValuesTypeDef = TypedDict(
+    "_TablePutItemExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TablePutItemExpressionAttributeValuesTypeDef(_TablePutItemExpressionAttributeValuesTypeDef):
+    pass
+
+
+_TablePutItemItemTypeDef = TypedDict(
+    "_TablePutItemItemTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TablePutItemItemTypeDef(_TablePutItemItemTypeDef):
+    pass
+
+
+_TablePutItemResponseAttributesTypeDef = TypedDict(
+    "_TablePutItemResponseAttributesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TablePutItemResponseAttributesTypeDef(_TablePutItemResponseAttributesTypeDef):
+    pass
+
+
+_TablePutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TablePutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TablePutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _TablePutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TablePutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_TablePutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TablePutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _TablePutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TablePutItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_TablePutItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TablePutItemResponseConsumedCapacityTableTypeDef(
+    _TablePutItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_TablePutItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_TablePutItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": TablePutItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, TablePutItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, TablePutItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class TablePutItemResponseConsumedCapacityTypeDef(_TablePutItemResponseConsumedCapacityTypeDef):
+    pass
+
+
+_TablePutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef = TypedDict(
+    "_TablePutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TablePutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef(
+    _TablePutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+):
+    pass
+
+
+_TablePutItemResponseItemCollectionMetricsTypeDef = TypedDict(
+    "_TablePutItemResponseItemCollectionMetricsTypeDef",
+    {
+        "ItemCollectionKey": Dict[
+            str, TablePutItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+        ],
+        "SizeEstimateRangeGB": List[float],
+    },
+    total=False,
+)
+
+
+class TablePutItemResponseItemCollectionMetricsTypeDef(
+    _TablePutItemResponseItemCollectionMetricsTypeDef
+):
+    pass
+
+
+_TablePutItemResponseTypeDef = TypedDict(
+    "_TablePutItemResponseTypeDef",
+    {
+        "Attributes": Dict[str, TablePutItemResponseAttributesTypeDef],
+        "ConsumedCapacity": TablePutItemResponseConsumedCapacityTypeDef,
+        "ItemCollectionMetrics": TablePutItemResponseItemCollectionMetricsTypeDef,
+    },
+    total=False,
+)
+
+
+class TablePutItemResponseTypeDef(_TablePutItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``PutItem`` operation.
+      - **Attributes** *(dict) --*
+
+        The attribute values as they appeared before the ``PutItem`` operation, but only if
+        ``ReturnValues`` is specified as ``ALL_OLD`` in the request. Each element consists of an
+        attribute name and an attribute value.
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_TableQueryExclusiveStartKeyTypeDef = TypedDict(
+    "_TableQueryExclusiveStartKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableQueryExclusiveStartKeyTypeDef(_TableQueryExclusiveStartKeyTypeDef):
+    pass
+
+
+_TableQueryExpressionAttributeValuesTypeDef = TypedDict(
+    "_TableQueryExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableQueryExpressionAttributeValuesTypeDef(_TableQueryExpressionAttributeValuesTypeDef):
+    pass
+
+
+_TableQueryKeyConditionsAttributeValueListTypeDef = TypedDict(
+    "_TableQueryKeyConditionsAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableQueryKeyConditionsAttributeValueListTypeDef(
+    _TableQueryKeyConditionsAttributeValueListTypeDef
+):
+    pass
+
+
+_TableQueryKeyConditionsTypeDef = TypedDict(
+    "_TableQueryKeyConditionsTypeDef",
+    {
+        "AttributeValueList": List[TableQueryKeyConditionsAttributeValueListTypeDef],
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+    },
+    total=False,
+)
+
+
+class TableQueryKeyConditionsTypeDef(_TableQueryKeyConditionsTypeDef):
+    pass
+
+
+_TableQueryQueryFilterAttributeValueListTypeDef = TypedDict(
+    "_TableQueryQueryFilterAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableQueryQueryFilterAttributeValueListTypeDef(
+    _TableQueryQueryFilterAttributeValueListTypeDef
+):
+    pass
+
+
+_TableQueryQueryFilterTypeDef = TypedDict(
+    "_TableQueryQueryFilterTypeDef",
+    {
+        "AttributeValueList": List[TableQueryQueryFilterAttributeValueListTypeDef],
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+    },
+    total=False,
+)
+
+
+class TableQueryQueryFilterTypeDef(_TableQueryQueryFilterTypeDef):
+    pass
+
+
+_TableQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TableQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _TableQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_TableQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _TableQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableQueryResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_TableQueryResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableQueryResponseConsumedCapacityTableTypeDef(
+    _TableQueryResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_TableQueryResponseConsumedCapacityTypeDef = TypedDict(
+    "_TableQueryResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": TableQueryResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, TableQueryResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, TableQueryResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class TableQueryResponseConsumedCapacityTypeDef(_TableQueryResponseConsumedCapacityTypeDef):
+    pass
+
+
+_TableQueryResponseItemsTypeDef = TypedDict(
+    "_TableQueryResponseItemsTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableQueryResponseItemsTypeDef(_TableQueryResponseItemsTypeDef):
+    pass
+
+
+_TableQueryResponseLastEvaluatedKeyTypeDef = TypedDict(
+    "_TableQueryResponseLastEvaluatedKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableQueryResponseLastEvaluatedKeyTypeDef(_TableQueryResponseLastEvaluatedKeyTypeDef):
+    pass
+
+
+_TableQueryResponseTypeDef = TypedDict(
+    "_TableQueryResponseTypeDef",
+    {
+        "Items": List[Dict[str, TableQueryResponseItemsTypeDef]],
+        "Count": int,
+        "ScannedCount": int,
+        "LastEvaluatedKey": Dict[str, TableQueryResponseLastEvaluatedKeyTypeDef],
+        "ConsumedCapacity": TableQueryResponseConsumedCapacityTypeDef,
+    },
+    total=False,
+)
+
+
+class TableQueryResponseTypeDef(_TableQueryResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``Query`` operation.
+      - **Items** *(list) --*
+
+        An array of item attributes that match the query criteria. Each element in this array
+        consists of an attribute name and the value for that attribute.
+        - *(dict) --*
+
+          - *(string) --*
+
+            - *(dict) --*
+
+              Represents the data for an attribute.
+              Each attribute value is described as a name-value pair. The name is the data type, and
+              the value is the data itself.
+              For more information, see `Data Types
+              <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+              in the *Amazon DynamoDB Developer Guide* .
+              - **S** *(string) --*
+
+                An attribute of type String. For example:
+
+                  ``"S": "Hello"``
+    """
+
+
+_TableScanExclusiveStartKeyTypeDef = TypedDict(
+    "_TableScanExclusiveStartKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableScanExclusiveStartKeyTypeDef(_TableScanExclusiveStartKeyTypeDef):
+    pass
+
+
+_TableScanExpressionAttributeValuesTypeDef = TypedDict(
+    "_TableScanExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableScanExpressionAttributeValuesTypeDef(_TableScanExpressionAttributeValuesTypeDef):
+    pass
+
+
+_TableScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TableScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _TableScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_TableScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _TableScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableScanResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_TableScanResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableScanResponseConsumedCapacityTableTypeDef(_TableScanResponseConsumedCapacityTableTypeDef):
+    pass
+
+
+_TableScanResponseConsumedCapacityTypeDef = TypedDict(
+    "_TableScanResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": TableScanResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, TableScanResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, TableScanResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class TableScanResponseConsumedCapacityTypeDef(_TableScanResponseConsumedCapacityTypeDef):
+    pass
+
+
+_TableScanResponseItemsTypeDef = TypedDict(
+    "_TableScanResponseItemsTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableScanResponseItemsTypeDef(_TableScanResponseItemsTypeDef):
+    pass
+
+
+_TableScanResponseLastEvaluatedKeyTypeDef = TypedDict(
+    "_TableScanResponseLastEvaluatedKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableScanResponseLastEvaluatedKeyTypeDef(_TableScanResponseLastEvaluatedKeyTypeDef):
+    pass
+
+
+_TableScanResponseTypeDef = TypedDict(
+    "_TableScanResponseTypeDef",
+    {
+        "Items": List[Dict[str, TableScanResponseItemsTypeDef]],
+        "Count": int,
+        "ScannedCount": int,
+        "LastEvaluatedKey": Dict[str, TableScanResponseLastEvaluatedKeyTypeDef],
+        "ConsumedCapacity": TableScanResponseConsumedCapacityTypeDef,
+    },
+    total=False,
+)
+
+
+class TableScanResponseTypeDef(_TableScanResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of a ``Scan`` operation.
+      - **Items** *(list) --*
+
+        An array of item attributes that match the scan criteria. Each element in this array
+        consists of an attribute name and the value for that attribute.
+        - *(dict) --*
+
+          - *(string) --*
+
+            - *(dict) --*
+
+              Represents the data for an attribute.
+              Each attribute value is described as a name-value pair. The name is the data type, and
+              the value is the data itself.
+              For more information, see `Data Types
+              <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+              in the *Amazon DynamoDB Developer Guide* .
+              - **S** *(string) --*
+
+                An attribute of type String. For example:
+
+                  ``"S": "Hello"``
+    """
+
+
+_TableScanScanFilterAttributeValueListTypeDef = TypedDict(
+    "_TableScanScanFilterAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableScanScanFilterAttributeValueListTypeDef(_TableScanScanFilterAttributeValueListTypeDef):
+    pass
+
+
+_TableScanScanFilterTypeDef = TypedDict(
+    "_TableScanScanFilterTypeDef",
+    {
+        "AttributeValueList": List[TableScanScanFilterAttributeValueListTypeDef],
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+    },
+    total=False,
+)
+
+
+class TableScanScanFilterTypeDef(_TableScanScanFilterTypeDef):
+    pass
+
+
+_RequiredTableUpdateAttributeDefinitionsTypeDef = TypedDict(
+    "_RequiredTableUpdateAttributeDefinitionsTypeDef", {"AttributeName": str}
+)
+_OptionalTableUpdateAttributeDefinitionsTypeDef = TypedDict(
+    "_OptionalTableUpdateAttributeDefinitionsTypeDef",
+    {"AttributeType": Literal["S", "N", "B"]},
+    total=False,
+)
+
+
+class TableUpdateAttributeDefinitionsTypeDef(
+    _RequiredTableUpdateAttributeDefinitionsTypeDef, _OptionalTableUpdateAttributeDefinitionsTypeDef
+):
+    """
+    - *(dict) --*
+
+      Represents an attribute for describing the key schema for the table and indexes.
+      - **AttributeName** *(string) --***[REQUIRED]**
+
+        A name for the attribute.
+    """
+
+
+_TableUpdateGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef = TypedDict(
+    "_TableUpdateGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef",
+    {"AttributeName": str, "KeyType": Literal["HASH", "RANGE"]},
+    total=False,
+)
+
+
+class TableUpdateGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef(
+    _TableUpdateGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef
+):
+    pass
+
+
+_TableUpdateGlobalSecondaryIndexUpdatesCreateProjectionTypeDef = TypedDict(
+    "_TableUpdateGlobalSecondaryIndexUpdatesCreateProjectionTypeDef",
+    {"ProjectionType": Literal["ALL", "KEYS_ONLY", "INCLUDE"], "NonKeyAttributes": List[str]},
+    total=False,
+)
+
+
+class TableUpdateGlobalSecondaryIndexUpdatesCreateProjectionTypeDef(
+    _TableUpdateGlobalSecondaryIndexUpdatesCreateProjectionTypeDef
+):
+    pass
+
+
+_TableUpdateGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef = TypedDict(
+    "_TableUpdateGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class TableUpdateGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef(
+    _TableUpdateGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef
+):
+    pass
+
+
+_TableUpdateGlobalSecondaryIndexUpdatesCreateTypeDef = TypedDict(
+    "_TableUpdateGlobalSecondaryIndexUpdatesCreateTypeDef",
+    {
+        "IndexName": str,
+        "KeySchema": List[TableUpdateGlobalSecondaryIndexUpdatesCreateKeySchemaTypeDef],
+        "Projection": TableUpdateGlobalSecondaryIndexUpdatesCreateProjectionTypeDef,
+        "ProvisionedThroughput": TableUpdateGlobalSecondaryIndexUpdatesCreateProvisionedThroughputTypeDef,
+    },
+    total=False,
+)
+
+
+class TableUpdateGlobalSecondaryIndexUpdatesCreateTypeDef(
+    _TableUpdateGlobalSecondaryIndexUpdatesCreateTypeDef
+):
+    pass
+
+
+_TableUpdateGlobalSecondaryIndexUpdatesDeleteTypeDef = TypedDict(
+    "_TableUpdateGlobalSecondaryIndexUpdatesDeleteTypeDef", {"IndexName": str}, total=False
+)
+
+
+class TableUpdateGlobalSecondaryIndexUpdatesDeleteTypeDef(
+    _TableUpdateGlobalSecondaryIndexUpdatesDeleteTypeDef
+):
+    pass
+
+
+_TableUpdateGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef = TypedDict(
+    "_TableUpdateGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef",
+    {"ReadCapacityUnits": int, "WriteCapacityUnits": int},
+    total=False,
+)
+
+
+class TableUpdateGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef(
+    _TableUpdateGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef
+):
+    pass
+
+
+_RequiredTableUpdateGlobalSecondaryIndexUpdatesUpdateTypeDef = TypedDict(
+    "_RequiredTableUpdateGlobalSecondaryIndexUpdatesUpdateTypeDef", {"IndexName": str}
+)
+_OptionalTableUpdateGlobalSecondaryIndexUpdatesUpdateTypeDef = TypedDict(
+    "_OptionalTableUpdateGlobalSecondaryIndexUpdatesUpdateTypeDef",
+    {
+        "ProvisionedThroughput": TableUpdateGlobalSecondaryIndexUpdatesUpdateProvisionedThroughputTypeDef
+    },
+    total=False,
+)
+
+
+class TableUpdateGlobalSecondaryIndexUpdatesUpdateTypeDef(
+    _RequiredTableUpdateGlobalSecondaryIndexUpdatesUpdateTypeDef,
+    _OptionalTableUpdateGlobalSecondaryIndexUpdatesUpdateTypeDef,
+):
+    """
+    - **Update** *(dict) --*
+
+      The name of an existing global secondary index, along with new provisioned throughput settings
+      to be applied to that index.
+      - **IndexName** *(string) --***[REQUIRED]**
+
+        The name of the global secondary index to be updated.
+    """
+
+
+_TableUpdateGlobalSecondaryIndexUpdatesTypeDef = TypedDict(
+    "_TableUpdateGlobalSecondaryIndexUpdatesTypeDef",
+    {
+        "Update": TableUpdateGlobalSecondaryIndexUpdatesUpdateTypeDef,
+        "Create": TableUpdateGlobalSecondaryIndexUpdatesCreateTypeDef,
+        "Delete": TableUpdateGlobalSecondaryIndexUpdatesDeleteTypeDef,
+    },
+    total=False,
+)
+
+
+class TableUpdateGlobalSecondaryIndexUpdatesTypeDef(_TableUpdateGlobalSecondaryIndexUpdatesTypeDef):
+    """
+    - *(dict) --*
+
+      Represents one of the following:
+      * A new global secondary index to be added to an existing table.
+      * New provisioned throughput parameters for an existing global secondary index.
+      * An existing global secondary index to be removed from an existing table.
+      - **Update** *(dict) --*
+
+        The name of an existing global secondary index, along with new provisioned throughput
+        settings to be applied to that index.
+        - **IndexName** *(string) --***[REQUIRED]**
+
+          The name of the global secondary index to be updated.
+    """
+
+
+_TableUpdateItemAttributeUpdatesValueTypeDef = TypedDict(
+    "_TableUpdateItemAttributeUpdatesValueTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableUpdateItemAttributeUpdatesValueTypeDef(_TableUpdateItemAttributeUpdatesValueTypeDef):
+    pass
+
+
+_TableUpdateItemAttributeUpdatesTypeDef = TypedDict(
+    "_TableUpdateItemAttributeUpdatesTypeDef",
+    {
+        "Value": TableUpdateItemAttributeUpdatesValueTypeDef,
+        "Action": Literal["ADD", "PUT", "DELETE"],
+    },
+    total=False,
+)
+
+
+class TableUpdateItemAttributeUpdatesTypeDef(_TableUpdateItemAttributeUpdatesTypeDef):
+    pass
+
+
+_TableUpdateItemExpectedAttributeValueListTypeDef = TypedDict(
+    "_TableUpdateItemExpectedAttributeValueListTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableUpdateItemExpectedAttributeValueListTypeDef(
+    _TableUpdateItemExpectedAttributeValueListTypeDef
+):
+    pass
+
+
+_TableUpdateItemExpectedValueTypeDef = TypedDict(
+    "_TableUpdateItemExpectedValueTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableUpdateItemExpectedValueTypeDef(_TableUpdateItemExpectedValueTypeDef):
+    pass
+
+
+_TableUpdateItemExpectedTypeDef = TypedDict(
+    "_TableUpdateItemExpectedTypeDef",
+    {
+        "Value": TableUpdateItemExpectedValueTypeDef,
+        "Exists": bool,
+        "ComparisonOperator": Literal[
+            "EQ",
+            "NE",
+            "IN",
+            "LE",
+            "LT",
+            "GE",
+            "GT",
+            "BETWEEN",
+            "NOT_NULL",
+            "NULL",
+            "CONTAINS",
+            "NOT_CONTAINS",
+            "BEGINS_WITH",
+        ],
+        "AttributeValueList": List[TableUpdateItemExpectedAttributeValueListTypeDef],
+    },
+    total=False,
+)
+
+
+class TableUpdateItemExpectedTypeDef(_TableUpdateItemExpectedTypeDef):
+    pass
+
+
+_TableUpdateItemExpressionAttributeValuesTypeDef = TypedDict(
+    "_TableUpdateItemExpressionAttributeValuesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableUpdateItemExpressionAttributeValuesTypeDef(
+    _TableUpdateItemExpressionAttributeValuesTypeDef
+):
+    pass
+
+
+_TableUpdateItemKeyTypeDef = TypedDict(
+    "_TableUpdateItemKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableUpdateItemKeyTypeDef(_TableUpdateItemKeyTypeDef):
+    pass
+
+
+_TableUpdateItemResponseAttributesTypeDef = TypedDict(
+    "_TableUpdateItemResponseAttributesTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableUpdateItemResponseAttributesTypeDef(_TableUpdateItemResponseAttributesTypeDef):
+    pass
+
+
+_TableUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TableUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef(
+    _TableUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef = TypedDict(
+    "_TableUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef(
+    _TableUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableUpdateItemResponseConsumedCapacityTableTypeDef = TypedDict(
+    "_TableUpdateItemResponseConsumedCapacityTableTypeDef",
+    {"ReadCapacityUnits": float, "WriteCapacityUnits": float, "CapacityUnits": float},
+    total=False,
+)
+
+
+class TableUpdateItemResponseConsumedCapacityTableTypeDef(
+    _TableUpdateItemResponseConsumedCapacityTableTypeDef
+):
+    pass
+
+
+_TableUpdateItemResponseConsumedCapacityTypeDef = TypedDict(
+    "_TableUpdateItemResponseConsumedCapacityTypeDef",
+    {
+        "TableName": str,
+        "CapacityUnits": float,
+        "ReadCapacityUnits": float,
+        "WriteCapacityUnits": float,
+        "Table": TableUpdateItemResponseConsumedCapacityTableTypeDef,
+        "LocalSecondaryIndexes": Dict[
+            str, TableUpdateItemResponseConsumedCapacityLocalSecondaryIndexesTypeDef
+        ],
+        "GlobalSecondaryIndexes": Dict[
+            str, TableUpdateItemResponseConsumedCapacityGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class TableUpdateItemResponseConsumedCapacityTypeDef(
+    _TableUpdateItemResponseConsumedCapacityTypeDef
+):
+    pass
+
+
+_TableUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef = TypedDict(
+    "_TableUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef",
+    {
+        "S": str,
+        "N": str,
+        "B": bytes,
+        "SS": List[str],
+        "NS": List[str],
+        "BS": List[bytes],
+        "M": Dict[str, Any],
+        "L": List[Any],
+        "NULL": bool,
+        "BOOL": bool,
+    },
+    total=False,
+)
+
+
+class TableUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef(
+    _TableUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+):
+    pass
+
+
+_TableUpdateItemResponseItemCollectionMetricsTypeDef = TypedDict(
+    "_TableUpdateItemResponseItemCollectionMetricsTypeDef",
+    {
+        "ItemCollectionKey": Dict[
+            str, TableUpdateItemResponseItemCollectionMetricsItemCollectionKeyTypeDef
+        ],
+        "SizeEstimateRangeGB": List[float],
+    },
+    total=False,
+)
+
+
+class TableUpdateItemResponseItemCollectionMetricsTypeDef(
+    _TableUpdateItemResponseItemCollectionMetricsTypeDef
+):
+    pass
+
+
+_TableUpdateItemResponseTypeDef = TypedDict(
+    "_TableUpdateItemResponseTypeDef",
+    {
+        "Attributes": Dict[str, TableUpdateItemResponseAttributesTypeDef],
+        "ConsumedCapacity": TableUpdateItemResponseConsumedCapacityTypeDef,
+        "ItemCollectionMetrics": TableUpdateItemResponseItemCollectionMetricsTypeDef,
+    },
+    total=False,
+)
+
+
+class TableUpdateItemResponseTypeDef(_TableUpdateItemResponseTypeDef):
+    """
+    - *(dict) --*
+
+      Represents the output of an ``UpdateItem`` operation.
+      - **Attributes** *(dict) --*
+
+        A map of attribute values as they appear before or after the ``UpdateItem`` operation, as
+        determined by the ``ReturnValues`` parameter.
+        The ``Attributes`` map is only present if ``ReturnValues`` was specified as something other
+        than ``NONE`` in the request. Each element represents one attribute.
+        - *(string) --*
+
+          - *(dict) --*
+
+            Represents the data for an attribute.
+            Each attribute value is described as a name-value pair. The name is the data type, and
+            the value is the data itself.
+            For more information, see `Data Types
+            <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes>`__
+            in the *Amazon DynamoDB Developer Guide* .
+            - **S** *(string) --*
+
+              An attribute of type String. For example:
+
+                ``"S": "Hello"``
+    """
+
+
+_RequiredTableUpdateProvisionedThroughputTypeDef = TypedDict(
+    "_RequiredTableUpdateProvisionedThroughputTypeDef", {"ReadCapacityUnits": int}
+)
+_OptionalTableUpdateProvisionedThroughputTypeDef = TypedDict(
+    "_OptionalTableUpdateProvisionedThroughputTypeDef", {"WriteCapacityUnits": int}, total=False
+)
+
+
+class TableUpdateProvisionedThroughputTypeDef(
+    _RequiredTableUpdateProvisionedThroughputTypeDef,
+    _OptionalTableUpdateProvisionedThroughputTypeDef,
+):
+    """
+    The new provisioned throughput settings for the specified table or index.
+    - **ReadCapacityUnits** *(integer) --***[REQUIRED]**
+
+      The maximum number of strongly consistent reads consumed per second before DynamoDB returns a
+      ``ThrottlingException`` . For more information, see `Specifying Read and Write Requirements
+      <https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#ProvisionedThroughput>`__
+      in the *Amazon DynamoDB Developer Guide* .
+      If read/write capacity mode is ``PAY_PER_REQUEST`` the value is set to 0.
+    """
+
+
+_TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef(
+    _TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableUpdateReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class TableUpdateReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef(
+    _TableUpdateReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_TableUpdateReplicaUpdatesCreateTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesCreateTypeDef",
+    {
+        "RegionName": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": TableUpdateReplicaUpdatesCreateProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            TableUpdateReplicaUpdatesCreateGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class TableUpdateReplicaUpdatesCreateTypeDef(_TableUpdateReplicaUpdatesCreateTypeDef):
+    pass
+
+
+_TableUpdateReplicaUpdatesDeleteTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesDeleteTypeDef", {"RegionName": str}, total=False
+)
+
+
+class TableUpdateReplicaUpdatesDeleteTypeDef(_TableUpdateReplicaUpdatesDeleteTypeDef):
+    pass
+
+
+_TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef(
+    _TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef",
+    {
+        "IndexName": str,
+        "ProvisionedThroughputOverride": TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesProvisionedThroughputOverrideTypeDef,
+    },
+    total=False,
+)
+
+
+class TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef(
+    _TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef
+):
+    pass
+
+
+_TableUpdateReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef",
+    {"ReadCapacityUnits": int},
+    total=False,
+)
+
+
+class TableUpdateReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef(
+    _TableUpdateReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef
+):
+    pass
+
+
+_TableUpdateReplicaUpdatesUpdateTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesUpdateTypeDef",
+    {
+        "RegionName": str,
+        "KMSMasterKeyId": str,
+        "ProvisionedThroughputOverride": TableUpdateReplicaUpdatesUpdateProvisionedThroughputOverrideTypeDef,
+        "GlobalSecondaryIndexes": List[
+            TableUpdateReplicaUpdatesUpdateGlobalSecondaryIndexesTypeDef
+        ],
+    },
+    total=False,
+)
+
+
+class TableUpdateReplicaUpdatesUpdateTypeDef(_TableUpdateReplicaUpdatesUpdateTypeDef):
+    pass
+
+
+_TableUpdateReplicaUpdatesTypeDef = TypedDict(
+    "_TableUpdateReplicaUpdatesTypeDef",
+    {
+        "Create": TableUpdateReplicaUpdatesCreateTypeDef,
+        "Update": TableUpdateReplicaUpdatesUpdateTypeDef,
+        "Delete": TableUpdateReplicaUpdatesDeleteTypeDef,
+    },
+    total=False,
+)
+
+
+class TableUpdateReplicaUpdatesTypeDef(_TableUpdateReplicaUpdatesTypeDef):
+    pass
+
+
+_TableUpdateSSESpecificationTypeDef = TypedDict(
+    "_TableUpdateSSESpecificationTypeDef",
+    {"Enabled": bool, "SSEType": Literal["AES256", "KMS"], "KMSMasterKeyId": str},
+    total=False,
+)
+
+
+class TableUpdateSSESpecificationTypeDef(_TableUpdateSSESpecificationTypeDef):
+    """
+    The new server-side encryption settings for the specified table.
+    - **Enabled** *(boolean) --*
+
+      Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK.
+      If enabled (true), server-side encryption type is set to ``KMS`` and an AWS managed CMK is
+      used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is
+      set to AWS owned CMK.
+    """
+
+
+_TableUpdateStreamSpecificationTypeDef = TypedDict(
+    "_TableUpdateStreamSpecificationTypeDef",
+    {
+        "StreamEnabled": bool,
+        "StreamViewType": Literal["NEW_IMAGE", "OLD_IMAGE", "NEW_AND_OLD_IMAGES", "KEYS_ONLY"],
+    },
+    total=False,
+)
+
+
+class TableUpdateStreamSpecificationTypeDef(_TableUpdateStreamSpecificationTypeDef):
+    """
+    Represents the DynamoDB Streams configuration for the table.
+    .. note::
+
+      You receive a ``ResourceInUseException`` if you try to enable a stream on a table that already
+      has a stream, or if you try to disable a stream on a table that doesn't have a stream.
+    """
