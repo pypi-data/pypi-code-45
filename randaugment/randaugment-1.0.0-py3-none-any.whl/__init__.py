@@ -1,0 +1,1 @@
+from .autoaugment import CIFAR10Policy, CIFAR10PolicyAll, SVHNPolicy, RandAugment, ImageNetPolicy
