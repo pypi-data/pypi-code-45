@@ -1,0 +1,1 @@
+from .json2struct import assure_uniform_object_structure, generate_struct_info
