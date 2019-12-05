@@ -1,0 +1,40 @@
+"""
+This program is a library to communicate with the Centreon REST API
+
+Copyright (C) 2019 Niklas Pfister, contact@omikron.pw
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+"""
+from centreon_sdk.builder.field_builder import FieldBuilder
+from centreon_sdk.builder.host_builder import HostBuilder
+from centreon_sdk.centreon import Centreon
+from centreon_sdk.network.network import HTTPVerb
+from centreon_sdk.objects.base.acl_group import ACLGroupParam
+from centreon_sdk.objects.base.cent_engine_cfg import CentEngineCFGParam
+from centreon_sdk.objects.base.downtime import DowntimeType
+
+if __name__ == '__main__':
+    import requests
+    from requests.packages.urllib3.exceptions import InsecureRequestWarning
+    requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+
+    centreon = Centreon("REST", "kjK6WM98", "https://centreon.omikron.pw/centreon/api/index.php", verify=False)
+    #centreon.restart_poller("Central")
+    result = centreon.poller_apply_config("Central")
+    if isinstance(result, list):
+        for item in result:
+            print(item.__dict__) if not isinstance(item, dict) else print(item)
+    else:
+        print(result)
