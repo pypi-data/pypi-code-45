@@ -1,0 +1,50 @@
+"Main interface for devicefarm service"
+
+from mypy_boto3_devicefarm.client import Client
+from mypy_boto3_devicefarm.paginator import (
+    GetOfferingStatusPaginator,
+    ListArtifactsPaginator,
+    ListDeviceInstancesPaginator,
+    ListDevicePoolsPaginator,
+    ListDevicesPaginator,
+    ListInstanceProfilesPaginator,
+    ListJobsPaginator,
+    ListNetworkProfilesPaginator,
+    ListOfferingPromotionsPaginator,
+    ListOfferingTransactionsPaginator,
+    ListOfferingsPaginator,
+    ListProjectsPaginator,
+    ListRemoteAccessSessionsPaginator,
+    ListRunsPaginator,
+    ListSamplesPaginator,
+    ListSuitesPaginator,
+    ListTestsPaginator,
+    ListUniqueProblemsPaginator,
+    ListUploadsPaginator,
+    ListVPCEConfigurationsPaginator,
+)
+
+
+__all__ = (
+    "Client",
+    "GetOfferingStatusPaginator",
+    "ListArtifactsPaginator",
+    "ListDeviceInstancesPaginator",
+    "ListDevicePoolsPaginator",
+    "ListDevicesPaginator",
+    "ListInstanceProfilesPaginator",
+    "ListJobsPaginator",
+    "ListNetworkProfilesPaginator",
+    "ListOfferingPromotionsPaginator",
+    "ListOfferingTransactionsPaginator",
+    "ListOfferingsPaginator",
+    "ListProjectsPaginator",
+    "ListRemoteAccessSessionsPaginator",
+    "ListRunsPaginator",
+    "ListSamplesPaginator",
+    "ListSuitesPaginator",
+    "ListTestsPaginator",
+    "ListUniqueProblemsPaginator",
+    "ListUploadsPaginator",
+    "ListVPCEConfigurationsPaginator",
+)
