@@ -1,0 +1,450 @@
+"Main interface for iotanalytics service Client"
+from __future__ import annotations
+
+from datetime import datetime
+import sys
+from typing import Any, Dict, List, overload
+from botocore.client import BaseClient
+from botocore.exceptions import ClientError as Boto3ClientError
+
+# pylint: disable=import-self
+import mypy_boto3_iotanalytics.client as client_scope
+
+# pylint: disable=import-self
+import mypy_boto3_iotanalytics.paginator as paginator_scope
+from mypy_boto3_iotanalytics.type_defs import (
+    ClientBatchPutMessageMessagesTypeDef,
+    ClientBatchPutMessageResponseTypeDef,
+    ClientCreateChannelChannelStorageTypeDef,
+    ClientCreateChannelResponseTypeDef,
+    ClientCreateChannelRetentionPeriodTypeDef,
+    ClientCreateChannelTagsTypeDef,
+    ClientCreateDatasetActionsTypeDef,
+    ClientCreateDatasetContentDeliveryRulesTypeDef,
+    ClientCreateDatasetContentResponseTypeDef,
+    ClientCreateDatasetResponseTypeDef,
+    ClientCreateDatasetRetentionPeriodTypeDef,
+    ClientCreateDatasetTagsTypeDef,
+    ClientCreateDatasetTriggersTypeDef,
+    ClientCreateDatasetVersioningConfigurationTypeDef,
+    ClientCreateDatastoreDatastoreStorageTypeDef,
+    ClientCreateDatastoreResponseTypeDef,
+    ClientCreateDatastoreRetentionPeriodTypeDef,
+    ClientCreateDatastoreTagsTypeDef,
+    ClientCreatePipelinePipelineActivitiesTypeDef,
+    ClientCreatePipelineResponseTypeDef,
+    ClientCreatePipelineTagsTypeDef,
+    ClientDescribeChannelResponseTypeDef,
+    ClientDescribeDatasetResponseTypeDef,
+    ClientDescribeDatastoreResponseTypeDef,
+    ClientDescribeLoggingOptionsResponseTypeDef,
+    ClientDescribePipelineResponseTypeDef,
+    ClientGetDatasetContentResponseTypeDef,
+    ClientListChannelsResponseTypeDef,
+    ClientListDatasetContentsResponseTypeDef,
+    ClientListDatasetsResponseTypeDef,
+    ClientListDatastoresResponseTypeDef,
+    ClientListPipelinesResponseTypeDef,
+    ClientListTagsForResourceResponseTypeDef,
+    ClientPutLoggingOptionsLoggingOptionsTypeDef,
+    ClientRunPipelineActivityPipelineActivityTypeDef,
+    ClientRunPipelineActivityResponseTypeDef,
+    ClientSampleChannelDataResponseTypeDef,
+    ClientStartPipelineReprocessingResponseTypeDef,
+    ClientTagResourceTagsTypeDef,
+    ClientUpdateChannelChannelStorageTypeDef,
+    ClientUpdateChannelRetentionPeriodTypeDef,
+    ClientUpdateDatasetActionsTypeDef,
+    ClientUpdateDatasetContentDeliveryRulesTypeDef,
+    ClientUpdateDatasetRetentionPeriodTypeDef,
+    ClientUpdateDatasetTriggersTypeDef,
+    ClientUpdateDatasetVersioningConfigurationTypeDef,
+    ClientUpdateDatastoreDatastoreStorageTypeDef,
+    ClientUpdateDatastoreRetentionPeriodTypeDef,
+    ClientUpdatePipelinePipelineActivitiesTypeDef,
+)
+
+if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+
+
+__all__ = ("Client",)
+
+
+class Client(BaseClient):
+    """
+    [IoTAnalytics.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client)
+    """
+
+    exceptions: client_scope.Exceptions
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def batch_put_message(
+        self, channelName: str, messages: List[ClientBatchPutMessageMessagesTypeDef]
+    ) -> ClientBatchPutMessageResponseTypeDef:
+        """
+        [Client.batch_put_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.batch_put_message)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def can_paginate(self, operation_name: str) -> bool:
+        """
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.can_paginate)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def cancel_pipeline_reprocessing(
+        self, pipelineName: str, reprocessingId: str
+    ) -> Dict[str, Any]:
+        """
+        [Client.cancel_pipeline_reprocessing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.cancel_pipeline_reprocessing)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def create_channel(
+        self,
+        channelName: str,
+        channelStorage: ClientCreateChannelChannelStorageTypeDef = None,
+        retentionPeriod: ClientCreateChannelRetentionPeriodTypeDef = None,
+        tags: List[ClientCreateChannelTagsTypeDef] = None,
+    ) -> ClientCreateChannelResponseTypeDef:
+        """
+        [Client.create_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.create_channel)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def create_dataset(
+        self,
+        datasetName: str,
+        actions: List[ClientCreateDatasetActionsTypeDef],
+        triggers: List[ClientCreateDatasetTriggersTypeDef] = None,
+        contentDeliveryRules: List[ClientCreateDatasetContentDeliveryRulesTypeDef] = None,
+        retentionPeriod: ClientCreateDatasetRetentionPeriodTypeDef = None,
+        versioningConfiguration: ClientCreateDatasetVersioningConfigurationTypeDef = None,
+        tags: List[ClientCreateDatasetTagsTypeDef] = None,
+    ) -> ClientCreateDatasetResponseTypeDef:
+        """
+        [Client.create_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def create_dataset_content(self, datasetName: str) -> ClientCreateDatasetContentResponseTypeDef:
+        """
+        [Client.create_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset_content)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def create_datastore(
+        self,
+        datastoreName: str,
+        datastoreStorage: ClientCreateDatastoreDatastoreStorageTypeDef = None,
+        retentionPeriod: ClientCreateDatastoreRetentionPeriodTypeDef = None,
+        tags: List[ClientCreateDatastoreTagsTypeDef] = None,
+    ) -> ClientCreateDatastoreResponseTypeDef:
+        """
+        [Client.create_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.create_datastore)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def create_pipeline(
+        self,
+        pipelineName: str,
+        pipelineActivities: List[ClientCreatePipelinePipelineActivitiesTypeDef],
+        tags: List[ClientCreatePipelineTagsTypeDef] = None,
+    ) -> ClientCreatePipelineResponseTypeDef:
+        """
+        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.create_pipeline)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def delete_channel(self, channelName: str) -> None:
+        """
+        [Client.delete_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_channel)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def delete_dataset(self, datasetName: str) -> None:
+        """
+        [Client.delete_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def delete_dataset_content(self, datasetName: str, versionId: str = None) -> None:
+        """
+        [Client.delete_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset_content)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def delete_datastore(self, datastoreName: str) -> None:
+        """
+        [Client.delete_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_datastore)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def delete_pipeline(self, pipelineName: str) -> None:
+        """
+        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_pipeline)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def describe_channel(
+        self, channelName: str, includeStatistics: bool = None
+    ) -> ClientDescribeChannelResponseTypeDef:
+        """
+        [Client.describe_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_channel)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def describe_dataset(self, datasetName: str) -> ClientDescribeDatasetResponseTypeDef:
+        """
+        [Client.describe_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_dataset)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def describe_datastore(
+        self, datastoreName: str, includeStatistics: bool = None
+    ) -> ClientDescribeDatastoreResponseTypeDef:
+        """
+        [Client.describe_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_datastore)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def describe_logging_options(
+        self, *args: Any, **kwargs: Any
+    ) -> ClientDescribeLoggingOptionsResponseTypeDef:
+        """
+        [Client.describe_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_logging_options)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def describe_pipeline(self, pipelineName: str) -> ClientDescribePipelineResponseTypeDef:
+        """
+        [Client.describe_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_pipeline)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def generate_presigned_url(
+        self,
+        ClientMethod: str,
+        Params: Dict[str, Any] = None,
+        ExpiresIn: int = 3600,
+        HttpMethod: str = None,
+    ) -> None:
+        """
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.generate_presigned_url)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def get_dataset_content(
+        self, datasetName: str, versionId: str = None
+    ) -> ClientGetDatasetContentResponseTypeDef:
+        """
+        [Client.get_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.get_dataset_content)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def list_channels(
+        self, nextToken: str = None, maxResults: int = None
+    ) -> ClientListChannelsResponseTypeDef:
+        """
+        [Client.list_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.list_channels)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def list_dataset_contents(
+        self,
+        datasetName: str,
+        nextToken: str = None,
+        maxResults: int = None,
+        scheduledOnOrAfter: datetime = None,
+        scheduledBefore: datetime = None,
+    ) -> ClientListDatasetContentsResponseTypeDef:
+        """
+        [Client.list_dataset_contents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.list_dataset_contents)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def list_datasets(
+        self, nextToken: str = None, maxResults: int = None
+    ) -> ClientListDatasetsResponseTypeDef:
+        """
+        [Client.list_datasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datasets)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def list_datastores(
+        self, nextToken: str = None, maxResults: int = None
+    ) -> ClientListDatastoresResponseTypeDef:
+        """
+        [Client.list_datastores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datastores)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def list_pipelines(
+        self, nextToken: str = None, maxResults: int = None
+    ) -> ClientListPipelinesResponseTypeDef:
+        """
+        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.list_pipelines)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def list_tags_for_resource(self, resourceArn: str) -> ClientListTagsForResourceResponseTypeDef:
+        """
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.list_tags_for_resource)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def put_logging_options(
+        self, loggingOptions: ClientPutLoggingOptionsLoggingOptionsTypeDef
+    ) -> None:
+        """
+        [Client.put_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.put_logging_options)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def run_pipeline_activity(
+        self,
+        pipelineActivity: ClientRunPipelineActivityPipelineActivityTypeDef,
+        payloads: List[bytes],
+    ) -> ClientRunPipelineActivityResponseTypeDef:
+        """
+        [Client.run_pipeline_activity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.run_pipeline_activity)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def sample_channel_data(
+        self,
+        channelName: str,
+        maxMessages: int = None,
+        startTime: datetime = None,
+        endTime: datetime = None,
+    ) -> ClientSampleChannelDataResponseTypeDef:
+        """
+        [Client.sample_channel_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.sample_channel_data)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def start_pipeline_reprocessing(
+        self, pipelineName: str, startTime: datetime = None, endTime: datetime = None
+    ) -> ClientStartPipelineReprocessingResponseTypeDef:
+        """
+        [Client.start_pipeline_reprocessing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.start_pipeline_reprocessing)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def tag_resource(
+        self, resourceArn: str, tags: List[ClientTagResourceTagsTypeDef]
+    ) -> Dict[str, Any]:
+        """
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.tag_resource)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        """
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.untag_resource)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def update_channel(
+        self,
+        channelName: str,
+        channelStorage: ClientUpdateChannelChannelStorageTypeDef = None,
+        retentionPeriod: ClientUpdateChannelRetentionPeriodTypeDef = None,
+    ) -> None:
+        """
+        [Client.update_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.update_channel)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def update_dataset(
+        self,
+        datasetName: str,
+        actions: List[ClientUpdateDatasetActionsTypeDef],
+        triggers: List[ClientUpdateDatasetTriggersTypeDef] = None,
+        contentDeliveryRules: List[ClientUpdateDatasetContentDeliveryRulesTypeDef] = None,
+        retentionPeriod: ClientUpdateDatasetRetentionPeriodTypeDef = None,
+        versioningConfiguration: ClientUpdateDatasetVersioningConfigurationTypeDef = None,
+    ) -> None:
+        """
+        [Client.update_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.update_dataset)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def update_datastore(
+        self,
+        datastoreName: str,
+        retentionPeriod: ClientUpdateDatastoreRetentionPeriodTypeDef = None,
+        datastoreStorage: ClientUpdateDatastoreDatastoreStorageTypeDef = None,
+    ) -> None:
+        """
+        [Client.update_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.update_datastore)
+        """
+
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def update_pipeline(
+        self,
+        pipelineName: str,
+        pipelineActivities: List[ClientUpdatePipelinePipelineActivitiesTypeDef],
+    ) -> None:
+        """
+        [Client.update_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Client.update_pipeline)
+        """
+
+    @overload
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def get_paginator(
+        self, operation_name: Literal["list_channels"]
+    ) -> paginator_scope.ListChannelsPaginator:
+        """
+        [Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels)
+        """
+
+    @overload
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def get_paginator(
+        self, operation_name: Literal["list_dataset_contents"]
+    ) -> paginator_scope.ListDatasetContentsPaginator:
+        """
+        [Paginator.ListDatasetContents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents)
+        """
+
+    @overload
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def get_paginator(
+        self, operation_name: Literal["list_datasets"]
+    ) -> paginator_scope.ListDatasetsPaginator:
+        """
+        [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets)
+        """
+
+    @overload
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def get_paginator(
+        self, operation_name: Literal["list_datastores"]
+    ) -> paginator_scope.ListDatastoresPaginator:
+        """
+        [Paginator.ListDatastores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores)
+        """
+
+    @overload
+    # pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
+    def get_paginator(
+        self, operation_name: Literal["list_pipelines"]
+    ) -> paginator_scope.ListPipelinesPaginator:
+        """
+        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.10.34/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines)
+        """
+
+
+class Exceptions:
+    ClientError: Boto3ClientError
+    InternalFailureException: Boto3ClientError
+    InvalidRequestException: Boto3ClientError
+    LimitExceededException: Boto3ClientError
+    ResourceAlreadyExistsException: Boto3ClientError
+    ResourceNotFoundException: Boto3ClientError
+    ServiceUnavailableException: Boto3ClientError
+    ThrottlingException: Boto3ClientError
