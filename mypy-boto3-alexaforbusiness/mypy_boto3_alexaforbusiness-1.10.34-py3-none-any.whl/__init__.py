@@ -1,0 +1,36 @@
+"Main interface for alexaforbusiness service"
+
+from mypy_boto3_alexaforbusiness.client import Client
+from mypy_boto3_alexaforbusiness.paginator import (
+    ListBusinessReportSchedulesPaginator,
+    ListConferenceProvidersPaginator,
+    ListDeviceEventsPaginator,
+    ListSkillsPaginator,
+    ListSkillsStoreCategoriesPaginator,
+    ListSkillsStoreSkillsByCategoryPaginator,
+    ListSmartHomeAppliancesPaginator,
+    ListTagsPaginator,
+    SearchDevicesPaginator,
+    SearchProfilesPaginator,
+    SearchRoomsPaginator,
+    SearchSkillGroupsPaginator,
+    SearchUsersPaginator,
+)
+
+
+__all__ = (
+    "Client",
+    "ListBusinessReportSchedulesPaginator",
+    "ListConferenceProvidersPaginator",
+    "ListDeviceEventsPaginator",
+    "ListSkillsPaginator",
+    "ListSkillsStoreCategoriesPaginator",
+    "ListSkillsStoreSkillsByCategoryPaginator",
+    "ListSmartHomeAppliancesPaginator",
+    "ListTagsPaginator",
+    "SearchDevicesPaginator",
+    "SearchProfilesPaginator",
+    "SearchRoomsPaginator",
+    "SearchSkillGroupsPaginator",
+    "SearchUsersPaginator",
+)
