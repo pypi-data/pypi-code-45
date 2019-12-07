@@ -1,0 +1,1 @@
+name = "giotto_viewer"
